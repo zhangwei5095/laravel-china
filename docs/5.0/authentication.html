@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>认证 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="认证,介绍,用户认证,获取登陆用户信息,保护路由,HTTP 简易认证,忘记密码与密码重设,第三方登陆认证,介绍,Laravel 让实现认证机制变得非常简单。事实上，几乎所有的设置默认就已经完成了。有关认证的配置文件都放在 config/auth.php 里，而在这些文件里也都包含了良好的注释描述每一个选项的所对应的认证服务。,Laravel 默认在 app 文件夹内就包含了一个使用默认 Eloqu...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="authentication.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			5.0
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="authentication.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>认证</h1>
+<ul>
+<li><a href="authentication.html#introduction">介绍</a></li>
+<li><a href="authentication.html#authenticating-users">用户认证</a></li>
+<li><a href="authentication.html#retrieving-the-authenticated-user">获取登陆用户信息</a></li>
+<li><a href="authentication.html#protecting-routes">保护路由</a></li>
+<li><a href="authentication.html#http-basic-authentication">HTTP 简易认证</a></li>
+<li><a href="authentication.html#password-reminders-and-reset">忘记密码与密码重设</a></li>
+<li><a href="authentication.html#social-authentication">第三方登陆认证</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2><a href="authentication.html#introduction">介绍</a></h2>
+<p>Laravel 让实现认证机制变得非常简单。事实上，几乎所有的设置默认就已经完成了。有关认证的配置文件都放在 <code class=" language-php">config<span class="token operator">/</span>auth<span class="token punctuation">.</span>php</code> 里，而在这些文件里也都包含了良好的注释描述每一个选项的所对应的认证服务。</p>
+<p>Laravel 默认在 <code class=" language-php">app</code> 文件夹内就包含了一个使用默认 Eloquent 认证驱动的 <code class=" language-php">App\<span class="token package">User</span></code>模型。</p>
+<p>注意：当为这个认证模型设计数据库结构时，密码字段至少有60个字符宽度。同样，在开始之前，请先确认您的 <code class=" language-php">users</code> (或其他同义) 数据库表包含一个名为 <code class=" language-php">remember_token</code> 长度为 100 的<code class=" language-php">string</code>类型、可接受 null 的字段。这个字段将会被用来储存「记住我」的 session token。也可以通过在迁移文件中使用 <code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">rememberToken<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code> 方法。 当然， Laravel 5 自带的 migrations 里已经设定了这些字段。</p>
+<p>假如您的应用程序并不是使用 Eloquent ，您也可以使用 Laravel 的查询构造器做 <code class=" language-php">database</code> 认证驱动。</p>
+<p><a name="authenticating-users"></a></p>
+<h2><a href="authentication.html#authenticating-users">用户认证</a></h2>
+<p>Laravel 已经预设了两个认证相关的控制器。 <code class=" language-php">AuthController</code> 处理新的用户注册和「登陆」，而 <code class=" language-php">PasswordController</code> 可以帮助已经注册的用户重置密码。</p>
+<p>每个控制器使用 trait 引入需要的方法。在大多数应用上，你不需要修改这些控制器。这些控制器用到的视图放在 <code class=" language-php">resources<span class="token operator">/</span>views<span class="token operator">/</span>auth</code> 目录下。你可以依照需求修改這些视图。</p>
+<h3>用户注册</h3>
+<p>要修改应用注册新用户时所用到的表单字段，可以修改 <code class=" language-php">App\<span class="token package">Services<span class="token punctuation">\</span>Registrar</span></code> 类。这个类负责验证和建立应用的新用户。</p>
+<p><code class=" language-php">Registrar</code> 的 <code class=" language-php">validator</code> 方法包含新用户时的验证规则，而 <code class=" language-php">Registrar</code> 的 <code class=" language-php">create</code> 方法负责在数据库中建立一条新的 <code class=" language-php">User</code> 记录。你可以自由的修改这些方法。<code class=" language-php">Registrar</code> 方法是通过<code class=" language-php">AuthenticatesAndRegistersUsers</code> trait 的中的 <code class=" language-php">AuthController</code> 调用的。</p>
+<h4>手动认证</h4>
+<p>如果你不想使用预设的 <code class=" language-php">AuthController</code>，你需要直接使用 Laravel 的身份验证类来管理用户认证。别担心，这也很简单的！首先，让我们看看 <code class=" language-php">attempt</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Auth</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AuthController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Handle an authentication attempt.
+     *
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">authenticate<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">attempt<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'email'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$email</span><span class="token punctuation">,</span> <span class="token string">'password'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$password</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">redirect<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">intended<span class="token punctuation">(</span></span><span class="token string">'dashboard'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p><code class=" language-php">attempt</code> 方法可以接受由键值对组成的数组作为第一个参数。<code class=" language-php">password</code> 的值会先进行 <a href="hashing.html">哈希</a>。数组中的其他
+值会被用来查询数据表里的用户。所以，在上面的示例中，会根据 <code class=" language-php">email</code> 列的值找出用户。如果找到该用户，会比对数据库中存储的哈希过的密码以及数组中的哈希过后的 <code class=" language-php">password</code>值。假设两个哈希后的密码相同，会重新为用户启动认证通过的 session。</p>
+<p>如果认证成功， <code class=" language-php">attempt</code> 将会返回 <code class=" language-php"><span class="token boolean">true</span></code>。否则则返回 <code class=" language-php"><span class="token boolean">false</span></code>。</p>
+<blockquote>
+<p><strong>注意：</strong>在上面的示例中，并不一定要使用 <code class=" language-php">email</code> 字段，这只是作为示例。你应该使用对应到数据表中的「username」的任何键值。</p>
+</blockquote>
+<p><code class=" language-php">intended</code> 方法会重定向到用户尝试要访问的 URL ， 其值会在进行认证过滤前被存起来。也可以给这个方法传入一个预设的 URI，防止重定向的网址无法使用。</p>
+<h4>以特定条件验证用户</h4>
+<p>在认证过程中，你可能会想要加入额外的认证条件：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">attempt<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'email'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$email</span><span class="token punctuation">,</span> <span class="token string">'password'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$password</span><span class="token punctuation">,</span> <span class="token string">'active'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // The user is active, not suspended, and exists.
+</span><span class="token punctuation">}</span></code></pre>
+<h4>判断用户是否已验证</h4>
+<p>判断一个用户是否已经登录，你可以使用 <code class=" language-php">check</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">check<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // The user is logged in...
+</span><span class="token punctuation">}</span></code></pre>
+<h4>认证用户并且「记住」他</h4>
+<p>假如你想要在应用中提供「记住我」的功能，你可以传入布尔值作为 <code class=" language-php">attempt</code> 方法的第二个参数，这样就可以保留用户的认证身份（或直到他手动登出为止）。当然，你的 <code class=" language-php">users</code> 数据表必需包括一个字符串类型的 <code class=" language-php">remember_token</code> 列來储存「记住我」的标识。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">attempt<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'email'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$email</span><span class="token punctuation">,</span> <span class="token string">'password'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$password</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$remember</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // The user is being remembered...
+</span><span class="token punctuation">}</span></code></pre>
+<p>假如有使用「记住我」功能，可以使用 <code class=" language-php">viaRemember</code> 方法判定用户是否拥有「记住我」的 cookie 來判定用户认证：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">viaRemember<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<h4>以 ID 认证用户</h4>
+<p>要通过 ID 来认证用户，使用 <code class=" language-php">loginUsingId</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">loginUsingId<span class="token punctuation">(</span></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>验证用户信息而不登陆</h4>
+<p><code class=" language-php">validate</code> 方法可以让你验证用户凭证信息而不用真的登陆应用：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">validate<span class="token punctuation">(</span></span><span class="token variable">$credentials</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<h4>在单一请求内登陆用户</h4>
+<p>你也可以使用 <code class=" language-php">once</code> 方法來让用户在单一请求内登陆。不会有任何 session 或 cookie 产生：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">once<span class="token punctuation">(</span></span><span class="token variable">$credentials</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<h4>手动登陆用户</h4>
+<p>假如你需要将一个已经存在的用户实例登陆应用，你可以调用 <code class=" language-php">login</code> 方法并且传入用户实例：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">login<span class="token punctuation">(</span></span><span class="token variable">$user</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>这个方式和使用 <code class=" language-php">attempt</code>方法验证用户凭证信息是一样的。</p>
+<h4>用户登出</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">logout<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>当然，假设你使用 Laravel 內建的认证控制器，预设提供了让用户登出的方法。</p>
+<h4>认证事件</h4>
+<p>当 <code class=" language-php">attempt</code> 方法被调用时，<code class=" language-php">auth<span class="token punctuation">.</span>attempt</code> <a href="events.html">事件</a> 会被触发。假设用户尝试认证成功并且登陆了，<code class=" language-php">auth<span class="token punctuation">.</span>login</code> 事件会被触发。</p>
+<p><a name="retrieving-the-authenticated-user"></a></p>
+<h2><a href="authentication.html#retrieving-the-authenticated-user">取得经过认证的用户</a></h2>
+<p>当用户通过认证后，有几种方式取得用户实例。</p>
+<p>首先， 你可以从 <code class=" language-php">Auth</code> facade 取得用户：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ProfileController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Update the user's profile.
+     *
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">updateProfile<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">user<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+           <span class="token comment" spellcheck="true"> // Auth::user() returns an instance of the authenticated user...
+</span>        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>第二种，你可以使用 <code class=" language-php">Illuminate\<span class="token package">Http<span class="token punctuation">\</span>Request</span></code> 实例取得认证过的用户：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Request</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ProfileController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Update the user's profile.
+     *
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">updateProfile<span class="token punctuation">(</span></span>Request <span class="token variable">$request</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">user<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+           <span class="token comment" spellcheck="true"> // $request-&gt;user() returns an instance of the authenticated user...
+</span>        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>第三，你可以使用 <code class=" language-php">Illuminate\<span class="token package">Contracts<span class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Authenticatable</span></code> contract 类型提示。这个类型提示可以用在控制器的构造方法，控制器的其他方法，或是其他可以通过<a href="container.html">服务容器</a> 解析的类的构造方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Authenticatable</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ProfileController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Update the user's profile.
+     *
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">updateProfile<span class="token punctuation">(</span></span>Authenticatable <span class="token variable">$user</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> // $user is an instance of the authenticated user...
+</span>    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p><a name="protecting-routes"></a></p>
+<h2><a href="authentication.html#protecting-routes">保护路由</a></h2>
+<p><a href="middleware.html">路由中间件</a> 只允许通过认证的用户访问指定的路由。Laravel 默认提供了 <code class=" language-php">auth</code> 中间件，放在 <code class=" language-php">app\<span class="token package">Http<span class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>Authenticate</span><span class="token punctuation">.</span>php</code>。 你需要做的只是将其加到一个路由定义中：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token comment" spellcheck="true">// With A Route Closure...
+</span>
+<span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'middleware'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'auth'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // Only authenticated users may enter...
+</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// With A Controller...
+</span>
+<span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'middleware'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'auth'</span><span class="token punctuation">,</span> <span class="token string">'uses'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'ProfileController@show'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="http-basic-authentication"></a></p>
+<h2><a href="authentication.html#http-basic-authentication">HTTP 基本认证</a></h2>
+<p>HTTP 基本认证提供了一个快速的方式来认证用户而不用特定设置一个「登入」页。在您的路由内设定 <code class=" language-php">auth<span class="token punctuation">.</span>basic</code> 中间件则可启动这个功能：</p>
+<h4>用 HTTP 基本认证保护路由</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'middleware'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'auth.basic'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // Only authenticated users may enter...
+</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>默认情况下 <code class=" language-php">basic</code> 中间件会使用用户的 <code class=" language-php">email</code> 列当做「 username 」。</p>
+<h4>设定无状态的 HTTP 基本过滤器</h4>
+<p>你可能想要使用 HTTP 基本认证，但不会在 session 里设置用户身份的 cookie，这在 API 认证时特別有用。如果要這樣做，<a href="middleware.html">定义一个中间件</a>并调用 <code class=" language-php">onceBasic</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle<span class="token punctuation">(</span></span><span class="token variable">$request</span><span class="token punctuation">,</span> Closure <span class="token variable">$next</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">onceBasic<span class="token punctuation">(</span></span><span class="token punctuation">)</span> <span class="token operator">?</span><span class="token punctuation">:</span> <span class="token variable">$next</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>如果你使用 PHP FastCGI，HTTP 基本认证可能无法正常运行。请在你的 <code class=" language-php"><span class="token punctuation">.</span>htaccess</code> 文件内新增以下代码：</p>
+<pre class=" language-php"><code class=" language-php">RewriteCond <span class="token operator">%</span><span class="token punctuation">{</span><span class="token constant">HTTP</span><span class="token punctuation">:</span>Authorization<span class="token punctuation">}</span> <span class="token operator">^</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">+</span><span class="token punctuation">)</span>$
+RewriteRule <span class="token punctuation">.</span><span class="token operator">*</span> <span class="token operator">-</span> <span class="token punctuation">[</span>E<span class="token operator">=</span><span class="token constant">HTTP_AUTHORIZATION</span><span class="token punctuation">:</span><span class="token operator">%</span><span class="token punctuation">{</span><span class="token constant">HTTP</span><span class="token punctuation">:</span>Authorization<span class="token punctuation">}</span><span class="token punctuation">]</span></code></pre>
+<p><a name="password-reminders-and-reset"></a></p>
+<h2><a href="authentication.html#password-reminders-and-reset">忘记密码与重设</a></h2>
+<h3>模型与数据表</h3>
+<p>大多数的 web 应用程序都会提供用户忘记密码的功能。为了不让开发者重复实现这个功能，Laravel 提供了方便的方法来发送忘记密码通知及密码重设的功能。</p>
+<p>在开始之前，请先确认您的 <code class=" language-php">User</code> 模型实现了 <code class=" language-php">Illuminate\<span class="token package">Contracts<span class="token punctuation">\</span>Auth<span class="token punctuation">\</span>CanResetPassword</span></code>接口。当然，默认 Laravel 的 <code class=" language-php">User</code> 模型本身就已实现，并且引入<code class=" language-php">Illuminate\<span class="token package">Auth<span class="token punctuation">\</span>Passwords<span class="token punctuation">\</span>CanResetPassword</span></code>来包括所有需要实现的接口方法。</p>
+<h4>生成 Reminder 数据表迁移</h4>
+<p>接下来，我们需要生成一个数据库表来储存重设密码标志。Laravel 默认已经包含了这个迁移表，放在 <code class=" language-php">database<span class="token operator">/</span>migrations</code> 的目录下。你所需要作的只有执行迁移：</p>
+<pre class=" language-php"><code class=" language-php">php artisan migrate</code></pre>
+<h3>密码重设控制器</h3>
+<p>Laravel 还包含了 <code class=" language-php">Auth\<span class="token package">PasswordController</span></code> 其中包含重设用户密码的功能。甚至一些视图，可以让你直接开始使用！视图放在 <code class=" language-php">resources<span class="token operator">/</span>views<span class="token operator">/</span>auth</code> 目录下。你可以按照你的应用程序设计，自由的修改這些视图。</p>
+<p>你的使用者会收到一封 e-mail，內含连接指向 <code class=" language-php">PasswordController</code> 中的 <code class=" language-php">getReset</code> 方法。这个方法会显示密码重设表单，允许用户重新设定密码。在密码重新设定完之后，用户将会自动登录到应用中，然后被重定向到 <code class=" language-php"><span class="token operator">/</span>home</code>。你可以通过 <code class=" language-php">PasswordController</code> 中的 <code class=" language-php">redirectTo</code> 來定义重设密码后要重定向的位置：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">protected</span> <span class="token variable">$redirectTo</span> <span class="token operator">=</span> <span class="token string">'/dashboard'</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意：</strong>默认情况下，密码重设 tokens 会在一小时后过期。你可以修改 <code class=" language-php">config<span class="token operator">/</span>auth<span class="token punctuation">.</span>php</code> 文件中的 <code class=" language-php">reminder<span class="token punctuation">.</span>expire</code> 更改 这个设定。</p>
+</blockquote>
+<p><a name="social-authentication"></a></p>
+<h2><a href="authentication.html#social-authentication">第三方登陆认证</a></h2>
+<p>除了传统的以表单进行的认证，Laravel 还提供了简单、易用的方式，使用 <a href="https://github.com/laravel/socialite">Laravel Socialite</a> 进行 OAuth 认证。<strong>Socialite 目前支持的认证有 Facebook、 Twitter、Google、以及GitHub 和 Bitbucket 。</strong></p>
+<p>如果要开始使用第三方认证，请将下面的代码加入到你的 <code class=" language-php">composer<span class="token punctuation">.</span>json</code> 文件內：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token string">"laravel/socialite"</span><span class="token punctuation">:</span> <span class="token string">"~2.0"</span></code></pre>
+<p>接下來，在你的 <code class=" language-php">config<span class="token operator">/</span>app<span class="token punctuation">.</span>php</code> 配置文件中注册 <code class=" language-php">Laravel\<span class="token package">Socialite<span class="token punctuation">\</span>SocialiteServiceProvider</span></code>。也可以注册 <a href="facades.html">facade</a>：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token string">'Socialize'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Laravel\Socialite\Facades\Socialite'</span><span class="token punctuation">,</span></code></pre>
+<p>你需要在应用程序中加入 OAuth 服务所需的凭证。这些凭证都放在 <code class=" language-php">config<span class="token operator">/</span>services<span class="token punctuation">.</span>php</code> 配置文件里，并根据应用的需求使用 <code class=" language-php">facebook</code>、<code class=" language-php">twitter</code>、<code class=" language-php">google</code> 或 <code class=" language-php">github</code> 作为对应的键值。例如：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token string">'github'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+    <span class="token string">'client_id'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'your-github-app-id'</span><span class="token punctuation">,</span>
+    <span class="token string">'client_secret'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'your-github-app-secret'</span><span class="token punctuation">,</span>
+    <span class="token string">'redirect'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'http://your-callback-url'</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+<p>接下來就准备认证用户了！你会需要两个路由：一个用于将用户重定向至认证提供网站，另一个用于认证之后，从认证服务接收回调。下面是一个使用 <code class=" language-php">Socialize</code> facade 的示例：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">redirectToProvider<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token scope">Socialize<span class="token punctuation">::</span></span><span class="token function">with<span class="token punctuation">(</span></span><span class="token string">'github'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">redirect<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handleProviderCallback<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token scope">Socialize<span class="token punctuation">::</span></span><span class="token function">with<span class="token punctuation">(</span></span><span class="token string">'github'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">user<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token comment" spellcheck="true"> // $user-&gt;token;
+</span><span class="token punctuation">}</span></code></pre>
+<p><code class=" language-php">redirect</code> 方法将用户重定向到认证 OAuth 的网站，而 <code class=" language-php">user</code> 方法会获取返回的请求，以及从认证网站取得的用户信息。在重定向至用户之前，你也可以设定请求的「 scopes 」：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Socialize<span class="token punctuation">::</span></span><span class="token function">with<span class="token punctuation">(</span></span><span class="token string">'github'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">scopes<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'scope1'</span><span class="token punctuation">,</span> <span class="token string">'scope2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">redirect<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>一旦你取得用户实例，你能获取到更多的用户详细信息：</p>
+<h4>获取用户资料</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span class="token operator">=</span> <span class="token scope">Socialize<span class="token punctuation">::</span></span><span class="token function">with<span class="token punctuation">(</span></span><span class="token string">'github'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">user<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// OAuth Two Providers
+</span><span class="token variable">$token</span> <span class="token operator">=</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">token</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// OAuth One Providers
+</span><span class="token variable">$token</span> <span class="token operator">=</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">token</span><span class="token punctuation">;</span>
+<span class="token variable">$tokenSecret</span> <span class="token operator">=</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">tokenSecret</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// All Providers
+</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getId<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getNickname<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getName<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getEmail<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getAvatar<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":31,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="authentication.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

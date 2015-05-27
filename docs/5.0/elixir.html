@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>Laravel Elixir - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728405719&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=42&be=235&fe=387&dc=23&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728405719,%22n%22:0,%22u%22:233,%22ue%22:233,%22dl%22:234,%22di%22:258,%22ds%22:258,%22de%22:345,%22dc%22:622,%22l%22:622,%22le%22:622,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:123,%22rpe%22:233%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="Laravel Elixir,简介,安装,使用方式,Gulp,默认目录,功能扩充,简介,Laravel Elixir 提供了简洁流畅的 API，让你能够为你的 Laravel 应用程序定义基本的 Gulp 任务。Elixir 支持许多常见的 CSS 与 JavaScrtip 预处理器，甚至包含了测试工具。,如果你曾经对于使用 Gulp 及编译资源感到困惑，那么你绝对会爱上 Laravel Elix...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="elixir.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			5.0
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="elixir.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>Laravel Elixir</h1>
+<ul>
+<li><a href="elixir.html#introduction">简介</a></li>
+<li><a href="elixir.html#installation">安装</a></li>
+<li><a href="elixir.html#usage">使用方式</a></li>
+<li><a href="elixir.html#gulp">Gulp</a></li>
+<li><a href="elixir.html#defaults">默认目录</a></li>
+<li><a href="elixir.html#extensions">功能扩充</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2><a href="elixir.html#introduction">简介</a></h2>
+<p>Laravel Elixir 提供了简洁流畅的 API，让你能够为你的 Laravel 应用程序定义基本的 <a href="http://gulpjs.com">Gulp</a> 任务。Elixir 支持许多常见的 CSS 与 JavaScrtip 预处理器，甚至包含了测试工具。</p>
+<p>如果你曾经对于使用 Gulp 及编译资源感到困惑，那么你绝对会爱上 Laravel Elixir！</p>
+<p><a name="installation"></a></p>
+<h2><a href="elixir.html#installation">安装与配置</a></h2>
+<h3>安装 Node</h3>
+<p>在开始使用 Elixir 之前，你必须先确定你的开发环境上有安装 Node.js。</p>
+<pre class=" language-php"><code class=" language-php">node <span class="token operator">-</span>v</code></pre>
+<p>默认情况下，Laravel Homestead 会包含你所需的一切；当然，如果你没有使用 Vagrant，那么你可以浏览 <a href="http://nodejs.org/download/">Node  的下载页</a>进行安装。别担心，安装是很简单又快速的！</p>
+<h3>Gulp</h3>
+<p>接着你需要全局安装 <a href="http://gulpjs.com">Gulp</a> 的 NPM 安装包，如这样：</p>
+<pre class=" language-php"><code class=" language-php">npm install <span class="token operator">--</span><span class="token keyword">global</span> gulp</code></pre>
+<h3>Laravel Elixir</h3>
+<p>最后的步骤就是安装 Elixir！伴随着新安装的 Laravel，你会发现根目录有个名为 <code class=" language-php">package<span class="token punctuation">.</span>json</code> 的文件。想像它就如同你的 <code class=" language-php">composer<span class="token punctuation">.</span>json</code> 文件，只是它定义的是 Node 的依赖，而不是 PHP。你可以使用以下的命令进行安装依赖的动作：</p>
+<pre class=" language-php"><code class=" language-php">npm install</code></pre>
+<p><a name="usage"></a></p>
+<h2><a href="elixir.html#usage">使用方式</a></h2>
+<p>现在你已经安装好 Elixir，未来任何时候你都能进行编译及合并文件！ 在项目根目录下的 <code class=" language-php">gulpfile<span class="token punctuation">.</span>js</code> 已经包含了所有的 Elixir 任务。</p>
+<h4>编译 Less</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">less</span><span class="token punctuation">(</span><span class="token string">"app.less"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>在上述例子中，Elixir 会假设你的 Less 文件保存在 <code class=" language-php">resources<span class="token operator">/</span>assets<span class="token operator">/</span>less</code> 里。</p>
+<h4>编译多个 Less 文件</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">less</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token string">'app.less'</span><span class="token punctuation">,</span>
+        <span class="token string">'something-else.less'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>编译 Sass</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">sass</span><span class="token punctuation">(</span><span class="token string">"app.sass"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>在上述例子中，Elixir 会假设你的 Sass 文件保存在 <code class=" language-php">resources<span class="token operator">/</span>assets<span class="token operator">/</span>sass</code> 里。</p>
+<p>默认情况下， Elixir 会使用 LibSass 作为编译引擎。 在某些情况下, 使用 Ruby 版本的 Sass 编译可能更有优势，虽然运行不是很快但是有更多的特性。假设你已经安装了 Ruby 和 Sass gem (<code class=" language-php">gem install sass</code>), 你可以使用 Ruby 模式，比如像这样：</p>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">rubySass</span><span class="token punctuation">(</span><span class="token string">"app.sass"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>无 Source Maps 编译</h4>
+<pre class=" language-javascript"><code class=" language-javascript">elixir<span class="token punctuation">.</span>config<span class="token punctuation">.</span>sourcemaps <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+
+<span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">sass</span><span class="token punctuation">(</span><span class="token string">"app.scss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Source maps 默认情况下是开启的。因此, 每当一个文件被编译，你都会在当前目录下看到 <code class=" language-php"><span class="token operator">*</span><span class="token punctuation">.</span>css<span class="token punctuation">.</span>map</code> 文件。这个映射文件允许你在进行 debugging 的时候，追溯编译后的样式选择器到原有的 Sass 或者 Less 文件！如果你想要关闭这个功能，可以使用上面的代码。</p>
+<h4>编译 CoffeeScript</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">coffee</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>在上述例子中，Elixir 会假设你的 CoffeeScript 文件保存在 <code class=" language-php">resources<span class="token operator">/</span>assets<span class="token operator">/</span>coffee</code> 里。</p>
+<h4>编译所有的 Less 及 CoffeeScript</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">less</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+       <span class="token punctuation">.</span><span class="token function">coffee</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>触发 PHPUnit 测试</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">phpUnit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>触发 PHPSpec 测试</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">phpSpec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>合并样式文件</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">styles</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token string">"normalize.css"</span><span class="token punctuation">,</span>
+        <span class="token string">"main.css"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>传递给此方法的文件路径均相对于 <code class=" language-php">resources<span class="token operator">/</span>asssets<span class="token operator">/</span>css</code> 目录。</p>
+<h4>合并样式文件且保存在自定义的路径</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">styles</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token string">"normalize.css"</span><span class="token punctuation">,</span>
+        <span class="token string">"main.css"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'public/build/css/everything.css'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>从特定相对目录合并样式文件</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">styles</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token string">"normalize.css"</span><span class="token punctuation">,</span>
+        <span class="token string">"main.css"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'public/build/css/everything.css'</span><span class="token punctuation">,</span> <span class="token string">'public/css'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code class=" language-php">styles</code> 与 <code class=" language-php">scrtips</code> 方法可以通过传入第三个参数来决定来源文件的相对目录。</p>
+<h4>合并指定目录里所有的样式文件</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">stylesIn</span><span class="token punctuation">(</span><span class="token string">"public/css"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>合并脚本文件</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">scripts</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token string">"jquery.js"</span><span class="token punctuation">,</span>
+        <span class="token string">"app.js"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>同样的，传递给此方法的文件路径均相对于 <code class=" language-php">resources<span class="token operator">/</span>assets<span class="token operator">/</span>js</code> 目录</p>
+<h4>合并指定目录里所有的脚本文件</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">scriptsIn</span><span class="token punctuation">(</span><span class="token string">"public/js/some/directory"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>合并多组脚本文件</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">scripts</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'jquery.js'</span><span class="token punctuation">,</span> <span class="token string">'main.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'public/js/main.js'</span><span class="token punctuation">)</span>
+       <span class="token punctuation">.</span><span class="token function">scripts</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'forum.js'</span><span class="token punctuation">,</span> <span class="token string">'threads.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'public/js/forum.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>压缩文件并加上哈希的版本号</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span><span class="token string">"css/all.css"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>这个动作会为你的文件名称加上独特的哈希值，以防止文件被缓存。举例来说，产生出来的文件名称可能像这样：<code class=" language-php">all<span class="token operator">-</span>16d570a7<span class="token punctuation">.</span>css</code>。</p>
+<p>接着在你的视图中，你能够使用 <code class=" language-php"><span class="token function">elixir<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code> 函数来正确加载名称被哈希后的文件。举例如下：</p>
+<pre><code class="language-html">&lt;link rel="stylesheet" href="{{ elixir("css/all.css") }}"&gt;</code></pre>
+<p>程序的作用下，<code class=" language-php"><span class="token function">elixir<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code> 函数会将参数内的源文件名转换成被哈希后的文件名并加载。是否有如释重担的感觉呢？</p>
+<p>您也可以传给一个数组给 <code class=" language-php">version</code> 方法来为多个文件进行版本管理：</p>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"css/all.css"</span><span class="token punctuation">,</span> <span class="token string">"js/app.js"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre><code class="language-html">&lt;link rel="stylesheet" href="{{ elixir("css/all.css") }}"&gt;
+&lt;script src="{{ elixir("js/app.js") }}"&gt;&lt;/script&gt;</code></pre>
+<h4>复制文件到新的位置</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span><span class="token string">'vendor/foo/bar.css'</span><span class="token punctuation">,</span> <span class="token string">'public/css/bar.css'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>将整个目录都复制到新的位置</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span><span class="token string">'vendor/package/views'</span><span class="token punctuation">,</span> <span class="token string">'resources/views'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>Trigger Browserify</h4>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">browserify</span><span class="token punctuation">(</span><span class="token string">'index.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Want to require modules in the browser? Hoping to use EcmaScript 6 sooner than later? Need a built-in JSX transformer? If so, <a href="http://browserify.org/">Browserify</a>, along with the <code class=" language-php">browserify</code> Elixir task, will handle the job nicely.</p>
+<p>This task assumes that your scripts are stored in <code class=" language-php">resources<span class="token operator">/</span>assets<span class="token operator">/</span>js</code>, though you're free to override the default.</p>
+<h4>方法连接</h4>
+<p>当然，你能够串连 Elixir 大部份的方法来建立一连串的任务：</p>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">less</span><span class="token punctuation">(</span><span class="token string">"app.less"</span><span class="token punctuation">)</span>
+       <span class="token punctuation">.</span><span class="token function">coffee</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+       <span class="token punctuation">.</span><span class="token function">phpUnit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+       <span class="token punctuation">.</span><span class="token function">version</span><span class="token punctuation">(</span><span class="token string">"css/bootstrap.css"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="gulp"></a></p>
+<h2><a href="elixir.html#gulp">Gulp</a></h2>
+<p>现在你已经告诉 Elixir 要执行的任务，接着只需要在命令行执行 Gulp。</p>
+<h4>执行一次所有注册的任务</h4>
+<pre class=" language-php"><code class=" language-php">gulp</code></pre>
+<h4>监控文件变更</h4>
+<pre class=" language-php"><code class=" language-php">gulp watch</code></pre>
+<h4>仅编译 javascript</h4>
+<pre class=" language-php"><code class=" language-php">gulp scripts</code></pre>
+<h4>仅编译 css 样式</h4>
+<pre class=" language-php"><code class=" language-php">gulp styles</code></pre>
+<h4>监控测试以及 PHP 类的变更</h4>
+<pre class=" language-php"><code class=" language-php">gulp tdd</code></pre>
+<blockquote>
+<p><strong>提示：</strong> 所有的任务都会使用开发环境进行，所以压缩功能不会被执行。如果要使用上线环境，可以使用 <code class=" language-php">gulp <span class="token operator">--</span>production</code>。</p>
+</blockquote>
+<p><a name="extensions"></a></p>
+<h2><a href="elixir.html#extensions">Custom Tasks and Extensions</a></h2>
+<p>Sometimes, you'll want to hook your own Gulp tasks into Elixir. Perhaps you have a special bit of functionality that you'd like Elixir to mix and watch for you. No problem!</p>
+<p>As an example, imagine that you have a general task that simply speaks a bit of text when called.</p>
+<pre class=" language-javascript"><code class=" language-javascript">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"speak"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> message <span class="token operator">=</span> <span class="token string">"Tea...Earl Grey...Hot"</span><span class="token punctuation">;</span>
+
+    gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">shell</span><span class="token punctuation">(</span><span class="token string">"say "</span> <span class="token operator">+</span> message<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Easy enough. From the command line, you may, of course, call <code class=" language-php">gulp speak</code> to trigger the task. To add it to Elixir, however, use the <code class=" language-php">mix<span class="token punctuation">.</span><span class="token function">task<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code> method:</p>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'speak'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>That's it! Now, each time you run Gulp, your custom "speak" task will be executed alongside any other Elixir tasks that you've mixed in. To additionally register a watcher, so that your custom tasks will be re-triggered each time one or more files are modified, you may pass a regular expression as the second argument.</p>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'speak'</span><span class="token punctuation">,</span> 'app<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>php'<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>By adding this second argument, we've instructed Elixir to re-trigger the "speak" task each time a PHP file in the "app/" directory is saved.</p>
+<p>For even more flexibility, you can create full Elixir extensions. Using the previous "speak" example, you may write an extension, like so:</p>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"gulp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> shell <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"gulp-shell"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> elixir <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"laravel-elixir"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+elixir<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token string">"speak"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"speak"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">shell</span><span class="token punctuation">(</span><span class="token string">"say "</span> <span class="token operator">+</span> message<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">queueTask</span><span class="token punctuation">(</span><span class="token string">"speak"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>请注意我们 <code class=" language-php">扩增（ extend ）</code> Elixir 的 API 时所使用的第一个参数，稍后我们需要在 Gulpfile 中使用它，以及建立 Gulp 任务所使用的回调函数。</p>
+<p>如果你想要让你的自定义任务能被监控，只要在监控器注册就行了。</p>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">registerWatcher</span><span class="token punctuation">(</span><span class="token string">"speak"</span><span class="token punctuation">,</span> "app<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>php"<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>这行程序的意思是指，当符合正则表达式  <code class=" language-php">app<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>php</code> 的文件一经修改，就会触发 <code class=" language-php">message</code> 任务。</p>
+<p>很好！接着你可以将这行程序写在 Gulpfile 的顶端，或者将它放到自定义任务的文件里。如果你选择后者，那么你必须将它加载至你的 Gulpfile，例如：</p>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./custom-tasks"</span><span class="token punctuation">)</span></code></pre>
+<p>大功告成！最后你只需要将他们结合。</p>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">elixir</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mix<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">speak</span><span class="token punctuation">(</span><span class="token string">"Tea, Earl Grey, Hot"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>加入之后，每当你触发 Gulp，Picard 就会要求一些茶。</p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":42,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="elixir.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

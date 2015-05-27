@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>Facades - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728427536&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=31&be=123&fe=533&dc=430&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728427536,%22n%22:0,%22u%22:120,%22ue%22:120,%22dl%22:122,%22di%22:553,%22ds%22:553,%22de%22:578,%22dc%22:655,%22l%22:655,%22le%22:656,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:103,%22rpe%22:535%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="Facades,介绍,解释,实际用法,建立 Facades,模拟 Facades,Facade 类参考,介绍,Facades 提供一个静态接口让类可以在应用程序的 IoC 容器 里运用。 Laravel 附带许多 facades，甚至您可能已经在使用它们即使您并不知道! Laravel 的 &quot;facades&quot; 在 IoC 容器里面作为的基底类的静态代理，提供有简洁、易表达优点的...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="facades.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			4.2
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0/facades.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="facades.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>Facades</h1>
+<ul>
+<li><a href="facades.html#introduction">介绍</a></li>
+<li><a href="facades.html#explanation">解释</a></li>
+<li><a href="facades.html#practical-usage">实际用法</a></li>
+<li><a href="facades.html#creating-facades">建立 Facades</a></li>
+<li><a href="facades.html#mocking-facades">模拟 Facades</a></li>
+<li><a href="facades.html#facade-class-reference">Facade 类参考</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2><a href="facades.html#introduction">介绍</a></h2>
+<p>Facades 提供一个静态接口让类可以在应用程序的 <a href="ioc.html">IoC 容器</a> 里运用。 Laravel 附带许多 facades，甚至您可能已经在使用它们即使您并不知道! Laravel 的 "facades" 在 IoC 容器里面作为的基底类的静态代理，提供有简洁、易表达优点的语法，同时维持比传统的静态方法更高的可测试性和弹性。</p>
+<p>您偶尔或许会希望为您的应用程序和扩展包建立自己的 facades，所以让我们来探索这些类的概念、开发和用法。</p>
+<blockquote>
+<p><strong>备注:</strong> 在深入 facades 之前，强烈建议您先熟悉 Laravel <a href="ioc.html">IoC 容器</a>。</p>
+</blockquote>
+<p><a name="explanation"></a></p>
+<h2><a href="facades.html#explanation">解释</a></h2>
+<p>在 Laravel 应用程序的环境中， facade 是个提供从容器获取对象的类。 使这个机制可以运作的原因在 <code class=" language-php">Facade</code> 类中。 Laravel 的 facades 和任何您建立的自定义 facades，将会继承基本的 <code class=" language-php">Facade</code> 类。</p>
+<p>您的 facade 类只需要去实现一个方法： <code class=" language-php">getFacadeAccessor</code>。 <code class=" language-php">getFacadeAccessor</code> 方法的工作是定义要从容器解析什么。 基本的 <code class=" language-php">Facade</code> 类利用 <code class=" language-php"><span class="token function">__callStatic<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code> 魔术方法去从您的 facade 调用到解析对象。</p>
+<p>所以当您对 facade 调用，例如 <code class=" language-php"><span class="token scope">Cache<span class="token punctuation">::</span></span>get</code>， Laravel 从 IoC 容器解析缓存管理类出来，并对类调用 <code class=" language-php">get</code> 方法。 用术语来说， Laravel Facades 是使用 Laravel IoC 容器作为服务定位器的便捷语法。</p>
+<p><a name="practical-usage"></a></p>
+<h2><a href="facades.html#practical-usage">实际用法</a></h2>
+<p>在下面的例子，对 Laravel 缓存系统进行调用。 简单看过这代码，有人可能会以为静态方法 <code class=" language-php">get</code> 是被 <code class=" language-php">Cache</code> 类调用。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$value</span> <span class="token operator">=</span> <span class="token scope">Cache<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'key'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>然而，如果我们去看 <code class=" language-php">Illuminate\<span class="token package">Support<span class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Cache</span></code> 类， 您将会看到他没有静态方法 <code class=" language-php">get</code>:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">class</span> <span class="token class-name">Cache</span> <span class="token keyword">extends</span> <span class="token class-name">Facade</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Get the registered name of the component.
+     *
+     * @return string
+     */</span>
+    <span class="token keyword">protected</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">getFacadeAccessor<span class="token punctuation">(</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token string">'cache'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>Cache 类继承基本的 <code class=" language-php">Facade</code> 类并定义方法 <code class=" language-php"><span class="token function">getFacadeAccessor<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code>。 记住，这个方法的工作是回传 IoC 绑定的名称。</p>
+<p>当用户参考 <code class=" language-php">Cache</code> facade 的任何静态方法， Laravel 会从 IoC 容器解析被绑定 <code class=" language-php">cache</code> ，并对该对象执行被请求的方法 (在这个例子， <code class=" language-php">get</code>)。</p>
+<p>所以我们的 <code class=" language-php"><span class="token scope">Cache<span class="token punctuation">::</span></span>get</code> 调用可以被重写成这样：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$value</span> <span class="token operator">=</span> <span class="token variable">$app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make<span class="token punctuation">(</span></span><span class="token string">'cache'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'key'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="creating-facades"></a></p>
+<h2><a href="facades.html#creating-facades">建立 Facades</a></h2>
+<p>为您的应用程序或扩展包建立 facade 是很简单的。 您只需要 3 个东西：</p>
+<ul>
+<li>一个 IoC 绑定。</li>
+<li>一个 facade 类。</li>
+<li>一个 facade 别名设定。</li>
+</ul>
+<p>让我们来看个例子。 这里我们有一个定义为 <code class=" language-php">PaymentGateway\<span class="token package">Payment</span></code> 的类。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">namespace</span> <span class="token package">PaymentGateway</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Payment</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">process<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> //
+</span>    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>这个类可以存在在您的 <code class=" language-php">app<span class="token operator">/</span>models</code> 文件夹，或者任何其他 Composer 知道如何自动载入的文件夹。</p>
+<p>我们需要可以从 IoC 容器解析出这个类。 所以，让我们来加个绑定：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">App<span class="token punctuation">::</span></span><span class="token function">bind<span class="token punctuation">(</span></span><span class="token string">'payment'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token punctuation">\</span>PaymentGateway<span class="token punctuation">\</span>Payment</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>注册这个绑定的好方式是建立新的 <a href="ioc.html#service-providers">服务提供者</a> 命名为 <code class=" language-php">PaymentServiceProvider</code>，并把这个绑定加到 <code class=" language-php">register</code> 方法。 再来您可以从 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>app<span class="token punctuation">.</span>php</code> 文件设定让 Laravel 载入您的服务提供者。</p>
+<p>接下来，我们可以建立我们自己的 facade 类：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Facade</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Payment</span> <span class="token keyword">extends</span> <span class="token class-name">Facade</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">protected</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">getFacadeAccessor<span class="token punctuation">(</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token string">'payment'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>最后，如果我们希望，我们可以在 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>app<span class="token punctuation">.</span>php</code> 配置文件为我们的 facade 加个别名到 <code class=" language-php">aliases</code> 数组。 现在我们可以对 <code class=" language-php">Payment</code> 类的实体调用 <code class=" language-php">process</code> 方法。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Payment<span class="token punctuation">::</span></span><span class="token function">process<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>自动载入别名的附注</h3>
+<p>在 <code class=" language-php">aliases</code> 数组中的类在某些实体中不能使用，因为 <a href="https://bugs.php.net/bug.php?id=39003">PHP 将不会尝试去自动载入未定义的类型暗示类</a>。 如果 <code class=" language-php">\<span class="token package">ServiceWrapper<span class="token punctuation">\</span>ApiTimeoutException</span></code> 命别名为 <code class=" language-php">ApiTimeoutException</code>， 在 <code class=" language-php">\<span class="token package">ServiceWrapper</span></code> 命名空间外面的  <code class=" language-php"><span class="token keyword">catch</span><span class="token punctuation">(</span>ApiTimeoutException <span class="token variable">$e</span><span class="token punctuation">)</span></code> 将永远捕捉不到异常，即便有异常被抛出。类似的问题在有类型暗示的别名类模型一样会发生。 唯一的解决办法就是放弃别名并用 <code class=" language-php"><span class="token keyword">use</span></code> 在每一个文件的最上面引入您希望暗示类型的类。</p>
+<p><a name="mocking-facades"></a></p>
+<h2><a href="facades.html#mocking-facades">模拟 Facades</a></h2>
+<p>单元测试是为什么现在 facades 采用这样的工作方式的重要面向。 事实上，可测试性甚至是 facades 存在的主要理由。 想要获得更多信息，请查看文件的 <a href="testing.html#mocking-facades">mocking facades</a> 部分。</p>
+<p><a name="facade-class-reference"></a></p>
+<h2><a href="facades.html#facade-class-reference">Facade 类参考</a></h2>
+<p>您将会在下面找到每一个 facade 和它的基底类。 这是个可以从一个给定的 facade 根源快速地深入 API 文件的有用工具。 可应用的 <a href="ioc.html">IoC 绑定</a> 关键字也包含在里面。</p>
+<table>
+<thead>
+<tr>
+<th>Facade</th>
+<th>Class</th>
+<th>IoC Binding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Foundation/Application.html">Illuminate\Foundation\Application</a></td>
+<td><code class=" language-php">app</code></td>
+</tr>
+<tr>
+<td>Artisan</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Console/Application.html">Illuminate\Console\Application</a></td>
+<td><code class=" language-php">artisan</code></td>
+</tr>
+<tr>
+<td>Auth</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Auth/AuthManager.html">Illuminate\Auth\AuthManager</a></td>
+<td><code class=" language-php">auth</code></td>
+</tr>
+<tr>
+<td>Auth (Instance)</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Auth/Guard.html">Illuminate\Auth\Guard</a></td>
+</tr>
+<tr>
+<td>Blade</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/View/Compilers/BladeCompiler.html">Illuminate\View\Compilers\BladeCompiler</a></td>
+<td><code class=" language-php">blade<span class="token punctuation">.</span>compiler</code></td>
+</tr>
+<tr>
+<td>Cache</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Cache/Repository.html">Illuminate\Cache\Repository</a></td>
+<td><code class=" language-php">cache</code></td>
+</tr>
+<tr>
+<td>Config</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Config/Repository.html">Illuminate\Config\Repository</a></td>
+<td><code class=" language-php">config</code></td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Cookie/CookieJar.html">Illuminate\Cookie\CookieJar</a></td>
+<td><code class=" language-php">cookie</code></td>
+</tr>
+<tr>
+<td>Crypt</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Encryption/Encrypter.html">Illuminate\Encryption\Encrypter</a></td>
+<td><code class=" language-php">encrypter</code></td>
+</tr>
+<tr>
+<td>DB</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Database/DatabaseManager.html">Illuminate\Database\DatabaseManager</a></td>
+<td><code class=" language-php">db</code></td>
+</tr>
+<tr>
+<td>DB (Instance)</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Database/Connection.html">Illuminate\Database\Connection</a></td>
+</tr>
+<tr>
+<td>Event</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Events/Dispatcher.html">Illuminate\Events\Dispatcher</a></td>
+<td><code class=" language-php">events</code></td>
+</tr>
+<tr>
+<td>File</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Filesystem/Filesystem.html">Illuminate\Filesystem\Filesystem</a></td>
+<td><code class=" language-php">files</code></td>
+</tr>
+<tr>
+<td>Form</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Html/FormBuilder.html">Illuminate\Html\FormBuilder</a></td>
+<td><code class=" language-php">form</code></td>
+</tr>
+<tr>
+<td>Hash</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Hashing/HasherInterface.html">Illuminate\Hashing\HasherInterface</a></td>
+<td><code class=" language-php">hash</code></td>
+</tr>
+<tr>
+<td>HTML</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Html/HtmlBuilder.html">Illuminate\Html\HtmlBuilder</a></td>
+<td><code class=" language-php">html</code></td>
+</tr>
+<tr>
+<td>Input</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Http/Request.html">Illuminate\Http\Request</a></td>
+<td><code class=" language-php">request</code></td>
+</tr>
+<tr>
+<td>Lang</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Translation/Translator.html">Illuminate\Translation\Translator</a></td>
+<td><code class=" language-php">translator</code></td>
+</tr>
+<tr>
+<td>Log</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Log/Writer.html">Illuminate\Log\Writer</a></td>
+<td><code class=" language-php">log</code></td>
+</tr>
+<tr>
+<td>Mail</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Mail/Mailer.html">Illuminate\Mail\Mailer</a></td>
+<td><code class=" language-php">mailer</code></td>
+</tr>
+<tr>
+<td>Paginator</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Pagination/Factory.html">Illuminate\Pagination\Factory</a></td>
+<td><code class=" language-php">paginator</code></td>
+</tr>
+<tr>
+<td>Paginator (Instance)</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Pagination/Paginator.html">Illuminate\Pagination\Paginator</a></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Auth/Reminders/PasswordBroker.html">Illuminate\Auth\Reminders\PasswordBroker</a></td>
+<td><code class=" language-php">auth<span class="token punctuation">.</span>reminder</code></td>
+</tr>
+<tr>
+<td>Queue</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Queue/QueueManager.html">Illuminate\Queue\QueueManager</a></td>
+<td><code class=" language-php">queue</code></td>
+</tr>
+<tr>
+<td>Queue (Instance)</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Queue/QueueInterface.html">Illuminate\Queue\QueueInterface</a></td>
+</tr>
+<tr>
+<td>Queue (Base Class)</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Queue/Queue.html">Illuminate\Queue\Queue</a></td>
+</tr>
+<tr>
+<td>Redirect</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Routing/Redirector.html">Illuminate\Routing\Redirector</a></td>
+<td><code class=" language-php">redirect</code></td>
+</tr>
+<tr>
+<td>Redis</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Redis/Database.html">Illuminate\Redis\Database</a></td>
+<td><code class=" language-php">redis</code></td>
+</tr>
+<tr>
+<td>Request</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Http/Request.html">Illuminate\Http\Request</a></td>
+<td><code class=" language-php">request</code></td>
+</tr>
+<tr>
+<td>Response</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Support/Facades/Response.html">Illuminate\Support\Facades\Response</a></td>
+</tr>
+<tr>
+<td>Route</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Routing/Router.html">Illuminate\Routing\Router</a></td>
+<td><code class=" language-php">router</code></td>
+</tr>
+<tr>
+<td>Schema</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Database/Schema/Blueprint.html">Illuminate\Database\Schema\Blueprint</a></td>
+</tr>
+<tr>
+<td>Session</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Session/SessionManager.html">Illuminate\Session\SessionManager</a></td>
+<td><code class=" language-php">session</code></td>
+</tr>
+<tr>
+<td>Session (Instance)</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Session/Store.html">Illuminate\Session\Store</a></td>
+</tr>
+<tr>
+<td>SSH</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Remote/RemoteManager.html">Illuminate\Remote\RemoteManager</a></td>
+<td><code class=" language-php">remote</code></td>
+</tr>
+<tr>
+<td>SSH (Instance)</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Remote/Connection.html">Illuminate\Remote\Connection</a></td>
+</tr>
+<tr>
+<td>URL</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Routing/UrlGenerator.html">Illuminate\Routing\UrlGenerator</a></td>
+<td><code class=" language-php">url</code></td>
+</tr>
+<tr>
+<td>Validator</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Validation/Factory.html">Illuminate\Validation\Factory</a></td>
+<td><code class=" language-php">validator</code></td>
+</tr>
+<tr>
+<td>Validator (Instance)</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/Validation/Validator.html">Illuminate\Validation\Validator</a></td>
+</tr>
+<tr>
+<td>View</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/View/Factory.html">Illuminate\View\Factory</a></td>
+<td><code class=" language-php">view</code></td>
+</tr>
+<tr>
+<td>View (Instance)</td>
+<td><a href="http://laravel.com/api/4.2/Illuminate/View/View.html">Illuminate\View\View</a></td>
+</tr>
+</tbody>
+</table>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":31,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="facades.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

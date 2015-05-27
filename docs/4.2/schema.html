@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>结构生成器 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="结构生成器,介绍,建立与删除数据库表,加入字段,修改字段名称,移除字段,检查是否存在,加入索引,外键,移除索引,移除时间戳记和软删除,储存引擎,介绍,Laravel 的 结构生成器 提供一个数据库无关的操作数据库表方法（即不关心应用将使用何种数据库，只考虑数据表架构操作），它可以让 Laravel 很好的支持各种数据库类型，并且能在不同系统间提供一致性的 API 操作。,建立与删除数据库表,要建立...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="schema.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			4.2
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0/schema.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="schema.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>结构生成器</h1>
+<ul>
+<li><a href="schema.html#introduction">介绍</a></li>
+<li><a href="schema.html#creating-and-dropping-tables">建立与删除数据库表</a></li>
+<li><a href="schema.html#adding-columns">加入字段</a></li>
+<li><a href="schema.html#renaming-columns">修改字段名称</a></li>
+<li><a href="schema.html#dropping-columns">移除字段</a></li>
+<li><a href="schema.html#checking-existence">检查是否存在</a></li>
+<li><a href="schema.html#adding-indexes">加入索引</a></li>
+<li><a href="schema.html#foreign-keys">外键</a></li>
+<li><a href="schema.html#dropping-indexes">移除索引</a></li>
+<li><a href="schema.html#dropping-timestamps">移除时间戳记和软删除</a></li>
+<li><a href="schema.html#storage-engines">储存引擎</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2><a href="schema.html#introduction">介绍</a></h2>
+<p>Laravel 的 <code class=" language-php">结构生成器</code> 提供一个数据库无关的操作数据库表方法（即不关心应用将使用何种数据库，只考虑数据表架构操作），它可以让 Laravel 很好的支持各种数据库类型，并且能在不同系统间提供一致性的 API 操作。</p>
+<p><a name="creating-and-dropping-tables"></a></p>
+<h2><a href="schema.html#creating-and-dropping-tables">建立与删除数据库表</a></h2>
+<p>要建立一个新的数据库表，可使用 <code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span>create</code> 方法:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">create<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$table</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">increments<span class="token punctuation">(</span></span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>传入 <code class=" language-php">create</code> 方法的第一个参数是数据库表名称，第二个参数是 <code class=" language-php">Closure</code> 并接收 <code class=" language-php">Blueprint</code> 对象被用来定义新的数据库表。</p>
+<p>要修改数据库表名称，可使用 <code class=" language-php">rename</code> 方法:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">rename<span class="token punctuation">(</span></span><span class="token variable">$from</span><span class="token punctuation">,</span> <span class="token variable">$to</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>要指定特定连接来操作，可使用 <code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span>connection</code> 方法:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">connection<span class="token punctuation">(</span></span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">create<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$table</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">increments<span class="token punctuation">(</span></span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>要移除数据库表，可使用 <code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span>drop</code> 方法:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">drop<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">dropIfExists<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="adding-columns"></a></p>
+<h2><a href="schema.html#adding-columns">加入字段</a></h2>
+<p>更新现有的数据库表，可使用 <code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span>table</code> 方法:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">table<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$table</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">string<span class="token punctuation">(</span></span><span class="token string">'email'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>数据库表产生器提供多种字段类型可使用，在您建立数据库表时也许会用到:</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bigIncrements<span class="token punctuation">(</span></span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>ID 自动增量，使用相当于 "big integer" 类型.</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bigInteger<span class="token punctuation">(</span></span><span class="token string">'votes'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 BIGINT 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">binary<span class="token punctuation">(</span></span><span class="token string">'data'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 BLOB 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">boolean<span class="token punctuation">(</span></span><span class="token string">'confirmed'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 BOOLEAN 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">char<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 CHAR 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">date<span class="token punctuation">(</span></span><span class="token string">'created_at'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 DATE 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dateTime<span class="token punctuation">(</span></span><span class="token string">'created_at'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 DATETIME 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">decimal<span class="token punctuation">(</span></span><span class="token string">'amount'</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 DECIMAL 类型，并带有精度与尺度</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">double<span class="token punctuation">(</span></span><span class="token string">'column'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 DOUBLE 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">enum<span class="token punctuation">(</span></span><span class="token string">'choices'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token string">'bar'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 ENUM 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">float<span class="token punctuation">(</span></span><span class="token string">'amount'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 FLOAT 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">increments<span class="token punctuation">(</span></span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 Incrementing 类型(数据库表主键)</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">integer<span class="token punctuation">(</span></span><span class="token string">'votes'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 INTEGER 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">longText<span class="token punctuation">(</span></span><span class="token string">'description'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 LONGTEXT 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">mediumInteger<span class="token punctuation">(</span></span><span class="token string">'numbers'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 MEDIUMINT 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">mediumText<span class="token punctuation">(</span></span><span class="token string">'description'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 MEDIUMTEXT 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">morphs<span class="token punctuation">(</span></span><span class="token string">'taggable'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>加入整数 <code class=" language-php">taggable_id</code> 与字串 <code class=" language-php">taggable_type</code></td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">nullableTimestamps<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>与 <code class=" language-php"><span class="token function">timestamps<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code> 相同，但允许 NULL</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">smallInteger<span class="token punctuation">(</span></span><span class="token string">'votes'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 SMALLINT 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">tinyInteger<span class="token punctuation">(</span></span><span class="token string">'numbers'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 TINYINT 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">softDeletes<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>加入 <strong>deleted_at</strong> 字段于软删除使用</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">string<span class="token punctuation">(</span></span><span class="token string">'email'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 VARCHAR 类型  equivalent column</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">string<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 VARCHAR 类型，并指定长度</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">text<span class="token punctuation">(</span></span><span class="token string">'description'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 TEXT 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">time<span class="token punctuation">(</span></span><span class="token string">'sunrise'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 TIME 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">timestamp<span class="token punctuation">(</span></span><span class="token string">'added_on'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>相当于 TIMESTAMP 类型</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">timestamps<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>加入 <strong>created_at</strong> 和 <strong>updated_at</strong> 字段</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">rememberToken<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>加入 <code class=" language-php">remember_token</code> 使用 VARCHAR(100) NULL</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">nullable<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code></td>
+<td>标示此字段允许 NULL</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token keyword">default</span><span class="token punctuation">(</span><span class="token variable">$value</span><span class="token punctuation">)</span></code></td>
+<td>定义此字段的默认值</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">unsigned<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code></td>
+<td>设定整数是无分正负</td>
+</tr>
+</tbody>
+</table>
+<h4>在 MySQL 使用 After 方法</h4>
+<p>若您使用 MySQL 数据库，您可以使用 <code class=" language-php">after</code> 方法来指定字段的顺序:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">string<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">after<span class="token punctuation">(</span></span><span class="token string">'email'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="renaming-columns"></a></p>
+<h2><a href="schema.html#renaming-columns">修改字段名称</a></h2>
+<p>要修改字段名称，可在结构生成器内使用 <code class=" language-php">renameColumn</code> 方法，请确认在修改前 <code class=" language-php">composer<span class="token punctuation">.</span>json</code> 文件内已经加入 <code class=" language-php">doctrine<span class="token operator">/</span>dbal</code>。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">table<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$table</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">renameColumn<span class="token punctuation">(</span></span><span class="token string">'from'</span><span class="token punctuation">,</span> <span class="token string">'to'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意:</strong> <code class=" language-php">enum</code> 字段类型不支持修改字段名称</p>
+</blockquote>
+<p><a name="dropping-columns"></a></p>
+<h2><a href="schema.html#dropping-columns">移除字段</a></h2>
+<p>要移除字段，可在结构生成器内使用 <code class=" language-php">dropColumn</code> 方法，请确认在移除前 <code class=" language-php">composer<span class="token punctuation">.</span>json</code> 文件内已经加入 <code class=" language-php">doctrine<span class="token operator">/</span>dbal</code>。</p>
+<h4>移除数据库表字段</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">table<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$table</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dropColumn<span class="token punctuation">(</span></span><span class="token string">'votes'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>移除数据库表多个字段</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">table<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$table</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dropColumn<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'votes'</span><span class="token punctuation">,</span> <span class="token string">'avatar'</span><span class="token punctuation">,</span> <span class="token string">'location'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="checking-existence"></a></p>
+<h2><a href="schema.html#checking-existence">检查是否存在</a></h2>
+<h4>检查数据库表是否存在</h4>
+<p>您可以轻松的检查数据库表或字段是否存在，使用 <code class=" language-php">hasTable</code> 和 <code class=" language-php">hasColumn</code> 方法:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">hasTable<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<h4>检查字段是否存在</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">hasColumn<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">,</span> <span class="token string">'email'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<p><a name="adding-indexes"></a></p>
+<h2><a href="schema.html#adding-indexes">加入索引</a></h2>
+<p>结构生成器支持多种索引类型，有两种方法可以加入，方法一，您可以在定义字段时顺道附加上去，或者是分开另外加入:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">string<span class="token punctuation">(</span></span><span class="token string">'email'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">unique<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>或者，您可以独立一行来加入索引，以下是支持的索引类型:</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">primary<span class="token punctuation">(</span></span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>加入主键</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">primary<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'first'</span><span class="token punctuation">,</span> <span class="token string">'last'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>加入复合键</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">unique<span class="token punctuation">(</span></span><span class="token string">'email'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>加入唯一索引</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">index<span class="token punctuation">(</span></span><span class="token string">'state'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>加入基本索引</td>
+</tr>
+</tbody>
+</table>
+<p><a name="foreign-keys"></a></p>
+<h2><a href="schema.html#foreign-keys">外键</a></h2>
+<p>Laravel 也支持数据库表的外键约束:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">integer<span class="token punctuation">(</span></span><span class="token string">'user_id'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">unsigned<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">foreign<span class="token punctuation">(</span></span><span class="token string">'user_id'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">references<span class="token punctuation">(</span></span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">on<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>例子中，我们关注字段 <code class=" language-php">user_id</code> 参照到 <code class=" language-php">users</code> 数据库表的 <code class=" language-php">id</code> 字段。首先需要确保已经建立对应的外键。</p>
+<p>您也可以指定选择在 "on delete" 和 "on update" 进行约束动作:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">foreign<span class="token punctuation">(</span></span><span class="token string">'user_id'</span><span class="token punctuation">)</span>
+      <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">references<span class="token punctuation">(</span></span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">on<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">)</span>
+      <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">onDelete<span class="token punctuation">(</span></span><span class="token string">'cascade'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>要移除外键，可使用 <code class=" language-php">dropForeign</code> 方法。外键的命名约定如同其他索引:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dropForeign<span class="token punctuation">(</span></span><span class="token string">'posts_user_id_foreign'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意:</strong> 当外键有参照到自动增量时，记得设定外键为 <code class=" language-php">unsigned</code> 类型。</p>
+</blockquote>
+<p><a name="dropping-indexes"></a></p>
+<h2><a href="schema.html#dropping-indexes">移除索引</a></h2>
+<p>要移除索引您必须指定索引名称，Laravel 默认有脉络可循的索引名称。简单地链接这些数据库表与索引的字段名称和类型。举例如下:</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dropPrimary<span class="token punctuation">(</span></span><span class="token string">'users_id_primary'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>从 "users" 数据库表移除主键</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dropUnique<span class="token punctuation">(</span></span><span class="token string">'users_email_unique'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>从 "users" 数据库表移除唯一索引</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dropIndex<span class="token punctuation">(</span></span><span class="token string">'geo_state_index'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>从 "geo" 数据库表移除基本索引</td>
+</tr>
+</tbody>
+</table>
+<p><a name="dropping-timestamps"></a></p>
+<h2><a href="schema.html#dropping-timestamps">移除时间戳记和软删除</a></h2>
+<p>要移除 <code class=" language-php">timestamps</code>, <code class=" language-php">nullableTimestamps</code> 或 <code class=" language-php">softDeletes</code> 字段类型，您可以使用以下方法:</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dropTimestamps<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>移除 <strong>created_at</strong> 和 <strong>updated_at</strong> 字段</td>
+</tr>
+<tr>
+<td><code class=" language-php"><span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dropSoftDeletes<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></td>
+<td>移除 <strong>deleted_at</strong> 字段</td>
+</tr>
+</tbody>
+</table>
+<p><a name="storage-engines"></a></p>
+<h2><a href="schema.html#storage-engines">储存引擎</a></h2>
+<p>要设定数据库表的储存引擎，可在结构生成器设定 <code class=" language-php">engine</code> 属性:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Schema<span class="token punctuation">::</span></span><span class="token function">create<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$table</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">engine</span> <span class="token operator">=</span> <span class="token string">'InnoDB'</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">string<span class="token punctuation">(</span></span><span class="token string">'email'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":31,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="schema.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

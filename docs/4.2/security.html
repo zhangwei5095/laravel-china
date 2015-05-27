@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>认证与安全性 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="认证与安全性,设定,储存密码,用户认证,手动登入用户,保护路由,HTTP 简易认证,忘记密码与密码重设,加密,认证驱动,设定,Laravel 的目标就是要让实现认证机制变得简单。事实上，几乎所有的设置默认就已经完成了。有关认证的配置文件都放在 app/config/auth.php 里，而在这些文件里也都包含了良好的注释描述每一个选项的所对应的认证行为及动作。,Laravel 默认在 app/mo...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="security.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			4.2
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="security.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>认证与安全性</h1>
+<ul>
+<li><a href="security.html#configuration">设定</a></li>
+<li><a href="security.html#storing-passwords">储存密码</a></li>
+<li><a href="security.html#authenticating-users">用户认证</a></li>
+<li><a href="security.html#manually">手动登入用户</a></li>
+<li><a href="security.html#protecting-routes">保护路由</a></li>
+<li><a href="security.html#http-basic-authentication">HTTP 简易认证</a></li>
+<li><a href="security.html#password-reminders-and-reset">忘记密码与密码重设</a></li>
+<li><a href="security.html#encryption">加密</a></li>
+<li><a href="security.html#authentication-drivers">认证驱动</a></li>
+</ul>
+<p><a name="configuration"></a></p>
+<h2><a href="security.html#configuration">设定</a></h2>
+<p>Laravel 的目标就是要让实现认证机制变得简单。事实上，几乎所有的设置默认就已经完成了。有关认证的配置文件都放在 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>auth<span class="token punctuation">.</span>php</code> 里，而在这些文件里也都包含了良好的注释描述每一个选项的所对应的认证行为及动作。</p>
+<p>Laravel 默认在 <code class=" language-php">app<span class="token operator">/</span>models</code> 文件夹内就包含了一个使用 Eloquent 认证驱动的<code class=" language-php">User</code> 模型。请记得在建立模型结构时，密码字段至少要有 60 个字串宽度。</p>
+<p>假如您的应用程序并不是使用 Eloquent ，您也可以使用 Laravel 的查询构造器做  <code class=" language-php">database</code> 认证驱动。</p>
+<blockquote>
+<p><strong>注意：</strong> 在开始之前，请先确认您的 <code class=" language-php">users</code> (或其他同义) 数据库表包含一个名为 <code class=" language-php">remember_token</code> 长度为100的string类型、可接受 null 的字段。这个字段将会被用来储存「记住我」的 session token。</p>
+</blockquote>
+<p><a name="storing-passwords"></a></p>
+<h2><a href="security.html#storing-passwords">储存密码</a></h2>
+<p>Laravel 的 <code class=" language-php">Hash</code> 类提供了安全的 Bcrypt 哈希演算法：</p>
+<h4>对密码加密</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$password</span> <span class="token operator">=</span> <span class="token scope">Hash<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token string">'secret'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>验证密码</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Hash<span class="token punctuation">::</span></span><span class="token function">check<span class="token punctuation">(</span></span><span class="token string">'secret'</span><span class="token punctuation">,</span> <span class="token variable">$hashedPassword</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // The passwords match...
+</span><span class="token punctuation">}</span></code></pre>
+<h4>确认密码是否需要重新加密</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Hash<span class="token punctuation">::</span></span><span class="token function">needsRehash<span class="token punctuation">(</span></span><span class="token variable">$hashed</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$hashed</span> <span class="token operator">=</span> <span class="token scope">Hash<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token string">'secret'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><a name="authenticating-users"></a></p>
+<h2><a href="security.html#authenticating-users">用户认证</a></h2>
+<p>您可以使用 <code class=" language-php"><span class="token scope">Auth<span class="token punctuation">::</span></span>attempt</code> 方法来验证用户成功登录之前的信息确认：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">attempt<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'email'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$email</span><span class="token punctuation">,</span> <span class="token string">'password'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$password</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">intended<span class="token punctuation">(</span></span><span class="token string">'dashboard'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>需提醒的是 <code class=" language-php">email</code>并不是一个必要的字段，在这里仅用于示范。您可以使用数据库里任何类似于「用户名称」的字段做为帐号的唯一标识。若用户尚未登入的话，认证筛选器会使用 <code class=" language-php"><span class="token scope">Redirect<span class="token punctuation">::</span></span>intended</code> 方法重定向跳转用户至指定的 URL。我们可指定一个备用 URI ，当预定重定向跳转位置不存在时使用。</p>
+<p>当 <code class=" language-php">attempt</code> 方法被调用时，<code class=" language-php">auth<span class="token punctuation">.</span>attempt</code> <a href="events.html">事件</a> 将会被触发。假如认证成功的话，则 <code class=" language-php">auth<span class="token punctuation">.</span>login</code> 事件会接着被触发。</p>
+<h4>判定用户是否已登入</h4>
+<p>判定一个用户是否已经登入您的应用程序，您可以使用 <code class=" language-php">check</code> 这个方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">check<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // The user is logged in...
+</span><span class="token punctuation">}</span></code></pre>
+<h4>认证一个用户并且「记住」他</h4>
+<p>假如您想要在您的应用程序内提供「记住我」的选项，您可以在 <code class=" language-php">attempt</code> 方法的第二个参数复制为 <code class=" language-php"><span class="token boolean">true</span></code> ，这样就可以保留用户的认证身份 (或直到他手动登出为止)。当然，您的 <code class=" language-php">users</code> 数据库表必需包括一个字串类型的 <code class=" language-php">remember_token</code> 字段来储存「记住我」的标记。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">attempt<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'email'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$email</span><span class="token punctuation">,</span> <span class="token string">'password'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$password</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // The user is being remembered...
+</span><span class="token punctuation">}</span></code></pre>
+<p><strong>注意：</strong> 假如 <code class=" language-php">attempt</code> 方法回传 <code class=" language-php"><span class="token boolean">true</span></code> ，则表示用户已经登入您的应用程序。</p>
+<h4>通过记住我来认证用户</h4>
+<p>假如您让用户通过「记住我」的方式来登入，则您可以使用 <code class=" language-php">viaRemember</code> 方法来判定用户是否拥有「记住我」cookie 来认证用户登入：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">viaRemember<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<h4>条件认证用户</h4>
+<p>在认证过程中，您可能会想要增加额外的认证条件：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">attempt<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'email'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$email</span><span class="token punctuation">,</span> <span class="token string">'password'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$password</span><span class="token punctuation">,</span> <span class="token string">'active'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // The user is active, not suspended, and exists.
+</span><span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p><strong>注意：</strong> 为了增加对 session 的保护，用户的 session ID 将会在用户认证完成后自动重新产生。</p>
+</blockquote>
+<h4>取得已登入的用户信息</h4>
+<p>当用户完成认证后，您就可以通过模型来取得相关的数据：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$email</span> <span class="token operator">=</span> <span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">user<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">email</span><span class="token punctuation">;</span></code></pre>
+<p>取得登入用户的 ID，您可以使用 <code class=" language-php">id</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$id</span> <span class="token operator">=</span> <span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">id<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>若想要通过用户的 ID 来登入应用程序，可直接使用 <code class=" language-php">loginUsingId</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">loginUsingId<span class="token punctuation">(</span></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>验证用户信息而不要登入</h4>
+<p><code class=" language-php">validate</code> 方法可以让您验证用户信息而不真的登入应用程序：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">validate<span class="token punctuation">(</span></span><span class="token variable">$credentials</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<h4>在单一请求内登入用户</h4>
+<p>您也可以使用 <code class=" language-php">once</code> 方法来让用户在单一请求内登入。不会有任何 session 或 cookie 被产生：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">once<span class="token punctuation">(</span></span><span class="token variable">$credentials</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<h4>将用户登出</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">logout<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="manually"></a></p>
+<h2><a href="security.html#manually">手动登入用户</a></h2>
+<p>假如您需要将一个已存在的用户实例登入您的应用程序，只需要简单的调用 <code class=" language-php">login</code> 方法，并且将该实例作为参数传入即可：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span class="token operator">=</span> <span class="token scope">User<span class="token punctuation">::</span></span><span class="token function">find<span class="token punctuation">(</span></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">login<span class="token punctuation">(</span></span><span class="token variable">$user</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>这个方式和用用户帐号密码来 <code class=" language-php">attempt</code> 的功能是一样的。</p>
+<p><a name="protecting-routes"></a></p>
+<h2><a href="security.html#protecting-routes">保护路由</a></h2>
+<p>路由过滤器可让用户仅能访问特定的链接。Laravel 默认提供 <code class=" language-php">auth</code> 过滤器，其被定义在 <code class=" language-php">app<span class="token operator">/</span>filters<span class="token punctuation">.</span>php</code> 文件内。</p>
+<h4>保护特定路由</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'before'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'auth'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // Only authenticated users may enter...
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>CSRF 保护</h3>
+<p>Laravel 提供一个简易的方式来保护您的应用程序免于跨站攻击。</p>
+<h4>在表单内引入 CSRF 标记</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>_token<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">echo</span> <span class="token function">csrf_token<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span></code></pre>
+<h4>验证表单的 CSRF 标记</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">post<span class="token punctuation">(</span></span><span class="token string">'register'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'before'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'csrf'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'You gave a valid CSRF token!'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="http-basic-authentication"></a></p>
+<h2><a href="security.html#http-basic-authentication">HTTP 简易认证</a></h2>
+<p>HTTP 简易认证提供了一个快速的方式来认证用户而不用特定设置一个「登入」页。在您的路由内设定 <code class=" language-php">auth<span class="token punctuation">.</span>basic</code> 过滤器则可启动这个功能：</p>
+<h4>用 HTTP 简易认证保护您的路由</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'before'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'auth.basic'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // Only authenticated users may enter...
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code class=" language-php">basic</code> 过滤器默认将会使用 <code class=" language-php">email</code> 字段来做用户认证，假如您想要使用其他字段来做认证的话，可在您的 <code class=" language-php">app<span class="token operator">/</span>filters<span class="token punctuation">.</span>php</code> 文件内将想要拿来做认证的字段当成第一个参数传给 <code class=" language-php">basic</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">filter<span class="token punctuation">(</span></span><span class="token string">'auth.basic'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">basic<span class="token punctuation">(</span></span><span class="token string">'username'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>设定无状态的 HTTP 简易过滤器</h4>
+<p>一般在实现 API 认证时，往往会想要使用 HTTP 简易认证而不要产生任何 session 或 cookie。我们可以通过定义一个过滤器并回传 <code class=" language-php">onceBasic</code> 方法来达成：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">filter<span class="token punctuation">(</span></span><span class="token string">'basic.once'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">onceBasic<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>假如您是使用 PHP FastCGI，HTTP 简易认证默认是无法正常运作的。请在您的 <code class=" language-php"><span class="token punctuation">.</span>htaccess</code> 文件内新增以下代码来启动这个功能：</p>
+<pre class=" language-php"><code class=" language-php">RewriteCond <span class="token operator">%</span><span class="token punctuation">{</span><span class="token constant">HTTP</span><span class="token punctuation">:</span>Authorization<span class="token punctuation">}</span> <span class="token operator">^</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">+</span><span class="token punctuation">)</span>$
+RewriteRule <span class="token punctuation">.</span><span class="token operator">*</span> <span class="token operator">-</span> <span class="token punctuation">[</span>E<span class="token operator">=</span><span class="token constant">HTTP_AUTHORIZATION</span><span class="token punctuation">:</span><span class="token operator">%</span><span class="token punctuation">{</span><span class="token constant">HTTP</span><span class="token punctuation">:</span>Authorization<span class="token punctuation">}</span><span class="token punctuation">]</span></code></pre>
+<p><a name="password-reminders-and-reset"></a></p>
+<h2><a href="security.html#password-reminders-and-reset">忘记密码与重设</a></h2>
+<h3>模型与数据库表</h3>
+<p>大多数的web应用程序都会提供用户忘记密码的功能。为了不让开发者重复实现这个功能，Laravel 提供了方便的方法来发送忘记密码通知及密码重设的功能。在开始之前，请先确认您的 <code class=" language-php">User</code> 模型实现了 <code class=" language-php">Illuminate\<span class="token package">Auth<span class="token punctuation">\</span>Reminders<span class="token punctuation">\</span>RemindableInterface</span></code> 接口。当然，默认 Laravel 的 <code class=" language-php">User</code> 模型本身就已实现，并且引入<code class=" language-php">Illuminate\<span class="token package">Auth<span class="token punctuation">\</span>Reminders<span class="token punctuation">\</span>RemindableTrait</span></code> 来包括所有需要实现的接口方法。</p>
+<h4>实现 RemindableInterface</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Reminders<span class="token punctuation">\</span>RemindableTrait</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Reminders<span class="token punctuation">\</span>RemindableInterface</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Eloquent</span> <span class="token keyword">implements</span> <span class="token class-name">RemindableInterface</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">use</span> <span class="token package">RemindableTrait</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h4>生成 Reminder 数据库表迁移</h4>
+<p>接下来，我们需要生成一个数据库表来储存重设密码标记。为了产生这个数据库表的迁移文件，需要执行 <code class=" language-php">auth<span class="token punctuation">:</span>reminders<span class="token operator">-</span>table</code> artisan 命令：</p>
+<pre class=" language-php"><code class=" language-php">php artisan auth<span class="token punctuation">:</span>reminders<span class="token operator">-</span>table
+
+php artisan migrate</code></pre>
+<h3>密码重设控制器</h3>
+<p>然后我们已经准备好生成密码重设控制器，您可以使用 <code class=" language-php">auth<span class="token punctuation">:</span>reminders<span class="token operator">-</span>controller</code> artisan 命令来自动生成这个控制器，它会在您的 <code class=" language-php">app<span class="token operator">/</span>controllers</code> 文件夹内创建一个 <code class=" language-php">RemindersController<span class="token punctuation">.</span>php</code> 文件。</p>
+<pre class=" language-php"><code class=" language-php">php artisan auth<span class="token punctuation">:</span>reminders<span class="token operator">-</span>controller</code></pre>
+<p>产生出来的控制器已经具备 <code class=" language-php">getRemind</code> 方法来显示您的忘记密码表单。您所需要做就是建立一个 <code class=" language-php">password<span class="token punctuation">.</span>remind</code> <a href="responses.html#views">视图</a>。这个视图需要具备一个 <code class=" language-php">email</code> 字段的表单，且这个表单应该要 POST 到 <code class=" language-php">RemindersController@postRemind</code> 动作。</p>
+<p>一个简单的 <code class=" language-php">password<span class="token punctuation">.</span>remind</code> 表单视图应该看起来像这样：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{{ action('RemindersController@postRemind') }}<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>POST<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Send Reminder<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span></span></code></pre>
+<p>除了 <code class=" language-php">getRemind</code> 外，控制器还包括了一个 <code class=" language-php">postRemind</code> 方法来处理发送忘记密码通知信给您的用户。这个方法会预期在 <code class=" language-php"><span class="token constant">POST</span></code> 参数内会有 <code class=" language-php">email</code> 字段。假如忘记密码通知信成功的寄发给用户，则会有一个 <code class=" language-php">status</code> 信息被暂存在 session 内；假如寄发失败的话，则取而代之的会有一个 <code class=" language-php">error</code> 信息被暂存。</p>
+<p>在 <code class=" language-php">postRemind</code> 方法内，您可以在发送出去前修改信息的内容：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Password<span class="token punctuation">::</span></span><span class="token function">remind<span class="token punctuation">(</span></span><span class="token scope">Input<span class="token punctuation">::</span></span><span class="token function">only<span class="token punctuation">(</span></span><span class="token string">'email'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$message</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$message</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subject<span class="token punctuation">(</span></span><span class="token string">'Password Reminder'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>您的用户将会收到一封电子邮件内有一个重设密码的链接指向 <code class=" language-php">getReset</code> 控制器方法。忘记密码标记是用来验证密码重设程序是否正确，也会传递给对应的控制器方法。这个动作已经设定会回传一个 <code class=" language-php">password<span class="token punctuation">.</span>reset</code> 视图。这个 <code class=" language-php">token</code> 会被传递给视图，而您需要将这个 <code class=" language-php">token</code> 放在一个隐形的表单字段内。另外，您的重设密码表单应该包括 <code class=" language-php">email</code>、<code class=" language-php">password</code> 和 <code class=" language-php">password_confirmation</code> 字段。这个表单应该 POST 到 <code class=" language-php">RemindersController@postReset</code> 方法。</p>
+<p>一个 <code class=" language-php">password<span class="token punctuation">.</span>reset</code> 视图表单应该看起来像这样：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{{ action('RemindersController@postReset') }}<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>POST<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>token<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{{ $token }}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password_confirmation<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Reset Password<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span></span></code></pre>
+<p>最后，<code class=" language-php">postReset</code> 方法则是专职处理重设过后的密码。在这个控制器方法里，Closure 传递 <code class=" language-php"><span class="token scope">Password<span class="token punctuation">::</span></span>reset</code> 方法并且设定 <code class=" language-php">User</code> 内的 <code class=" language-php">password</code> 属性后调用 <code class=" language-php">save</code> 方法。当然，这个 Closure 会假定您的 <code class=" language-php">User</code> 模型是一个 <a href="eloquent.html">Eloquent 模型</a> 。当然，您可以自由地修改这个 Closure 内容来符合您的应用程序数据库储存方式。</p>
+<p>假如密码成功的重设，则用户会被重定向跳转至您的应用程序根目录。同样的，您可以自由的更改重定向跳转的 URL；假如密码重设失败的话，用户会被重定向跳转至重设密码表单页，而且会有 <code class=" language-php">error</code> 信息被暂存在 session 内。</p>
+<h3>密码验证</h3>
+<p>默认 <code class=" language-php"><span class="token scope">Password<span class="token punctuation">::</span></span>reset</code> 方法会验证密码符合且大于等于六个字串。您可以用 <code class=" language-php"><span class="token scope">Password<span class="token punctuation">::</span></span>validator</code> 方法 (接受 Closure) 来调整这些默认值。通过这个 Closure，您可以用任何方式来做密码验证。需提醒的是，您不一定要验证密码是否符合，因为框架自动会帮您完成这项工作。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Password<span class="token punctuation">::</span></span><span class="token function">validator<span class="token punctuation">(</span></span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$credentials</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">strlen<span class="token punctuation">(</span></span><span class="token variable">$credentials</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意：</strong> 密码重设标记默认会在一个小时后过期。您可以通过 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>auth<span class="token punctuation">.</span>php</code> 案内的 <code class=" language-php">reminder<span class="token punctuation">.</span>expire</code> 选项来调整这个设定。</p>
+</blockquote>
+<p><a name="encryption"></a></p>
+<h2><a href="security.html#encryption">加密</a></h2>
+<p>Laravel 通过 mcrypt PHP 扩展来提供 AES 强度的加密算法：</p>
+<h4>加密一个值</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$encrypted</span> <span class="token operator">=</span> <span class="token scope">Crypt<span class="token punctuation">::</span></span><span class="token function">encrypt<span class="token punctuation">(</span></span><span class="token string">'secret'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意：</strong> 记得在 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>app<span class="token punctuation">.</span>php</code> 文件里设定一个 16, 24 或 32 字串的随机字做 <code class=" language-php">key</code> ，否则这个加密算法结果将不够安全。</p>
+</blockquote>
+<h4>解密一个值</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$decrypted</span> <span class="token operator">=</span> <span class="token scope">Crypt<span class="token punctuation">::</span></span><span class="token function">decrypt<span class="token punctuation">(</span></span><span class="token variable">$encryptedValue</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>设定暗号及模式</h4>
+<p>您可以设定加密器的暗号及模式：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Crypt<span class="token punctuation">::</span></span><span class="token function">setMode<span class="token punctuation">(</span></span><span class="token string">'ctr'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token scope">Crypt<span class="token punctuation">::</span></span><span class="token function">setCipher<span class="token punctuation">(</span></span><span class="token variable">$cipher</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="authentication-drivers"></a></p>
+<h2><a href="security.html#authentication-drivers">认证驱动</a></h2>
+<p>Laravel 默认提供 <code class=" language-php">database</code> 及 <code class=" language-php">eloquent</code> 两种认证驱动。假如您需要更多有关增加额外认证驱动的详细信息，请参考 <a href="extending.html#authentication">认证扩充文件</a></p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":33,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="security.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

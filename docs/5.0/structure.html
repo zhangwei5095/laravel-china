@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>应用程序结构 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728403981&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=31&be=106&fe=172&dc=41&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728403981,%22n%22:0,%22u%22:102,%22ue%22:102,%22dl%22:105,%22di%22:147,%22ds%22:147,%22de%22:214,%22dc%22:278,%22l%22:278,%22le%22:278,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:99,%22rpe%22:106%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="应用程序结构,介绍,根目录,App 目录,为应用程序配置命名空间,介绍,默认的 Laravel 应用程序结构是为了提供一个良好的开始，无论是构建大型还是小型应用。当然，你可以依照喜好自由地组织应用程序。Laravel 几乎没有强加限制任何类的放置位置 - 只要 Composer 可以自动加载这些类即可。,根目录,一个新安装的 Laravel 根目录包含许多个目录：,app 目录，如你所料，包含应用...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="structure.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			5.0
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="structure.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>应用程序结构</h1>
+<ul>
+<li><a href="structure.html#introduction">介绍</a></li>
+<li><a href="structure.html#the-root-directory">根目录</a></li>
+<li><a href="structure.html#the-app-directory">App 目录</a></li>
+<li><a href="structure.html#namespacing-your-application">为应用程序配置命名空间</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2><a href="structure.html#introduction">介绍</a></h2>
+<p>默认的 Laravel 应用程序结构是为了提供一个良好的开始，无论是构建大型还是小型应用。当然，你可以依照喜好自由地组织应用程序。Laravel 几乎没有强加限制任何类的放置位置 - 只要 Composer 可以自动加载这些类即可。</p>
+<p><a name="the-root-directory"></a></p>
+<h2><a href="structure.html#the-root-directory">根目录</a></h2>
+<p>一个新安装的 Laravel 根目录包含许多个目录：</p>
+<p><code class=" language-php">app</code> 目录，如你所料，包含应用程序的核心代码。我们之后将会很快深入探讨这个目录的细节。</p>
+<p><code class=" language-php">bootstrap</code> 目录包含几个框架启动跟自动加载配置的文件。</p>
+<p><code class=" language-php">config</code> 目录，顾名思义，包含所有应用程序的配置文件。</p>
+<p><code class=" language-php">database</code> 目录包含你的数据库迁移与数据填充文件。</p>
+<p><code class=" language-php"><span class="token keyword">public</span></code> 目录包含前面的控制器和你的资源文件 (图片、JavaScript、CSS，等等)。</p>
+<p><code class=" language-php">resources</code> 目录包含你的视图、原始的资源文件 (LESS、SASS、CoffeeScript) 和「语言」文件。</p>
+<p><code class=" language-php">storage</code> 目录包含编译后的 Blade 模板、基于文件的 session、文件缓存和其他框架产生的文件。</p>
+<p><code class=" language-php">tests</code> 目录包含你的自动化测试。</p>
+<p><code class=" language-php">vendor</code> 目录包含你的 Composer 依赖模块。</p>
+<p><a name="the-app-directory"></a></p>
+<h2><a href="structure.html#the-app-directory">App 目录</a></h2>
+<p>应用程序的「内容」存在于 <code class=" language-php">app</code> 目录中。默认情况下，这个目录在 <code class=" language-php">App</code> 命名空间下并通过 Composer 使用 <a href="https://github.com/PizzaLiu/PHP-FIG/blob/master/PSR-4-autoloader-cn.md">PSR-4 自动加载标准</a> 自动加载。 <strong>你可以使用 <code class=" language-php">app<span class="token punctuation">:</span>name</code> Artisan 命令变更这个命名空间</strong>.</p>
+<p><code class=" language-php">app</code> 目录附带许多个额外的目录，例如：<code class=" language-php">Console</code>、<code class=" language-php">Http</code> 和 <code class=" language-php">Providers</code>。考虑 <code class=" language-php">Console</code> 和 <code class=" language-php">Http</code> 目录用作提供 API 进入应用程序的「核心」。HTTP 协定和 CLI 都是跟应用程序交互的机制，但实际上并不包含应用程序逻辑。换句话说，它们是两种简单地发布命令给应用程序的方法。<code class=" language-php">Console</code> 目录包含你全部的 Artisan 命令，而 <code class=" language-php">Http</code> 目录包含你的控制器、过滤器和请求。</p>
+<p><code class=" language-php">Commands</code> 目录当然是用来放置应用程序的命令。命令代表可以被应用程序放到队列的任务，以及可以在当前请求生命周期内同步运行的任务。</p>
+<p><code class=" language-php">Events</code> 目录，如你所料，是用来放置事件类。当然，使用类来代表事件不是必须的；然而，如果你选择使用它们，这个目录将会是通过 Artisan 命令行创建它们时的默认位置。</p>
+<p><code class=" language-php">Handlers</code> 目录包含命令和事件的处理类。处理进程接收命令或事件，并针对该命令或事件执行逻辑。</p>
+<p><code class=" language-php">Services</code> 目录包含各种「辅助」服务，囊括应用程序需要的功能。例如，Laravel 引入的 <code class=" language-php">Registrar</code> 服务负责验证 并创建应用程序的新用户。其他的例子可能是服务跟外部 API、评价系统或甚至是跟从你的应用程序汇集数据的服务交互。</p>
+<p><code class=" language-php">Exceptions</code> 目录包含应用程序的异常处理进程，也是个处置应用程序抛出的任何异常的好地方。</p>
+<blockquote>
+<p><strong>注意：</strong> 在 <code class=" language-php">app</code> 目录中的许多类可以用 Artisan 命令产生。要查看可以使用的命令，在终端机执行 <code class=" language-php">php artisan list make</code> 命令。</p>
+</blockquote>
+<p><a name="namespacing-your-application"></a></p>
+<h2><a href="structure.html#namespacing-your-application">为应用程序配置命名空间</a></h2>
+<p>如前面所提到的，默认的应用程序命名空间为 <code class=" language-php">App</code>；然而，你可以变更这个命名空间成跟应用程序的名称一样，这可以简单地通过 <code class=" language-php">app<span class="token punctuation">:</span>name</code> Artisan 命令完成。例如：如果你的应用程序叫做「SocialNet」，你将会执行下面的命令：</p>
+<pre class=" language-php"><code class=" language-php">php artisan app<span class="token punctuation">:</span>name SocialNet</code></pre>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":31,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="structure.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>表单与 HTML - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728426339&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=31&be=114&fe=253&dc=19&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728426339,%22n%22:0,%22u%22:111,%22ue%22:112,%22dl%22:113,%22di%22:133,%22ds%22:133,%22de%22:234,%22dc%22:367,%22l%22:367,%22le%22:367,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:99,%22rpe%22:111%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="表单与 HTML,开启表单,CSRF 保护,表单模型绑定,标签（Label）,文字字段（Text）、多行文字字段（Text Area）、密码字段（Password）和隐藏字段（Hidden Field）,核取方块（Checkboxe）和单选按钮（Radio Button）,文件输入,下拉式选单,按钮,自定义宏（Macro）,产生 URL,开启表单,开启表单,{{ Form::open(array(...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="html.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			4.2
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="html.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>表单与 HTML</h1>
+<ul>
+<li><a href="html.html#opening-a-form">开启表单</a></li>
+<li><a href="html.html#csrf-protection">CSRF 保护</a></li>
+<li><a href="html.html#form-model-binding">表单模型绑定</a></li>
+<li><a href="html.html#labels">标签（Label）</a></li>
+<li><a href="html.html#text">文字字段（Text）、多行文字字段（Text Area）、密码字段（Password）和隐藏字段（Hidden Field）</a></li>
+<li><a href="html.html#checkboxes-and-radio-buttons">核取方块（Checkboxe）和单选按钮（Radio Button）</a></li>
+<li><a href="html.html#file-input">文件输入</a></li>
+<li><a href="html.html#drop-down-lists">下拉式选单</a></li>
+<li><a href="html.html#buttons">按钮</a></li>
+<li><a href="html.html#custom-macros">自定义宏（Macro）</a></li>
+<li><a href="html.html#generating-urls">产生 URL</a></li>
+</ul>
+<p><a name="opening-a-form"></a></p>
+<h2><a href="html.html#opening-a-form">开启表单</a></h2>
+<h4>开启表单</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">open<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'url'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'foo/bar'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">close<span class="token punctuation">(</span></span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
+<p>默认表单使用 POST 方法，当然您也可以指定传参其他表单的方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">open<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'url'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'foo/bar'</span><span class="token punctuation">,</span> <span class="token string">'method'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'put'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<blockquote>
+<p><strong>注意：</strong> 因为 HTML 表单只支持 <code class=" language-php"><span class="token constant">POST</span></code> 和 <code class=" language-php"><span class="token constant">GET</span></code> 方法，所以在使用 <code class=" language-php"><span class="token constant">PUT</span></code> 及 <code class=" language-php"><span class="token constant">DELETE</span></code> 的方法时，Laravel 将会自动加入隐藏的 <code class=" language-php">_method</code> 字段到表单中，来伪装表单传送的方法。</p>
+</blockquote>
+<p>您也可以建立指向命名的路由或控制器至表单：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">open<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'route'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'route.name'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">open<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'action'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Controller@method'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>您也可以传递路由参数：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">open<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'route'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'route.name'</span><span class="token punctuation">,</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">id</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">open<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'action'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'Controller@method'</span><span class="token punctuation">,</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">id</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>如果您的表单允许上传文件，可以加入 <code class=" language-php">files</code> 选项到参数中:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">open<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'url'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'foo/bar'</span><span class="token punctuation">,</span> <span class="token string">'files'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p><a name="csrf-protection"></a></p>
+<h2><a href="html.html#csrf-protection">CSRF 保护</a></h2>
+<h4>添加 CSRF Token 到表单</h4>
+<p>Laravel 提供简易的方法，让您可以保护您的应用程序不受到 CSRF (跨网站请求伪造) 攻击。首先 Laravel 会自动在用户的 session 中放置随机的 token，如果你使用 <code class=" language-php"><span class="token scope">Form<span class="token punctuation">::</span></span>open</code> 方法并使用 <code class=" language-php"><span class="token constant">POST</span></code>，<code class=" language-php"><span class="token constant">PUT</span></code> 或者 <code class=" language-php"><span class="token constant">DELETE</span></code>，这个 CSRF 参数会用隐藏字段的方式自动加到您的表单中，您也可以使用 <code class=" language-php">token</code> 的方法去产生这个隐藏的 CSRF token 字段：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">token<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>附加 CSRF 过滤器到路由</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">post<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'before'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'csrf'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="form-model-binding"></a></p>
+<h2><a href="html.html#form-model-binding">表单模型绑定</a></h2>
+<h4>开启模型表单</h4>
+<p>您经常会想要将模型内容加入至表单中，您可以使用 <code class=" language-php"><span class="token scope">Form<span class="token punctuation">::</span></span>model</code> 方法实现：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">model<span class="token punctuation">(</span></span><span class="token variable">$user</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'route'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'user.update'</span><span class="token punctuation">,</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">id</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>现在当您产生表单元素时，如 text 字段，模型的值将会自动比对到字段名称，并设定此字段值，举例来说，用户模型的 <code class=" language-php">email</code> 属性，将会设定到名称为 <code class=" language-php">email</code> 的 text 字段的字段值，不仅如此，当 Session 中有与字段名称相符的名称， Session 的值将会优先于模型的值，而优先顺序如下：</p>
+<ol>
+<li>Session 的数据 (旧的输入值)</li>
+<li>明确传递的数据</li>
+<li>模型属性数据</li>
+</ol>
+<p>这样可以允许您快速地建立表单，不仅是绑定模型数据，也可以在服务器端数据验证错误时，轻松的回填用户输入的旧数据！</p>
+<blockquote>
+<p><strong>注意：</strong> 当使用 <code class=" language-php"><span class="token scope">Form<span class="token punctuation">::</span></span>model</code> 方法时，必须确保有使用 <code class=" language-php"><span class="token scope">Form<span class="token punctuation">::</span></span>close</code> 方法来关闭表单！</p>
+</blockquote>
+<p><a name="labels"></a></p>
+<h2><a href="html.html#labels">标签（Label）</a></h2>
+<h4>产生标签（Label）元素</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">label<span class="token punctuation">(</span></span><span class="token string">'email'</span><span class="token punctuation">,</span> <span class="token string">'E-Mail Address'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>指定额外的 HTML 属性</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">label<span class="token punctuation">(</span></span><span class="token string">'email'</span><span class="token punctuation">,</span> <span class="token string">'E-Mail Address'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'class'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'awesome'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意：</strong> 在建立标签时，任何您建立的表单元素名称与标签相符时，将会自动在 ID 属性建立与标签名称相同的 ID。</p>
+</blockquote>
+<p><a name="text"></a></p>
+<h2><a href="html.html#text">文字字段、多行文字字段、密码字段,、隐藏字段</a></h2>
+<h4>产生文字字段</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">text<span class="token punctuation">(</span></span><span class="token string">'username'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>指定默认值</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">text<span class="token punctuation">(</span></span><span class="token string">'email'</span><span class="token punctuation">,</span> <span class="token string">'example@gmail.com'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意：</strong> <em>hidden</em> 和 <em>textarea</em> 方法和 <em>text</em> 方法使用属性参数是相同的。</p>
+</blockquote>
+<h4>产生密码输入字段</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">password<span class="token punctuation">(</span></span><span class="token string">'password'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>产生其他输入字段</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">email<span class="token punctuation">(</span></span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$value</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token variable">$attributes</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">file<span class="token punctuation">(</span></span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$attributes</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="checkboxes-and-radio-buttons"></a></p>
+<h2><a href="html.html#checkboxes-and-radio-buttons">复选框和单选项钮</a></h2>
+<h4>产生复选框或单选按钮</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">checkbox<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">radio<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>产生已选取的复选框或单选按钮</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">checkbox<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">radio<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="number"></a></p>
+<h2><a href="html.html#number">Number</a></h2>
+<h4>Generating A Number Input</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">number<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="file-input"></a></p>
+<h2><a href="html.html#file-input">文件输入</a></h2>
+<h4>产生文件输入</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">file<span class="token punctuation">(</span></span><span class="token string">'image'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意：</strong>表单必须已将 <code class=" language-php">files</code> 选项设定为 <code class=" language-php"><span class="token boolean">true</span></code>。</p>
+</blockquote>
+<p><a name="drop-down-lists"></a></p>
+<h2><a href="html.html#drop-down-lists">下拉式选单</a></h2>
+<h4>产生下拉式选单</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">select<span class="token punctuation">(</span></span><span class="token string">'size'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'L'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Large'</span><span class="token punctuation">,</span> <span class="token string">'S'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Small'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>产生选择默认值的下拉式选单</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">select<span class="token punctuation">(</span></span><span class="token string">'size'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'L'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Large'</span><span class="token punctuation">,</span> <span class="token string">'S'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Small'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'S'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>产生群组清单</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">select<span class="token punctuation">(</span></span><span class="token string">'animal'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token string">'Cats'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'leopard'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Leopard'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">'Dogs'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'spaniel'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Spaniel'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>产生范围的下拉式选单</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">selectRange<span class="token punctuation">(</span></span><span class="token string">'number'</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>产生月份名称的清单</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">selectMonth<span class="token punctuation">(</span></span><span class="token string">'month'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="buttons"></a></p>
+<h2><a href="html.html#buttons">按钮</a></h2>
+<h4>产生提交按钮</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">submit<span class="token punctuation">(</span></span><span class="token string">'Click Me!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意：</strong> 需要产生按钮（Button）元素吗? 可以试着使用 <em>button</em> 方法去产生按钮（Button）元素，button 方法与 <em>submit</em> 使用属性参数是相同的。</p>
+</blockquote>
+<p><a name="custom-macros"></a></p>
+<h2><a href="html.html#custom-macros">自定义宏</a></h2>
+<h4>注册表单宏</h4>
+<p>您可以轻松的定义您自己的表单类的辅助方法叫「宏（macros）」，首先只要注册 宏 ，并给预期名称及封闭函数：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">macro<span class="token punctuation">(</span></span><span class="token string">'myField'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> '<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>awesome<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>'<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>现在您可以使用注册的名称调用您的宏：</p>
+<h4>调用自定义表单宏</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">echo</span> <span class="token scope">Form<span class="token punctuation">::</span></span><span class="token function">myField<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="generating-urls"></a></p>
+<h2><a href="html.html#generating-urls">产生 URL</a></h2>
+<p>更多产生 URL 的信息，请参阅文件<a href="helpers.html#urls">辅助方法</a>。</p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":31,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="html.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

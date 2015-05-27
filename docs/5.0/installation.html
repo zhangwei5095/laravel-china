@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>Laravel 安装指南 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728397109&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=26&be=234&fe=754&dc=22&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728397109,%22n%22:0,%22u%22:231,%22ue%22:231,%22dl%22:233,%22di%22:256,%22ds%22:256,%22de%22:308,%22dc%22:988,%22l%22:988,%22le%22:988,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:102,%22rq%22:102,%22rp%22:227,%22rpe%22:241%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="Laravel 安装指南,安装 Composer,安装 Laravel,环境需求,安装 Composer,Laravel 框架使用 Composer 来管理其依赖性。所以，在你使用 Laravel 之前，你必须确认在你电脑上是否安装了 Composer。,安装 Laravel,通过 Laravel 安装工具,首先，使用 Composer 下载 Laravel 安装包：,composer globa...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="installation.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			5.0
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="installation.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2/installation.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>Laravel 安装指南</h1>
+<ul>
+<li><a href="installation.html#install-composer">安装 Composer</a></li>
+<li><a href="installation.html#install-laravel">安装 Laravel</a></li>
+<li><a href="installation.html#server-requirements">环境需求</a></li>
+</ul>
+<p><a name="install-composer"></a></p>
+<h2><a href="installation.html#install-composer">安装 Composer</a></h2>
+<p>Laravel 框架使用 <a href="http://getcomposer.org">Composer</a> 来管理其依赖性。所以，在你使用 Laravel 之前，你必须确认在你电脑上是否安装了 Composer。</p>
+<p><a name="install-laravel"></a></p>
+<h2><a href="installation.html#install-laravel">安装 Laravel</a></h2>
+<h3>通过 Laravel 安装工具</h3>
+<p>首先，使用 Composer 下载 Laravel 安装包：</p>
+<pre class=" language-php"><code class=" language-php">composer <span class="token keyword">global</span> <span class="token keyword">require</span> <span class="token string">"laravel/installer=~1.1"</span></code></pre>
+<p>请确定把 <code class=" language-php"><span class="token operator">~</span><span class="token operator">/</span><span class="token punctuation">.</span>composer<span class="token operator">/</span>vendor<span class="token operator">/</span>bin</code> 路径放置于您的 <code class=" language-php"><span class="token constant">PATH</span></code> 里， 这样 <code class=" language-php">laravel</code> 执行文件就会存在你的系统。</p>
+<p>一旦安装完成后，就可以使用 <code class=" language-php">laravel <span class="token keyword">new</span></code> 命令建立一份全新安装的 <code class=" language-php">Laravel</code> 应用，例如： <code class=" language-php">laravel <span class="token keyword">new</span> <span class="token class-name">blog</span></code> 将会在当前目录下建立一个名为 <code class=" language-php">blog</code> 的目录， 此目录里面存放着全新安装的 Laravel 相关代码，此方法跟其他方法不一样的地方在于会提前安装好所有相关代码，不需要再通过 <code class=" language-php">composer install</code> 安装相关依赖，速度会快许多。</p>
+<pre class=" language-php"><code class=" language-php">laravel <span class="token keyword">new</span> <span class="token class-name">blog</span></code></pre>
+<h3>通过 Composer Create-Project</h3>
+<p>你一样可以通过 Composer 在命令行执行 <code class=" language-php">create<span class="token operator">-</span>project</code> 来安装 Laravel：</p>
+<pre class=" language-php"><code class=" language-php">composer create<span class="token operator">-</span>project laravel<span class="token operator">/</span>laravel <span class="token operator">--</span>prefer<span class="token operator">-</span>dist</code></pre>
+<h3>脚手架</h3>
+<p>Laravel 自带了用户注册和认证的脚手架。如果你想要移除这个脚手架，使用 <code class=" language-php">fresh</code> 命令即可：</p>
+<p>php artisan fresh</p>
+<p><a name="server-requirements"></a></p>
+<h2><a href="installation.html#server-requirements">环境需求</a></h2>
+<p>Laravel 框架有一些系统上的需求：</p>
+<ul>
+<li>PHP 版本 &gt;= 5.4</li>
+<li>Mcrypt PHP 扩展</li>
+<li>OpenSSL PHP 扩展</li>
+<li>Mbstring PHP 扩展</li>
+<li>Tokenizer PHP 扩展</li>
+</ul>
+<p>在 PHP 5.5 之后， 有些操作系统需要手动安装 PHP JSON 扩展包。如果你是使用 Ubuntu，可以通过 <code class=" language-php">apt<span class="token operator">-</span>get install php5<span class="token operator">-</span>json</code> 来进行安装。</p>
+<p><a name="configuration"></a></p>
+<h2><a href="installation.html#configuration">配置</a></h2>
+<p>在你安装完 Laravel 后，首先需要做的事情是配置一个随机字串作为应用程序密钥。假设你是通过 comoser 安装 Laravel ，这个密钥会自动通过 <code class=" language-php">key<span class="token punctuation">:</span>generate</code> 命令帮你配置完成。</p>
+<p>通常这个密钥应该有 32 字符长。这个密钥可以被配置在 <code class=" language-php"><span class="token punctuation">.</span>env</code> 环境文件中。 <strong>如果这密钥没有被配置的话，你的用户 sessions 和其他的加密数据都是不安全的！</strong></p>
+<p>Laravel 几乎不需配置就可以马上使用。你可以自由的开始开发！然而，你可以查看 <code class=" language-php">config<span class="token operator">/</span>app<span class="token punctuation">.</span>php</code> 文件和其他的文档。你可能希望根据你的应用程序而做更改，文件包含数个选项如 <code class=" language-php">时区</code> 和 <code class=" language-php">语言环境</code>。</p>
+<p>一旦 Laravel 安装完成，你应该同时 <a href="configuration.html#environment-configuration">配置本地环境</a>。</p>
+<blockquote>
+<p><strong>注意：</strong> 你不应该在正式环境中将 <code class=" language-php">app<span class="token punctuation">.</span>debug</code> 配置为 <code class=" language-php"><span class="token boolean">true</span></code>。绝对！千万不要！</p>
+</blockquote>
+<p><a name="permissions"></a></p>
+<h3>权限</h3>
+<p>Laravel 框架有一个目录需要额外配置权限：<code class=" language-php">storage</code> 和 <code class=" language-php">vendor</code> 目录要让服务器有写入的权限。</p>
+<p><a name="pretty-urls"></a></p>
+<h2><a href="installation.html#pretty-urls">优雅链接</a></h2>
+<h3>Apache</h3>
+<p>Laravel 框架通过 <code class=" language-php"><span class="token keyword">public</span><span class="token operator">/</span><span class="token punctuation">.</span>htaccess</code> 文件来让网址中不需要 <code class=" language-php">index<span class="token punctuation">.</span>php</code>。如果你的网页服务器是使用 Apache 的话，请确认是否有开启 <code class=" language-php">mod_rewrite</code> 模块。</p>
+<p>假设 Laravel 附带的 <code class=" language-php"><span class="token punctuation">.</span>htaccess</code> 文件在 Apache 无法生效的话，请尝试下面的方法：</p>
+<pre class=" language-php"><code class=" language-php">Options <span class="token operator">+</span>FollowSymLinks
+RewriteEngine On
+
+RewriteCond <span class="token operator">%</span><span class="token punctuation">{</span><span class="token constant">REQUEST_FILENAME</span><span class="token punctuation">}</span> <span class="token operator">!</span><span class="token operator">-</span>d
+RewriteCond <span class="token operator">%</span><span class="token punctuation">{</span><span class="token constant">REQUEST_FILENAME</span><span class="token punctuation">}</span> <span class="token operator">!</span><span class="token operator">-</span>f
+RewriteRule <span class="token operator">^</span> index<span class="token punctuation">.</span>php <span class="token punctuation">[</span>L<span class="token punctuation">]</span></code></pre>
+<h3>Nginx</h3>
+<p>在 Nginx，在你的网站配置中增加下面的配置，可以使用「优雅链接」：</p>
+<pre class=" language-php"><code class=" language-php">location <span class="token operator">/</span> <span class="token punctuation">{</span>
+    try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token operator">/</span>index<span class="token punctuation">.</span>php<span class="token operator">?</span><span class="token variable">$query_string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>当然，如果你使用 <a href="homestead.html">Homestead</a> 的话，优雅链接会自动的帮你配置完成。</p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":26,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="installation.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

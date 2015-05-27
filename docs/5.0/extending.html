@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>扩展框架 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728405717&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=39&be=116&fe=506&dc=24&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728405717,%22n%22:0,%22u%22:113,%22ue%22:113,%22dl%22:115,%22di%22:140,%22ds%22:140,%22de%22:212,%22dc%22:622,%22l%22:622,%22le%22:622,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:108,%22rpe%22:121%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="扩展框架,管理者和工厂,缓存,Session,认证,基于服务容器的扩展,管理者和工厂,Laravel 有几个 Manager 类，用来管理创建基于驱动的组件。这些类包括缓存、session 、认证和队列组件。管理者类负责基于应用程序的配置建立一个特定的驱动实现。例如，CacheManager 类可以建立 APC 、 Memcached 、文件和各种其他的缓存驱动实现。,这些管理者都拥有 exten...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="extending.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			5.0
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="extending.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2/extending.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>扩展框架</h1>
+<ul>
+<li><a href="extending.html#managers-and-factories">管理者和工厂</a></li>
+<li><a href="extending.html#cache">缓存</a></li>
+<li><a href="extending.html#session">Session</a></li>
+<li><a href="extending.html#authentication">认证</a></li>
+<li><a href="extending.html#container-based-extension">基于服务容器的扩展</a></li>
+</ul>
+<p><a name="managers-and-factories"></a></p>
+<h2><a href="extending.html#managers-and-factories">管理者和工厂</a></h2>
+<p>Laravel 有几个 <code class=" language-php">Manager</code> 类，用来管理创建基于驱动的组件。这些类包括缓存、session 、认证和队列组件。管理者类负责基于应用程序的配置建立一个特定的驱动实现。例如，<code class=" language-php">CacheManager</code> 类可以建立 APC 、 Memcached 、文件和各种其他的缓存驱动实现。</p>
+<p>这些管理者都拥有 <code class=" language-php">extend</code> 方法，可以简单地用它来注入新的驱动解析功能到管理者。我们将会在下面的例子，随着讲解如何为它们注入自定义驱动支持，涵盖这些管理者的内容。</p>
+<blockquote>
+<p><strong>注意：</strong> 建议花点时间来探索 Laravel 附带的各种 <code class=" language-php">Manager</code> 类，例如：<code class=" language-php">CacheManager</code> 和 <code class=" language-php">SessionManager</code>。看过这些类将会让你更彻底了解 Laravel 表面下是如何运作。所有的管理者类继承  <code class=" language-php">Illuminate\<span class="token package">Support<span class="token punctuation">\</span>Manager</span></code> 基础类，它提供一些有用、常见的功能给每一个管理者。</p>
+</blockquote>
+<p><a name="cache"></a></p>
+<h2><a href="extending.html#cache">缓存</a></h2>
+<p>为了扩展 Laravel 缓存功能，我们将会使用 <code class=" language-php">CacheManager</code> 的 <code class=" language-php">extend</code> 方法，这方法可以用来绑定一个自定义驱动解析器到管理者，并且是全部的管理者类通用的。例如，注册一个新的缓存驱动名为「mongo」，我们将执行以下操作：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Cache<span class="token punctuation">::</span></span><span class="token function">extend<span class="token punctuation">(</span></span><span class="token string">'mongo'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token scope">Cache<span class="token punctuation">::</span></span><span class="token function">repository<span class="token punctuation">(</span></span><span class="token keyword">new</span> <span class="token class-name">MongoStore</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>传递到 <code class=" language-php">extend</code> 方法的第一个参数是驱动的名称。这将会对应到你的 <code class=" language-php">config<span class="token operator">/</span>cache<span class="token punctuation">.</span>php</code> 配置文件里的 <code class=" language-php">driver</code> 选项。第二个参数是个应该返回 <code class=" language-php">Illuminate\<span class="token package">Cache<span class="token punctuation">\</span>Repository</span></code> 实例的闭包。 <code class=" language-php"><span class="token variable">$app</span></code> 将会被传递到闭包，它是 <code class=" language-php">Illuminate\<span class="token package">Foundation<span class="token punctuation">\</span>Application</span></code> 和服务容器的实例。</p>
+<p><code class=" language-php"><span class="token scope">Cache<span class="token punctuation">::</span></span>extend</code> 的调用可以在新的 Laravel 应用程序默认附带的 <code class=" language-php">App\<span class="token package">Providers<span class="token punctuation">\</span>AppServiceProvider</span></code> 的 <code class=" language-php">boot</code> 方法中完成，或者你可以建立自己的服务提供者来放置这个扩展 - 记得不要忘记在 <code class=" language-php">config<span class="token operator">/</span>app<span class="token punctuation">.</span>php</code> 的提供者数组注册提供者。</p>
+<p>要建立自定义缓存驱动，首先需要实现 <code class=" language-php">Illuminate\<span class="token package">Contracts<span class="token punctuation">\</span>Cache<span class="token punctuation">\</span>Store</span></code> contract 。所以，我们的 MongoDB 缓存实现将会看起来像这样：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">class</span> <span class="token class-name">MongoStore</span> <span class="token keyword">implements</span> <span class="token class-name">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Cache<span class="token punctuation">\</span>Store</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">get<span class="token punctuation">(</span></span><span class="token variable">$key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">put<span class="token punctuation">(</span></span><span class="token variable">$key</span><span class="token punctuation">,</span> <span class="token variable">$value</span><span class="token punctuation">,</span> <span class="token variable">$minutes</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">increment<span class="token punctuation">(</span></span><span class="token variable">$key</span><span class="token punctuation">,</span> <span class="token variable">$value</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">decrement<span class="token punctuation">(</span></span><span class="token variable">$key</span><span class="token punctuation">,</span> <span class="token variable">$value</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">forever<span class="token punctuation">(</span></span><span class="token variable">$key</span><span class="token punctuation">,</span> <span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">forget<span class="token punctuation">(</span></span><span class="token variable">$key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">flush<span class="token punctuation">(</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>我们只需要使用 MongoDB 连接来实现这些方法。当实现完成，就可以完成自定义驱动注册：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Cache<span class="token punctuation">::</span></span><span class="token function">extend<span class="token punctuation">(</span></span><span class="token string">'mongo'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token scope">Cache<span class="token punctuation">::</span></span><span class="token function">repository<span class="token punctuation">(</span></span><span class="token keyword">new</span> <span class="token class-name">MongoStore</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>如果你正在考虑要把自定义缓存驱动代码放在哪里，请考虑把它放上  Packagist ！或者，你可以在 <code class=" language-php">app</code> 的目录中建立 <code class=" language-php">Extensions</code> 命名空间。记得 Laravel 没有严格的应用程序架构，你可以依照喜好自由的组织应用程序。</p>
+<p><a name="session"></a></p>
+<h2><a href="extending.html#session">Session</a></h2>
+<p>自定义 session 驱动来扩展 Laravel 和扩展缓存系统一样简单。我们将会再一次使用 <code class=" language-php">extend</code> 方法来注册自定义代码：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Session<span class="token punctuation">::</span></span><span class="token function">extend<span class="token punctuation">(</span></span><span class="token string">'mongo'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // Return implementation of SessionHandlerInterface
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>在哪里扩展 Session</h3>
+<p>你应该把 session 扩展代码放置在 <code class=" language-php">AppServiceProvider</code> 的 <code class=" language-php">boot</code> 方法里。</p>
+<h3>实现 Session 扩展</h3>
+<p>要注意我们的自定义缓存驱动应该要实现 <code class=" language-php">SessionHandlerInterface</code> 。这个接口只包含少数需要实现的简单方法。一个基本的 MongoDB 实现会看起来像这样：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">class</span> <span class="token class-name">MongoHandler</span> <span class="token keyword">implements</span> <span class="token class-name">SessionHandlerInterface</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">open<span class="token punctuation">(</span></span><span class="token variable">$savePath</span><span class="token punctuation">,</span> <span class="token variable">$sessionName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">close<span class="token punctuation">(</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">read<span class="token punctuation">(</span></span><span class="token variable">$sessionId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">write<span class="token punctuation">(</span></span><span class="token variable">$sessionId</span><span class="token punctuation">,</span> <span class="token variable">$data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">destroy<span class="token punctuation">(</span></span><span class="token variable">$sessionId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">gc<span class="token punctuation">(</span></span><span class="token variable">$lifetime</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>因为这些方法不像缓存的 <code class=" language-php">StoreInterface</code> 一样容易理解，让我们快速地看过这些方法做些什么：</p>
+<ul>
+<li><code class=" language-php">open</code> 方法通常会被用在基于文件的 session 保存系统。因为 Laravel 附带一个 <code class=" language-php">file</code> session 驱动，几乎不需要在这个方法放任何东西。你可以让它留空。PHP 要求我们去实现这个方法，事实上明显是个差劲的接口设计 (我们将会晚点讨论它)。</li>
+<li><code class=" language-php">close</code> 方法，就像 <code class=" language-php">open</code> 方法，通常也可以忽略。对大部份的驱动来说，并不需要它。</li>
+<li><code class=" language-php">read</code> 方法应该返回与给定 <code class=" language-php"><span class="token variable">$sessionId</span></code> 关联的 session 数据的字串形态。当你的驱动取回或保存 session 数据时不需要做任何序列化或进行其他编码，因为 Laravel 将会为你进行序列化</li>
+<li><code class=" language-php">write</code> 方法应该写入给定 <code class=" language-php"><span class="token variable">$data</span></code> 字串与 <code class=" language-php"><span class="token variable">$sessionId</span></code> 的关联到一些永久存储系统，例如：MongoDB、 Dynamo、等等。</li>
+<li><code class=" language-php">destroy</code> 方法应该从永久存储移除与 <code class=" language-php"><span class="token variable">$sessionId</span></code> 关联的数据。</li>
+<li><code class=" language-php">gc</code> 方法应该销毁所有比给定 <code class=" language-php"><span class="token variable">$lifetime</span></code> UNIX 时间戳记还旧的 session 数据。对于会自己过期的系统如 Memcached 和 Redis，这个方法可以留空。</li>
+</ul>
+<p>当 <code class=" language-php">SessionHandlerInterface</code> 实现完成，我们准备好要用 Session 管理者注册它：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Session<span class="token punctuation">::</span></span><span class="token function">extend<span class="token punctuation">(</span></span><span class="token string">'mongo'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MongoHandler</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>当 session 驱动已经被注册，我们可以在 <code class=" language-php">config<span class="token operator">/</span>session<span class="token punctuation">.</span>php</code> 配置文件使用 <code class=" language-php">mongo</code> 驱动。</p>
+<blockquote>
+<p><strong>注意：</strong> 记住，如果你写了个自定义 session 处理器，请在 Packagist 分享它！</p>
+</blockquote>
+<p><a name="authentication"></a></p>
+<h2><a href="extending.html#authentication">认证</a></h2>
+<p>认证可以用与缓存和 session 功能相同的方法扩展。再一次的，使用我们已经熟悉的 <code class=" language-php">extend</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">extend<span class="token punctuation">(</span></span><span class="token string">'riak'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // 返回 Illuminate\Contracts\Auth\UserProvider 的实现
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code class=" language-php">UserProvider</code> 实现只负责从永久存储系统抓取 <code class=" language-php">Illuminate\<span class="token package">Contracts<span class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Authenticatable</span></code> 实现，存储系统例如： MySQL 、 Riak ，等等。这两个接口让 Laravel 认证机制无论用户数据如何保存或用什么种类的类来代表它都能继续运作。</p>
+<p>让我们来看一下 <code class=" language-php">UserProvider</code> contract ：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">interface</span> <span class="token class-name">UserProvider</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">retrieveById<span class="token punctuation">(</span></span><span class="token variable">$identifier</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">retrieveByToken<span class="token punctuation">(</span></span><span class="token variable">$identifier</span><span class="token punctuation">,</span> <span class="token variable">$token</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">updateRememberToken<span class="token punctuation">(</span></span>Authenticatable <span class="token variable">$user</span><span class="token punctuation">,</span> <span class="token variable">$token</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">retrieveByCredentials<span class="token punctuation">(</span></span><span class="token keyword">array</span> <span class="token variable">$credentials</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">validateCredentials<span class="token punctuation">(</span></span>Authenticatable <span class="token variable">$user</span><span class="token punctuation">,</span> <span class="token keyword">array</span> <span class="token variable">$credentials</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p><code class=" language-php">retrieveById</code> 函数通常接收一个代表用户的数字键，例如：MySQL 数据库的自动递增 ID。这方法应该取得符合 ID 的 <code class=" language-php">Authenticatable</code> 实现并返回。</p>
+<p><code class=" language-php">retrieveByToken</code> 函数用用户唯一的 <code class=" language-php"><span class="token variable">$identifier</span></code> 和保存在 <code class=" language-php">remember_token</code> 字段的「记住我」 <code class=" language-php"><span class="token variable">$token</span></code> 来取得用户。跟前面的方法一样，应该返回 <code class=" language-php">Authenticatable</code> 的实现。</p>
+<p><code class=" language-php">updateRememberToken</code> 方法用新的 <code class=" language-php"><span class="token variable">$token</span></code> 更新 <code class=" language-php"><span class="token variable">$user</span></code> 的 <code class=" language-php">remember_token</code> 字段。新 token 可以是在「记住我」成功地登录时，传入一个新的 token，或当用户注销时传入一个 null。</p>
+<p><code class=" language-php">retrieveByCredentials</code> 方法接收当尝试登录应用程序时，传递到 <code class=" language-php"><span class="token scope">Auth<span class="token punctuation">::</span></span>attempt</code> 方法的凭证数组。这个方法应该接着「查找」底层使用的永久存储，找到符合凭证的用户。这个方法通常会对 <code class=" language-php"><span class="token variable">$credentials</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span></code> 用「 where 」条件查找。 并且应该返回一个 <code class=" language-php">UserInterface</code> 接口的实现。<strong>这个方法不应该尝试做任何密码验证或认证。</strong></p>
+<p><code class=" language-php">validateCredentials</code> 方法应该通过比较给定的 <code class=" language-php"><span class="token variable">$user</span></code> 与 <code class=" language-php"><span class="token variable">$credentials</span></code> 来验证用户。举例来说，这个方法可以比较 <code class=" language-php"><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getAuthPassword<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code> 字串跟 <code class=" language-php"><span class="token scope">Hash<span class="token punctuation">::</span></span>make</code> 后的 <code class=" language-php"><span class="token variable">$credentials</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span></code>。这个方法应该只验证用户的凭证数组并且返回布尔值。</p>
+<p>现在我们已经看过 <code class=" language-php">UserProvider</code> 的每个方法，接着来看一下 <code class=" language-php">Authenticatable</code>。记住，提供者应该从 <code class=" language-php">retrieveById</code> 和 <code class=" language-php">retrieveByCredentials</code> 方法返回这个接口的实现：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">interface</span> <span class="token class-name">Authenticatable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getAuthIdentifier<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getAuthPassword<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getRememberToken<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setRememberToken<span class="token punctuation">(</span></span><span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getRememberTokenName<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>这个接口很简单。 The <code class=" language-php">getAuthIdentifier</code> 方法应该返回用户的「主键」。在 MySQL 后台，同样，这将会是个自动递增的主键。<code class=" language-php">getAuthPassword</code> 应该返回用户哈希过的密码。这个接口让认证系统可以与任何用户类一起运作，无论你使用什么 ORM 或保存抽象层。默认，Laravel 包含一个实现这个接口的 <code class=" language-php">User</code> 类在 <code class=" language-php">app</code> 文件夹里，所以你可以参考这个类当作实现的例子。</p>
+<p>最后，当我们已经实现了 <code class=" language-php">UserProvider</code>，我们准备好用 <code class=" language-php">Auth</code> facade 来注册扩展：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">extend<span class="token punctuation">(</span></span><span class="token string">'riak'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RiakUserProvider</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">[</span><span class="token string">'riak.connection'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>用 <code class=" language-php">extend</code> 方法注册驱动之后，在你的 <code class=" language-php">config<span class="token operator">/</span>auth<span class="token punctuation">.</span>php</code> 配置文件切换到新驱动。</p>
+<p><a name="container-based-extension"></a></p>
+<h2><a href="extending.html#container-based-extension">基于服务容器的扩展</a></h2>
+<p>几乎每个 Laravel 框架引入的服务提供者都会绑定对象到服务容器中。你可以在 <code class=" language-php">config<span class="token operator">/</span>app<span class="token punctuation">.</span>php</code> 配置文件中找到应用程序的服务提供者清单。如果你有时间，你应该浏览过这里面每一个提供者的源代码。通过这样做，你将会更了解每一个提供者添加什么到框架，以及用什么键值来绑定各种服务到服务容器。</p>
+<p>例如， <code class=" language-php">HashServiceProvider</code> 绑定 <code class=" language-php">hash</code> 做为键值到服务容器，它将解析成 <code class=" language-php">Illuminate\<span class="token package">Hashing<span class="token punctuation">\</span>BcryptHasher</span></code> 实例。你可以在应用程序中覆写这个 IoC 绑定，轻松地扩展并覆写这个类。例如：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SnappyHashProvider</span> <span class="token keyword">extends</span> <span class="token class-name"><span class="token punctuation">\</span>Illuminate<span class="token punctuation">\</span>Hashing<span class="token punctuation">\</span>HashServiceProvider</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token scope"><span class="token keyword">parent</span><span class="token punctuation">::</span></span><span class="token function">boot<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bindShared<span class="token punctuation">(</span></span><span class="token string">'hash'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token punctuation">\</span>Snappy<span class="token punctuation">\</span>Hashing<span class="token punctuation">\</span>ScryptHasher</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>要注意的是这个类扩展 <code class=" language-php">HashServiceProvider</code>，不是默认的 <code class=" language-php">ServiceProvider</code> 基础类。当你扩展了服务提供者，在 <code class=" language-php">config<span class="token operator">/</span>app<span class="token punctuation">.</span>php</code> 配置文件把 <code class=" language-php">HashServiceProvider</code> 换成你扩展的提供者名称。</p>
+<p>这是被绑定在容器的所有核心类的一般扩展方法。实际上，每个以这种方式绑定在容器的核心类都可以被覆写。再次强调，看过每个框架引入的服务提供者将会使你熟悉：每个类被绑在容器的哪里、它们是用什么键值绑定。这是个好方法可以了解更多关于 Laravel 如何结合它们。</p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":39,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="extending.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

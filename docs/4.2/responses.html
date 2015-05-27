@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>视图（ View ）与响应（ Response ） - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728423498&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=30&be=321&fe=149&dc=18&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728423498,%22n%22:0,%22u%22:319,%22ue%22:319,%22dl%22:321,%22di%22:339,%22ds%22:339,%22de%22:412,%22dc%22:470,%22l%22:470,%22le%22:470,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:99,%22rpe%22:319%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="视图（ View ）与响应（ Response ）,基本响应,重定向跳转,视图,视图组件,特殊响应,响应宏,基本响应,从路由回传字串,Route::get('/', function(),{,    return 'Hello World';,});,建立自定义响应,Response 实例继承了 Symfony\Component\HttpFoundation\Response 类，其提供了很多方...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="responses.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			4.2
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0/responses.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="responses.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>视图（ View ）与响应（ Response ）</h1>
+<ul>
+<li><a href="responses.html#basic-responses">基本响应</a></li>
+<li><a href="responses.html#redirects">重定向跳转</a></li>
+<li><a href="responses.html#views">视图</a></li>
+<li><a href="responses.html#view-composers">视图组件</a></li>
+<li><a href="responses.html#special-responses">特殊响应</a></li>
+<li><a href="responses.html#response-macros">响应宏</a></li>
+</ul>
+<p><a name="basic-responses"></a></p>
+<h2><a href="responses.html#basic-responses">基本响应</a></h2>
+<h4>从路由回传字串</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>建立自定义响应</h4>
+<p><code class=" language-php">Response</code> 实例继承了 <code class=" language-php">Symfony\<span class="token package">Component<span class="token punctuation">\</span>HttpFoundation<span class="token punctuation">\</span>Response</span></code> 类，其提供了很多方法建立 HTTP 响应。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$response</span> <span class="token operator">=</span> <span class="token scope">Response<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token variable">$contents</span><span class="token punctuation">,</span> <span class="token variable">$statusCode</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$response</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">header<span class="token punctuation">(</span></span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token variable">$response</span><span class="token punctuation">;</span></code></pre>
+<p>如果想要使用 <code class=" language-php">Response</code> 类的方法，但最终回传视图给用户，您可以使用简便的 <code class=" language-php"><span class="token scope">Response<span class="token punctuation">::</span></span>view</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Response<span class="token punctuation">::</span></span><span class="token function">view<span class="token punctuation">(</span></span><span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">header<span class="token punctuation">(</span></span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token variable">$type</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>附加 Cookies 到响应</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$cookie</span> <span class="token operator">=</span> <span class="token scope">Cookie<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token scope">Response<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token variable">$content</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">withCookie<span class="token punctuation">(</span></span><span class="token variable">$cookie</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="redirects"></a></p>
+<h2><a href="responses.html#redirects">重定向跳转</a></h2>
+<h4>回传重定向跳转</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">to<span class="token punctuation">(</span></span><span class="token string">'user/login'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>回传重定向跳转并且加上快闪数据（ Flash Data ）</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">to<span class="token punctuation">(</span></span><span class="token string">'user/login'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">with<span class="token punctuation">(</span></span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token string">'Login Failed'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>提示：</strong> <code class=" language-php">with</code> 方法会设定快闪数据到 session，所以可以使用 <code class=" language-php"><span class="token scope">Session<span class="token punctuation">::</span></span>get</code> 取得数据。</p>
+</blockquote>
+<h4>回传根据路由名称的重定向跳转</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">route<span class="token punctuation">(</span></span><span class="token string">'login'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>回传根据路由名称的重定向跳转，并给予路由参数赋值</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">route<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>回传根据路由名称的重定向跳转，并给予特定名称路由参数赋值</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">route<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'user'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>回传根据控制器动作的重定向跳转</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">action<span class="token punctuation">(</span></span><span class="token string">'HomeController@index'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>回传根据控制器动作的重定向跳转，并给予参数赋值</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">action<span class="token punctuation">(</span></span><span class="token string">'UserController@profile'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>回传根据控制器动作的重定向跳转，并给予特定名称参数赋值</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">action<span class="token punctuation">(</span></span><span class="token string">'UserController@profile'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'user'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="views"></a></p>
+<h2><a href="responses.html#views">Views</a></h2>
+<p>视图通常包含 HTML，并且提供便利的方式分开控制器和表现层。视图储存在 <code class=" language-php">app<span class="token operator">/</span>views</code> 目录下。</p>
+<p>一个简单的视图可能看起来如下：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token markup"><span class="token comment" spellcheck="true">&lt;!-- View stored in app/views/greeting.php --&gt;</span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span></span>
+        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span></span>Hello<span class="token punctuation">,</span> <span class="token php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">echo</span> <span class="token variable">$name</span><span class="token punctuation">;</span> <span class="token delimiter">?&gt;</span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></span></code></pre>
+<p>视图可以像这样回传到用户浏览器：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token string">'greeting'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'name'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Taylor'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code class=" language-php"><span class="token scope">View<span class="token punctuation">::</span></span>make</code> 方法传入的第二个参数是可以在视图里使用的数组数据。</p>
+<h4>传递数据到视图</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token comment" spellcheck="true">// 使用通用方式
+</span><span class="token variable">$view</span> <span class="token operator">=</span> <span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token string">'greeting'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">with<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'Steve'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// 使用魔术方法
+</span><span class="token variable">$view</span> <span class="token operator">=</span> <span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token string">'greeting'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">withName<span class="token punctuation">(</span></span><span class="token string">'steve'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>上面的例子里，将可以在视图里使用变量 <code class=" language-php"><span class="token variable">$name</span></code> ，其值为 <code class=" language-php">Steve</code> 。</p>
+<p>您可以传入数组作为 <code class=" language-php">make</code> 方法第二个参数：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$view</span> <span class="token operator">=</span> <span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token string">'greetings'</span><span class="token punctuation">,</span> <span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>您也可以设定所有视图共用数据：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">share<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'Steve'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>传递子视图到视图</h4>
+<p>有时候您可能想要传递子视图到另一个视图。例如，有一个子视图存在 <code class=" language-php">app<span class="token operator">/</span>views<span class="token operator">/</span>child<span class="token operator">/</span>view<span class="token punctuation">.</span>php</code>，可以像这样将它传递到另一个视图：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$view</span> <span class="token operator">=</span> <span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token string">'greeting'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">nest<span class="token punctuation">(</span></span><span class="token string">'child'</span><span class="token punctuation">,</span> <span class="token string">'child.view'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$view</span> <span class="token operator">=</span> <span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token string">'greeting'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">nest<span class="token punctuation">(</span></span><span class="token string">'child'</span><span class="token punctuation">,</span> <span class="token string">'child.view'</span><span class="token punctuation">,</span> <span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>如此可以在视图里渲染子视图：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span></span>
+        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span></span>Hello<span class="token operator">!</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span></span>
+        <span class="token php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">echo</span> <span class="token variable">$child</span><span class="token punctuation">;</span> <span class="token delimiter">?&gt;</span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></span></code></pre>
+<h4>确认视图是否存在</h4>
+<p>如果您需要确认视图是否存在，使用 <code class=" language-php"><span class="token scope">View<span class="token punctuation">::</span></span>exists</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">exists<span class="token punctuation">(</span></span><span class="token string">'emails.customer'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<p><a name="view-composers"></a></p>
+<h2><a href="responses.html#view-composers">视图组件</a></h2>
+<p>视图组件是当渲染视图时调用的回调函数或类方法。如果您想在每次渲染某些视图时绑定数据，视图组件可以把这样的逻辑组织在同一个地方。因此，视图组件的作用可能如 "view models" 或是 "presenters"。</p>
+<h4>定义一个组件</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">composer<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$view</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$view</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">with<span class="token punctuation">(</span></span><span class="token string">'count'</span><span class="token punctuation">,</span> <span class="token scope">User<span class="token punctuation">::</span></span><span class="token function">count<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>之后每当 <code class=" language-php">profile</code> 视图被渲染时， <code class=" language-php">count</code> 变量就会被绑定到视图。</p>
+<p>您也可以把一个组件同时附加到很多视图。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">composer<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'profile'</span><span class="token punctuation">,</span><span class="token string">'dashboard'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$view</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$view</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">with<span class="token punctuation">(</span></span><span class="token string">'count'</span><span class="token punctuation">,</span> <span class="token scope">User<span class="token punctuation">::</span></span><span class="token function">count<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>如使用类作为组件，提供了可以从 <a href="ioc.html">IoC 容器</a>自动解析组件的好处，您可以像这样做：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">composer<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token string">'ProfileComposer'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>一个视图组件类应该像这样定义：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">class</span> <span class="token class-name">ProfileComposer</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">compose<span class="token punctuation">(</span></span><span class="token variable">$view</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$view</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">with<span class="token punctuation">(</span></span><span class="token string">'count'</span><span class="token punctuation">,</span> <span class="token scope">User<span class="token punctuation">::</span></span><span class="token function">count<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h4>定义很多组件</h4>
+<p>您可以使用 <code class=" language-php">composers</code> 方法群组视图组件：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">composers<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token string">'AdminComposer'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'admin.index'</span><span class="token punctuation">,</span> <span class="token string">'admin.profile'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">'UserComposer'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'user'</span><span class="token punctuation">,</span>
+    <span class="token string">'ProductComposer@create'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'product'</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>提示：</strong> 组件类没有一定要放在什么地方，您可以将它们放在任何地方，只要可以使用 <code class=" language-php">composer<span class="token punctuation">.</span>json</code> 自动载入即可。</p>
+</blockquote>
+<h3>视图创建者</h3>
+<p>视图 <strong>创建者</strong> 几乎和组件运作方式一样；只是他们会在视图初始化时就立刻建立起来。要注册一个创建者，只要使用 <code class=" language-php">creator</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">View<span class="token punctuation">::</span></span><span class="token function">creator<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$view</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$view</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">with<span class="token punctuation">(</span></span><span class="token string">'count'</span><span class="token punctuation">,</span> <span class="token scope">User<span class="token punctuation">::</span></span><span class="token function">count<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="special-responses"></a></p>
+<h2><a href="responses.html#special-responses">特殊响应</a></h2>
+<h4>建立 JSON 响应</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Response<span class="token punctuation">::</span></span><span class="token function">json<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'name'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Steve'</span><span class="token punctuation">,</span> <span class="token string">'state'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'CA'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>建立 JSONP 响应</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Response<span class="token punctuation">::</span></span><span class="token function">json<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'name'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Steve'</span><span class="token punctuation">,</span> <span class="token string">'state'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'CA'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setCallback<span class="token punctuation">(</span></span><span class="token scope">Input<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'callback'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>建立下载文件响应</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Response<span class="token punctuation">::</span></span><span class="token function">download<span class="token punctuation">(</span></span><span class="token variable">$pathToFile</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token scope">Response<span class="token punctuation">::</span></span><span class="token function">download<span class="token punctuation">(</span></span><span class="token variable">$pathToFile</span><span class="token punctuation">,</span> <span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$headers</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>提醒：</strong> 管理文件下载的扩展包，Symfony HttpFoundation，要求下载文件名必须为 ASCII 。</p>
+</blockquote>
+<p><a name="response-macros"></a></p>
+<h2><a href="responses.html#response-macros">响应宏</a></h2>
+<p>如果您想要自定义可以在很多路由和控制器重复使用的响应，可以使用 <code class=" language-php"><span class="token scope">Response<span class="token punctuation">::</span></span>macro</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Response<span class="token punctuation">::</span></span><span class="token function">macro<span class="token punctuation">(</span></span><span class="token string">'caps'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$value</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token scope">Response<span class="token punctuation">::</span></span><span class="token function">make<span class="token punctuation">(</span></span><span class="token function">strtoupper<span class="token punctuation">(</span></span><span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code class=" language-php">macro</code> 方法第一个参数为宏名称，第二个参数为闭合函数。闭合函数会在 <code class=" language-php">Response</code> 调用宏名称的时候被执行：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token scope">Response<span class="token punctuation">::</span></span><span class="token function">caps<span class="token punctuation">(</span></span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>您可以把定义自己的宏放在 <code class=" language-php">app<span class="token operator">/</span>start</code> 里面的文件。又或者，您可以将宏组织成独立的文件，并且从其中一个 <code class=" language-php">start</code> 文件里引入。</p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":30,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="responses.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

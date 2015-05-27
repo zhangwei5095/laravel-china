@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>HTTP 路由 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728399401&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=45&be=249&fe=270&dc=31&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728399401,%22n%22:0,%22u%22:246,%22ue%22:246,%22dl%22:248,%22di%22:280,%22ds%22:280,%22de%22:365,%22dc%22:519,%22l%22:519,%22le%22:519,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:114,%22rpe%22:246%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="HTTP 路由,基本路由,CSRF 保护,方法欺骗,路由参数,命名路由,路由群组,路由模型绑定,抛出 404 错误,基本路由,您将在 app/Http/routes.php 中定义应用中的大多数路由，这个文件加载了 App\Providers\RouteServiceProvider 类。,大多数基本的 Laravel 路由都只接受一个 URI 和 一个 闭包(Closure) 参数：,基本 GE...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="routing.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			5.0
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="routing.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2/routing.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>HTTP 路由</h1>
+<ul>
+<li><a href="routing.html#basic-routing">基本路由</a></li>
+<li><a href="routing.html#csrf-protection">CSRF 保护</a></li>
+<li><a href="routing.html#method-spoofing">方法欺骗</a></li>
+<li><a href="routing.html#route-parameters">路由参数</a></li>
+<li><a href="routing.html#named-routes">命名路由</a></li>
+<li><a href="routing.html#route-groups">路由群组</a></li>
+<li><a href="routing.html#route-model-binding">路由模型绑定</a></li>
+<li><a href="routing.html#throwing-404-errors">抛出 404 错误</a></li>
+</ul>
+<p><a name="basic-routing"></a></p>
+<h2><a href="routing.html#basic-routing">基本路由</a></h2>
+<p>您将在 <code class=" language-php">app<span class="token operator">/</span>Http<span class="token operator">/</span>routes<span class="token punctuation">.</span>php</code> 中定义应用中的大多数路由，这个文件加载了 <code class=" language-php">App\<span class="token package">Providers<span class="token punctuation">\</span>RouteServiceProvider</span></code> 类。
+大多数基本的 Laravel 路由都只接受一个 URI 和 一个 <code class=" language-php">闭包<span class="token punctuation">(</span>Closure<span class="token punctuation">)</span></code> 参数：</p>
+<h4>基本 GET 路由</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>其他基础路由</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">post<span class="token punctuation">(</span></span><span class="token string">'foo/bar'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">put<span class="token punctuation">(</span></span><span class="token string">'foo/bar'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">delete<span class="token punctuation">(</span></span><span class="token string">'foo/bar'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>为多种请求注册路由</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">match<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'get'</span><span class="token punctuation">,</span> <span class="token string">'post'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>注册路由响应所有 HTTP 请求</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">any<span class="token punctuation">(</span></span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>通常情况下，您将会需要为您的路由产生 URL，您可以使用 <code class=" language-php">url</code> 辅助函数来操作：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$url</span> <span class="token operator">=</span> <span class="token function">url<span class="token punctuation">(</span></span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="csrf-protection"></a></p>
+<h2><a href="routing.html#csrf-protection">CSRF 保护</a></h2>
+<p>Laravel 提供简易的方法，让您可以保护您的应用程序不受到 <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF (跨网站请求伪造)</a> 攻击。跨网站请求伪造是一种恶意的攻击，借以代表经过身份验证的用户执行未经授权的命令。</p>
+<p>Laravel 会自动在每一位用户的 session 中放置随机的 <code class=" language-php">token</code> ，这个 token  将被用来确保经过验证的用户是实际发出请求至应用程序的用户：</p>
+<h4>插入 CSRF Token 到表单</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>_token<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">echo</span> <span class="token function">csrf_token<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span></code></pre>
+<p>当然也可以在 Blade <a href="templates.html">模板引擎</a>使用：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>_token<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{{ csrf_token() }}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span></code></pre>
+<p>您不需要手动验证在 POST、PUT、DELETE 请求的 CSRF token。 <code class=" language-php">VerifyCsrfToken</code> <a href="middleware.html">HTTP  中间件</a>将保存在 session 中的请求输入的 token 配对来验证 token 。</p>
+<h4>X-CSRF-TOKEN</h4>
+<p>除了寻找 CSRF token 作为「POST」参数，中间件也检查 <code class=" language-php">X<span class="token operator">-</span><span class="token constant">XSRF</span><span class="token operator">-</span><span class="token constant">TOKEN</span></code> 请求头，比如，你可以把 token 存放在 meta 标签中, 然后使用 jQuery 将它加入到所有的请求头中：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>csrf-token<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{{ csrf_token() }}<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span></span>
+
+$<span class="token punctuation">.</span><span class="token function">ajaxSetup<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+    headers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'X-CSRF-TOKEN'</span><span class="token punctuation">:</span> $<span class="token punctuation">(</span><span class="token string">'meta[name="csrf-token"]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr<span class="token punctuation">(</span></span><span class="token string">'content'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>现在所有的 AJAX 请求会自动加入 CSRF token：</p>
+<pre class=" language-php"><code class=" language-php">$<span class="token punctuation">.</span><span class="token function">ajax<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  url<span class="token punctuation">:</span> <span class="token string">"/foo/bar"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<h4>X-XSRF-TOKEN</h4>
+<p>Laravel 也在 cookie 中存放了名为 <code class=" language-php"><span class="token constant">XSRF</span><span class="token operator">-</span><span class="token constant">TOKEN</span></code> 的 CSRF token。你可以使用这个 cookie 值来设置 <code class=" language-php">X<span class="token operator">-</span><span class="token constant">XSRF</span><span class="token operator">-</span><span class="token constant">TOKEN</span></code> 请求头。一些 Javascript 框架，比如 Angular ，会自动设置这个值。</p>
+<blockquote>
+<p>注意： <code class=" language-php">X<span class="token operator">-</span><span class="token constant">CSRF</span><span class="token operator">-</span><span class="token constant">TOKEN</span></code> 和 <code class=" language-php">X<span class="token operator">-</span><span class="token constant">XSRF</span><span class="token operator">-</span><span class="token constant">TOKEN</span></code> 的不同点在于前者使用的是纯文本而后者是一个加密的值，因为在 Laravel 中 cookies 始终是被加密过的。如果你使用 <code class=" language-php"><span class="token function">csrf_token<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code> 函数来作为 token 的值， 你需要设置 <code class=" language-php">X<span class="token operator">-</span><span class="token constant">CSRF</span><span class="token operator">-</span><span class="token constant">TOKEN</span></code> 请求头。</p>
+</blockquote>
+<p><a name="method-spoofing"></a></p>
+<h2><a href="routing.html#method-spoofing">方法欺骗</a></h2>
+<p>HTML 表单没有支持 <code class=" language-php"><span class="token constant">PUT</span></code> 、<code class=" language-php"><span class="token constant">PATCH</span></code> 或 <code class=" language-php"><span class="token constant">DELETE</span></code> 请求。所以当定义 <code class=" language-php"><span class="token constant">PUT</span></code> 、<code class=" language-php"><span class="token constant">PATCH</span></code> 以及 <code class=" language-php"><span class="token constant">DELETE</span></code> 路由并在 HTML 表单中被调用的时候，您将需要添加隐藏 <code class=" language-php">_method</code> 字段在表单中。</p>
+<p>发送的 <code class=" language-php">_method</code> 字段对应的值会被当做 HTTP 请求方法。举例来说：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/foo/bar<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>POST<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>_method<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>PUT<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>_token<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">echo</span> <span class="token function">csrf_token<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span></span></code></pre>
+<p><a name="route-parameters"></a></p>
+<h2><a href="routing.html#route-parameters">路由参数</a></h2>
+<p>当然，您可以获取请求路由的 URI 区段。</p>
+<h4>基础路由参数</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/{id}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'User '</span><span class="token punctuation">.</span><span class="token variable">$id</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意：</strong> 路由参数不能包含 <code class=" language-php"><span class="token operator">-</span></code> 字符。使用下划线替代 (<code class=" language-php">_</code>)。</p>
+</blockquote>
+<h4>可选择的路由参数</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/{name?}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$name</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>带默认值的路由参数</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/{name?}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$name</span> <span class="token operator">=</span> <span class="token string">'John'</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>使用正则表达式限制参数</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/{name}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">where<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'[A-Za-z]+'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/{id}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">where<span class="token punctuation">(</span></span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'[0-9]+'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>使用条件限制数组</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/{id}/{name}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">,</span> <span class="token variable">$name</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">where<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'id'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'[0-9]+'</span><span class="token punctuation">,</span> <span class="token string">'name'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'[a-z]+'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<h4>定义全局模式</h4>
+<p>如果你想让特定路由参数总是遵询特定的正则表达式，可以使用 <code class=" language-php">pattern</code> 方法。在 <code class=" language-php">RouteServiceProvider</code> 的 <code class=" language-php">boot</code> 方法里定义模式：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$router</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">pattern<span class="token punctuation">(</span></span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'[0-9]+'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>定义模式之后，会作用在所有使用这个特定参数的路由上：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/{id}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // 只有 {id} 是数字才被调用。
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>取得路由参数</h4>
+<p>如果需要在路由外部取得其参数，使用 <code class=" language-php">input</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$route</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">input<span class="token punctuation">(</span></span><span class="token string">'id'</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<p>你也可以使用 <code class=" language-php">Illuminate\<span class="token package">Http<span class="token punctuation">\</span>Request</span></code> 实体取得路由参数。当前请求的实例可以通过 <code class=" language-php">Request</code> facade  取得，或透过类型提示 <code class=" language-php">Illuminate\<span class="token package">Http<span class="token punctuation">\</span>Request</span></code> 注入依赖：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Request</span><span class="token punctuation">;</span>
+
+<span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/{id}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>Request <span class="token variable">$request</span><span class="token punctuation">,</span> <span class="token variable">$id</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">route<span class="token punctuation">(</span></span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> //
+</span>    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="named-routes"></a></p>
+<h2><a href="routing.html#named-routes">命名路由</a></h2>
+<p>命名路由让你更方便于产生 URL 与重定向特定路由。您可以用 <code class=" language-php"><span class="token keyword">as</span></code> 的数组键值指定名称给路由：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/profile'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'as'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>也可以为控制器动作指定路由名称：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/profile'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token string">'as'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'profile'</span><span class="token punctuation">,</span> <span class="token string">'uses'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'UserController@showProfile'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>现在你可以使用路由名称产生 URL 或进行重定向：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$url</span> <span class="token operator">=</span> <span class="token function">route<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$redirect</span> <span class="token operator">=</span> <span class="token function">redirect<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">route<span class="token punctuation">(</span></span><span class="token string">'profile'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code class=" language-php">currentRouteName</code> 方法会返回目前请求的路由名称：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$name</span> <span class="token operator">=</span> <span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">currentRouteName<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="route-groups"></a></p>
+<h2><a href="routing.html#route-groups">路由群组</a></h2>
+<p>有时候你的许多路由会有公用的需求，例如 URL 区段 (segments)、中间件、命名空间等等。你可以利用路由群组套用这些属性到多个路由，而不用每个路由都设置一次。</p>
+<p>将共享属性作为一个数组当做 Route::group 第一个参数。</p>
+<p><a name="route-group-middleware"></a></p>
+<h3>Middleware</h3>
+<p>在群组共享属性数组的 middleware 参数定义中间件列表，这些中间件就会应用到群组内的所有路由上。中间件将会按在列表内指定的顺序执行：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">group<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'middleware'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token string">'bar'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> // Has Foo And Bar Middleware
+</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/profile'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> // Has Foo And Bar Middleware
+</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="route-group-namespace"></a></p>
+<h3>Namespaces</h3>
+<p>您一样可以在 <code class=" language-php">group</code> 属性数组中使用 <code class=" language-php"><span class="token keyword">namespace</span></code> 参数，指定在这群组中控制器的命名空间：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">group<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'namespace'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Admin'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // Controllers Within The "App\Http\Controllers\Admin" Namespace
+</span>
+    <span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">group<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'namespace'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'User'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> // Controllers Within The "App\Http\Controllers\Admin\User" Namespace
+</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意：</strong> 在默认情况下，<code class=" language-php">RouteServiceProvider</code> 包含内置您命名空间群组的 <code class=" language-php">routes<span class="token punctuation">.</span>php</code> 文件，让您不须使用完整的 <code class=" language-php">App\<span class="token package">Http<span class="token punctuation">\</span>Controllers</span></code> 命名空间前缀就可以注册控制器路由。</p>
+</blockquote>
+<p><a name="sub-domain-routing"></a></p>
+<h3>子域名路由</h3>
+<p>Laravel 路由一样可以处理通配符的子域名，并且从域名中传递您的通配符参数：</p>
+<h4>注册子域名路由</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">group<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'domain'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'{account}.myapp.com'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+
+    <span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'user/{id}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$account</span><span class="token punctuation">,</span> <span class="token variable">$id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> //
+</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="route-prefixing"></a></p>
+<h3>路由前缀</h3>
+<p>群组路由可以通过群组的描述数组中使用 <code class=" language-php">prefix</code> 选项，将群组内的路由加上前缀：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">group<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'prefix'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'admin'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'users'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> // Matches The "/admin/users" URL
+</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>You can also utilize the <code class=" language-php">prefix</code> parameter to pass common parameters to your routes:</p>
+<h4>注册一个 URL 参数到路由前缀</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">group<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'prefix'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'accounts/{account_id}'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'detail'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$account_id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> //
+</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>你甚至可以在前缀中为已命名的参数定义限制：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">group<span class="token punctuation">(</span></span><span class="token punctuation">[</span>
+    <span class="token string">'prefix'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'accounts/{account_id}'</span><span class="token punctuation">,</span>
+    <span class="token string">'where'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token string">'account_id'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'[0-9]+'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+   <span class="token comment" spellcheck="true"> // Define Routes Here
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="route-model-binding"></a></p>
+<h2><a href="routing.html#route-model-binding">路由模型绑定</a></h2>
+<p>Laravel 模型绑定提供方便的方式将模型实体注入到您的路由中。例如，比起注入 User ID ，你可以选择注入符合给定 ID 的 User 类实体。</p>
+<p>首先，使用路由的 <code class=" language-php">model</code> 方法指定特定参数要对应的类，您应该在 <code class=" language-php"><span class="token scope">RouteServiceProvider<span class="token punctuation">::</span></span>boot</code> 方法定义您的模型绑定：</p>
+<h4>绑定参数至模型</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot<span class="token punctuation">(</span></span>Router <span class="token variable">$router</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token scope"><span class="token keyword">parent</span><span class="token punctuation">::</span></span><span class="token function">boot<span class="token punctuation">(</span></span><span class="token variable">$router</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$router</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">model<span class="token punctuation">(</span></span><span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token string">'App\User'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>然后定义一个有 <code class=" language-php"><span class="token punctuation">{</span>user<span class="token punctuation">}</span></code> 参数的路由：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">get<span class="token punctuation">(</span></span><span class="token string">'profile/{user}'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>App\<span class="token package">User</span> <span class="token variable">$user</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>因为我们已经将 <code class=" language-php"><span class="token punctuation">{</span>user<span class="token punctuation">}</span></code> 参数绑定到 <code class=" language-php">App\<span class="token package">User</span></code> 模型，所以 <code class=" language-php">User</code> 实体将被注入到路由。所以举例来说，请求至  <code class=" language-php">profile<span class="token operator">/</span><span class="token number">1</span></code> 将注入 ID 为 1 的 <code class=" language-php">User</code> 实体。</p>
+<blockquote>
+<p><strong>注意：</strong> 如果在数据库中找不到匹配的模型实体，将引发 404 错误。</p>
+</blockquote>
+<p>如果您想要自定「没有找到」的行为，将闭包作为第三个参数传入 <code class=" language-php">model</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">model<span class="token punctuation">(</span></span><span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token string">'User'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NotFoundHttpException</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>如果您想要使用您自己决定的逻辑，您应该使用 <code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span>bind</code>方法。闭包通过 <code class=" language-php">bind</code> 方法将传递 URI 区段数值，并应该返回您想要被注入路由的类实体：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">bind<span class="token punctuation">(</span></span><span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$value</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token scope">User<span class="token punctuation">::</span></span><span class="token function">where<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token variable">$value</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">first<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="throwing-404-errors"></a></p>
+<h2><a href="routing.html#throwing-404-errors">抛出 404 错误</a></h2>
+<p>这里有两种方法从路由手动触发 404 错误。首先，您可以使用 <code class=" language-php">abort</code> 辅助函数：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token function">abort<span class="token punctuation">(</span></span><span class="token number">404</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code class=" language-php">abort</code> 辅助函数只是简单抛出带有特定状态代码的 <code class=" language-php">Symfony\<span class="token package">Component<span class="token punctuation">\</span>HttpKernel<span class="token punctuation">\</span>Exception<span class="token punctuation">\</span>HttpException</span></code> 。</p>
+<p>第二，您可以手动抛出 <code class=" language-php">Symfony\<span class="token package">Component<span class="token punctuation">\</span>HttpKernel<span class="token punctuation">\</span>Exception<span class="token punctuation">\</span>NotFoundHttpException</span></code> 的实体。</p>
+<p>有关如何处理 404 异常状况和自定响应的更多信息，可以参考<a href="errors.html#http-exceptions">错误</a>章节内的文档。</p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":45,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="routing.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

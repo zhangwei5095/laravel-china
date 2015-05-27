@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>升级指南 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728421104&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=40&be=402&fe=285&dc=25&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728421104,%22n%22:0,%22u%22:399,%22ue%22:399,%22dl%22:402,%22di%22:427,%22ds%22:427,%22de%22:566,%22dc%22:687,%22l%22:687,%22le%22:687,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:281,%22rpe%22:399%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="升级指南,从 4.2 升级到 4.3,从 4.1 升级到 4.2,从 4.1.x 升级到 4.1.29,从 4.1.25 升级到 4.1.26,从 4.0 升级至 4.1,从 4.2 升级到 4.3,Beanstalk Queuing,Laravel 4.3 开始默认载入 &quot;pda/pheanstalk&quot;: &quot;~3.0&quot; 取代 Laravel 4.2 &quot;pda/pheanstalk&quot;: &quot;~2.1...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="upgrade.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			4.2
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0/upgrade.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="upgrade.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>升级指南</h1>
+<ul>
+<li><a href="upgrade.html#upgrade-4.3">从 4.2 升级到 4.3</a></li>
+<li><a href="upgrade.html#upgrade-4.2">从 4.1 升级到 4.2</a></li>
+<li><a href="upgrade.html#upgrade-4.1.29">从 4.1.x 升级到 4.1.29</a></li>
+<li><a href="upgrade.html#upgrade-4.1.26">从 4.1.25 升级到 4.1.26</a></li>
+<li><a href="upgrade.html#upgrade-4.1">从 4.0 升级至 4.1</a></li>
+</ul>
+<p><a name="upgrade-4.3"></a></p>
+<h2><a href="upgrade.html#upgrade-4.3">从 4.2 升级到 4.3</a></h2>
+<h3>Beanstalk Queuing</h3>
+<p>Laravel 4.3 开始默认载入 <code class=" language-php"><span class="token string">"pda/pheanstalk"</span><span class="token punctuation">:</span> <span class="token string">"~3.0"</span></code> 取代 Laravel 4.2 <code class=" language-php"><span class="token string">"pda/pheanstalk"</span><span class="token punctuation">:</span> <span class="token string">"~2.1"</span></code>。</p>
+<p><a name="upgrade-4.2"></a></p>
+<h2><a href="upgrade.html#upgrade-4.2">从 4.1 升级到 4.2</a></h2>
+<h3>PHP 5.4+</h3>
+<p>Laravel 4.2 需要 PHP 5.4.0 以上。</p>
+<h3>默认加密</h3>
+<p>增加一个新的 <code class=" language-php">cipher</code> 选项在您的 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>app<span class="token punctuation">.</span>php</code> 配置文件中。其选项值应为 <code class=" language-php"><span class="token constant">MCRYPT_RIJNDAEL_256</span></code>。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token string">'cipher'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token constant">MCRYPT_RIJNDAEL_256</span></code></pre>
+<p>该设置可用于设定所使用的 Laravel 加密工具的默认加密方法。</p>
+<blockquote>
+<p><strong>附注:</strong> 在 Laravel 4.2，默认加密方法为<code class=" language-php"><span class="token constant">MCRYPT_RIJNDAEL_128</span></code> (AES), 被认为是最安全的加密. 必须将加密改回<code class=" language-php"><span class="token constant">MCRYPT_RIJNDAEL_256</span></code> 来解密在 Laravel &lt;= 4.1 下加密的 cookies/values </p>
+</blockquote>
+<h3>软删除模型改用traits</h3>
+<p>如果您在模型下有使用软删除，现在 <code class=" language-php">softDeletes</code> 的属性已经被移除。您现在要使用 <code class=" language-php">SoftDeletingTrait</code> 如下：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>SoftDeletingTrait</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Eloquent</span> <span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">SoftDeletingTrait</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>您一样必须手动增加 <code class=" language-php">deleted_at</code> 字段到您的 <code class=" language-php">dates</code> 属性中：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Eloquent</span> <span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">SoftDeletingTrait</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">protected</span> <span class="token variable">$dates</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'deleted_at'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>而所有软删除的 API 使用方式维持相同。</p>
+<blockquote>
+<p><strong>附注:</strong> <code class=" language-php">SoftDeletingTrait</code> 无法在基本模型下被使用。他只能在一个实际模型类中使用。</p>
+</blockquote>
+<h3>视图 / 分页 / 环境 类改名</h3>
+<p>如果您直接使用 <code class=" language-php">Illuminate\<span class="token package">View<span class="token punctuation">\</span>Environment</span></code> 或 <code class=" language-php">Illuminate\<span class="token package">Pagination<span class="token punctuation">\</span>Environment</span></code> 类，请更新您的代码将其改为参照 <code class=" language-php">Illuminate\<span class="token package">View<span class="token punctuation">\</span>Factory</span></code> 和 <code class=" language-php">Illuminate\<span class="token package">Pagination<span class="token punctuation">\</span>Factory</span></code>。改名后的这两个类更可以代表他们的功能。</p>
+<h3>分页呈现的额外参数</h3>
+<p>如果你继承了 <code class=" language-php">Illuminate\<span class="token package">Pagination<span class="token punctuation">\</span>Presenter</span></code> 类， 它的抽象方法 <code class=" language-php">getPageLinkWrapper</code> 已经改变参数了， 增加了一个 <code class=" language-php">rel</code> 参数：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">abstract</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getPageLinkWrapper<span class="token punctuation">(</span></span><span class="token variable">$url</span><span class="token punctuation">,</span> <span class="token variable">$page</span><span class="token punctuation">,</span> <span class="token variable">$rel</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>Iron.Io Queue 加密</h3>
+<p>如果您使用 Iron.io queue 驱动，您将需要增加一个新的 <code class=" language-php">encrypt</code> 选项到您的 queue 配置文件中：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token string">'encrypt'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token boolean">true</span></code></pre>
+<p><a name="upgrade-4.1.29"></a></p>
+<h2><a href="upgrade.html#upgrade-4.1.29">从 4.1.x 升级到 4.1.29</a></h2>
+<p>Laravel 4.1.29 对于所有的数据库驱动加强了 column quoting 的部分。当您的模型中<strong>没有</strong>使用 <code class=" language-php">fillable</code> 属性，他保护您的应用程序不会受到 mass assignment 漏洞影响。如果您在模型中使用 <code class=" language-php">fillable</code> 属性来防范 mass assignment, 您的应用程序将不会有漏洞。如果您使用 <code class=" language-php">guarded</code> 且在 "更新" 或 "储存" 类型的函数中，传递了末端用户控制的数组，那您应该立即升级到 <code class=" language-php"><span class="token number">4.1</span><span class="token punctuation">.</span><span class="token number">29</span></code> 以避免 mass assignment 的风险。</p>
+<p>升级到 Laravel 4.1.29，只要 <code class=" language-php">composer update</code> 即可。在这个发行版本中没有重大的更新。</p>
+<p><a name="upgrade-4.1.26"></a></p>
+<h2><a href="upgrade.html#upgrade-4.1.26">从 4.1.25 升级到 4.1.26</a></h2>
+<p>Laravel 4.1.26 采用了针对 "记住我" cookies 的安全性更新。在此更新之前，如果一个记住我的 cookies 被恶意用户劫持，该 cookie 将还可以生存很长一段时间，即使真实用户重设密码或者登出。</p>
+<p>此更动需要在您的 <code class=" language-php">users</code> (或者类似的) 的数据库表中增加一个额外的 <code class=" language-php">remember_token</code> 字段。在更新之后，当用户每次登入您的应用程序将会有一个全新的 token 生成。这个 token 也会在用户登出应用程序后被更新。这个更新的影响为：如果一个"记住我"的 cookie 被劫持，只要用户登出应用程序将会废除该 cookie。</p>
+<h3>升级路径</h3>
+<p>首先，增加一个新的字段，可空值、属性为 VARCHAR(100)、TEXT 或同类型的字段 <code class=" language-php">remember_token</code> 到您的 <code class=" language-php">users</code> 数据库表中。</p>
+<p>然后，如果您使用 Eloquent 认证驱动，依照下面更新您的 <code class=" language-php">User</code> 类的三个方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getRememberToken<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">remember_token</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setRememberToken<span class="token punctuation">(</span></span><span class="token variable">$value</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">remember_token</span> <span class="token operator">=</span> <span class="token variable">$value</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getRememberTokenName<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'remember_token'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p><strong>附注:</strong> 所有现存的 "记住我" sessions 在此更新后将会失效，所以应用程序的所有用户将会被迫重新登入。</p>
+</blockquote>
+<h3>扩展包管理者</h3>
+<p>两个新的方法被加入到 <code class=" language-php">Illuminate\<span class="token package">Auth<span class="token punctuation">\</span>UserProviderInterface</span></code> interface. 例子实现方式可以在默认驱  动中找到:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">retrieveByToken<span class="token punctuation">(</span></span><span class="token variable">$identifier</span><span class="token punctuation">,</span> <span class="token variable">$token</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">updateRememberToken<span class="token punctuation">(</span></span>UserInterface <span class="token variable">$user</span><span class="token punctuation">,</span> <span class="token variable">$token</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>The <code class=" language-php">Illuminate\<span class="token package">Auth<span class="token punctuation">\</span>UserInterface</span></code> also received the three new methods described in the "Upgrade Path".</p>
+<p><a name="upgrade-4.1"></a></p>
+<h2><a href="upgrade.html#upgrade-4.1">从 4.0 升级至 4.1</a></h2>
+<h3>升级您的 Composer 相依性</h3>
+<p>升级您的应用程序至 Laravel 4.1，将 <code class=" language-php">composer<span class="token punctuation">.</span>json</code> 里的 <code class=" language-php">laravel<span class="token operator">/</span>framework</code> 版本更改至 <code class=" language-php"><span class="token number">4.1</span><span class="token punctuation">.</span><span class="token operator">*</span></code>。</p>
+<h3>文件置换</h3>
+<p>将您的 <code class=" language-php"><span class="token keyword">public</span><span class="token operator">/</span>index<span class="token punctuation">.</span>php</code> 置换成 <a href="https://github.com/laravel/laravel/blob/master/public/index.php">这个 repository 的干净版本</a>。</p>
+<p>同样的，将您的 <code class=" language-php">artisan</code> 置换成 <a href="https://github.com/laravel/laravel/blob/master/artisan">这个 repository 的干净版本</a>。</p>
+<h3>新增配置文件及选项</h3>
+<p>更新您在配置文件 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>app<span class="token punctuation">.</span>php</code> 里的 <code class=" language-php">aliases</code> 和 <code class=" language-php">providers</code> 数组。而更新的选项值可以在<a href="https://github.com/laravel/laravel/blob/master/app/config/app.php">这个文件</a>中找到。请确定将您后来加入自定义和扩展包所需的 providers / aliases 加回数组中。</p>
+<p>从 <a href="https://github.com/laravel/laravel/blob/master/app/config/remote.php">这个 repository</a>增加 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>remote<span class="token punctuation">.</span>php</code> 文件。</p>
+<p>在您的 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>session<span class="token punctuation">.</span>php</code> 增加新的选项 <code class=" language-php">expire_on_close</code>。而默认值为 <code class=" language-php"><span class="token boolean">false</span></code>。</p>
+<p>在您的 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>queue<span class="token punctuation">.</span>php</code> 文件里新增 <code class=" language-php">failed</code> 设定区块。以下为区块的默认值：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token string">'failed'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token string">'database'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'mysql'</span><span class="token punctuation">,</span> <span class="token string">'table'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'failed_jobs'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre>
+<p><strong>（非必要）</strong> 在您的 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>view<span class="token punctuation">.</span>php</code> 里，将 <code class=" language-php">pagination</code> 设定选项更新为 <code class=" language-php"><span class="token scope">pagination<span class="token punctuation">::</span></span>slider<span class="token number">-3</span></code>。</p>
+<h3>更新控制器（Controllers）</h3>
+<p>如果 <code class=" language-php">app<span class="token operator">/</span>controllers<span class="token operator">/</span>BaseController<span class="token punctuation">.</span>php</code> 有 <code class=" language-php"><span class="token keyword">use</span></code> 语句在最上面，将 <code class=" language-php"><span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Controllers<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span></code> 改为 <code class=" language-php"><span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span></code>。</p>
+<h3>更新密码提醒</h3>
+<p>密码提醒功能已经大幅修正拥有更大的弹性。您可以执行 Artisan 命令 <code class=" language-php">php artisan auth<span class="token punctuation">:</span>reminders<span class="token operator">-</span>controller</code> 来检查新的存根控制器。您也可以浏览 <a href="security.html#password-reminders-and-reset">更新文档</a> 然后相应的更新您的应用程序。</p>
+<p>更新您的 <code class=" language-php">app<span class="token operator">/</span>lang<span class="token operator">/</span>en<span class="token operator">/</span>reminders<span class="token punctuation">.</span>php</code> 语系文件来符合<a href="https://github.com/laravel/laravel/blob/master/app/lang/en/reminders.php">这个新版文件</a>。</p>
+<h3>更新环境检测</h3>
+<p>为了安全因素，不再使用 url 来检测应用程序的环境。因为这些值很容易被伪造欺骗，继而让攻击者通过请求来达到变更环境。所以您必须改为使用机器的 hostname（在 Mac &amp; Ubuntu 下执行 <code class=" language-php">hostname</code> 出来的值）</p>
+<p>（译按：的确原有方式有安全性考量，但对于现行 VirtualHost 大量使用下，反而这样改会造成不便）</p>
+<h3>更简单的日志文件</h3>
+<p>Laravel 目前只会产生单一的日志文件: <code class=" language-php">app<span class="token operator">/</span>storage<span class="token operator">/</span>logs<span class="token operator">/</span>laravel<span class="token punctuation">.</span>log</code>。然而，您还是可以通过设定您的 <code class=" language-php">app<span class="token operator">/</span>start<span class="token operator">/</span><span class="token keyword">global</span><span class="token punctuation">.</span>php</code> 文件来配置他的行为。</p>
+<h3>删除重定向结尾的斜线</h3>
+<p>在您的 <code class=" language-php">bootstrap<span class="token operator">/</span>start<span class="token punctuation">.</span>php</code> 文件中，移除调用 <code class=" language-php"><span class="token variable">$app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">redirectIfTrailingSlash<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code>。这个方法已不再需要了，因为之后将会被框架里的 <code class=" language-php"><span class="token punctuation">.</span>htaccess</code> 处理。</p>
+<p>然后，用<a href="https://github.com/laravel/laravel/blob/master/public/.htaccess">新版</a>替换掉您 Apache 中的 <code class=" language-php"><span class="token punctuation">.</span>htaccess</code> 文件，来处理结尾的斜线问题。</p>
+<h3>获取当前路由</h3>
+<p>获取当前路由的方法由 <code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">getCurrentRoute<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code> 改为 <code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">current<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code>。</p>
+<h3>Composer 更新</h3>
+<p>一旦您完成以上的更新，您可以执行 <code class=" language-php">composer update</code> 来更新应用程序的核心文件。如果有 class load 错误，请在 <code class=" language-php">update</code> 之后加上 <code class=" language-php"><span class="token operator">--</span>no<span class="token operator">-</span>scripts</code>，如: <code class=" language-php">composer update <span class="token operator">--</span>no<span class="token operator">-</span>scripts</code>。</p>
+<h3>通配符事件监听</h3>
+<p>通配符事件的监听器不再附件事件到对应的处理函数的参数中。 如果你需要找到被触发的事件， 应该使用 <code class=" language-php"><span class="token scope">Event<span class="token punctuation">::</span></span><span class="token function">firing<span class="token punctuation">(</span></span><span class="token punctuation">)</span></code> 。</p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":40,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="upgrade.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

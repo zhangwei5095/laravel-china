@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>测试 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728411981&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=23&be=255&fe=685&dc=583&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728411981,%22n%22:0,%22u%22:252,%22ue%22:252,%22dl%22:254,%22di%22:837,%22ds%22:837,%22de%22:902,%22dc%22:939,%22l%22:939,%22le%22:940,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:240,%22rpe%22:813%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="测试,介绍,定义并执行测试,测试环境,从测试调用路由,模拟 Facades,框架 Assertions,辅助方法,重置应用程序,介绍,Laravel 在建立时就有考虑到单元测试。事实上，它支持立即使用被引入的 PHPUnit 做测试，而且已经为你的应用程序建立了 phpunit.xml 文件。,在 tests 文件夹有提供一个测试例子。在安装新 Laravel 应用程序之后，只要在命令行上执行 p...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="testing.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			5.0
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="testing.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2/testing.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>测试</h1>
+<ul>
+<li><a href="testing.html#introduction">介绍</a></li>
+<li><a href="testing.html#defining-and-running-tests">定义并执行测试</a></li>
+<li><a href="testing.html#test-environment">测试环境</a></li>
+<li><a href="testing.html#calling-routes-from-tests">从测试调用路由</a></li>
+<li><a href="testing.html#mocking-facades">模拟 Facades</a></li>
+<li><a href="testing.html#framework-assertions">框架 Assertions</a></li>
+<li><a href="testing.html#helper-methods">辅助方法</a></li>
+<li><a href="testing.html#refreshing-the-application">重置应用程序</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2><a href="testing.html#introduction">介绍</a></h2>
+<p>Laravel 在建立时就有考虑到单元测试。事实上，它支持立即使用被引入的 PHPUnit 做测试，而且已经为你的应用程序建立了 <code class=" language-php">phpunit<span class="token punctuation">.</span>xml</code> 文件。</p>
+<p>在 <code class=" language-php">tests</code> 文件夹有提供一个测试例子。在安装新 Laravel 应用程序之后，只要在命令行上执行 <code class=" language-php">phpunit</code> 来进行测试流程。</p>
+<p><a name="defining-and-running-tests"></a></p>
+<h2><a href="testing.html#defining-and-running-tests">定义并执行测试</a></h2>
+<p>要建立一个测试案例，只要在 <code class=" language-php">tests</code> 文件夹建立新的测试文件。测试类必须继承自 <code class=" language-php">TestCase</code>，接着你可以如你平常使用 PHPUnit 一般去定义测试方法。</p>
+<h4>测试类例子</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">class</span> <span class="token class-name">FooTest</span> <span class="token keyword">extends</span> <span class="token class-name">TestCase</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testSomethingIsTrue<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertTrue<span class="token punctuation">(</span></span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>你可以从终端机执行 <code class=" language-php">phpunit</code> 命令来执行应用程序的所有测试。</p>
+<blockquote>
+<p><strong>注意:</strong> 如果你定义自己的 <code class=" language-php">setUp</code> 方法， 请记得调用 <code class=" language-php"><span class="token scope"><span class="token keyword">parent</span><span class="token punctuation">::</span></span>setUp</code>。</p>
+</blockquote>
+<p><a name="test-environment"></a></p>
+<h2><a href="testing.html#test-environment">测试环境</a></h2>
+<p>当执行单元测试的时候，Laravel 会自动将环境配置成 <code class=" language-php">testing</code>。另外 Laravel 会在测试环境导入 <code class=" language-php">session</code> 和 <code class=" language-php">cache</code> 的配置文件。当在测试环境里这两个驱动会被配置为 <code class=" language-php"><span class="token keyword">array</span></code> (空数组)，代表在测试的时候没有 session 或 cache 数据将会被保留。视情况你可以任意的建立你需要的测试环境配置。</p>
+<p><code class=" language-php">testing</code> 环境的变量可以在 <code class=" language-php">phpunit<span class="token punctuation">.</span>xml</code> 文件中配置。</p>
+<p><a name="calling-routes-from-tests"></a></p>
+<h2><a href="testing.html#calling-routes-from-tests">从测试调用路由</a></h2>
+<h4>从单一测试中调用路由</h4>
+<p>你可以使用 <code class=" language-php">call</code> 方法，轻易地调用你的任何一个路由来测试：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$response</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">call<span class="token punctuation">(</span></span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'user/profile'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$response</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">call<span class="token punctuation">(</span></span><span class="token variable">$method</span><span class="token punctuation">,</span> <span class="token variable">$uri</span><span class="token punctuation">,</span> <span class="token variable">$parameters</span><span class="token punctuation">,</span> <span class="token variable">$cookies</span><span class="token punctuation">,</span> <span class="token variable">$files</span><span class="token punctuation">,</span> <span class="token variable">$server</span><span class="token punctuation">,</span> <span class="token variable">$content</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>接着你可以检查 <code class=" language-php">Illuminate\<span class="token package">Http<span class="token punctuation">\</span>Response</span></code> 对象：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertEquals<span class="token punctuation">(</span></span><span class="token string">'Hello World'</span><span class="token punctuation">,</span> <span class="token variable">$response</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getContent<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>从测试调用控制器</h4>
+<p>你也可以从测试调用控制器：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$response</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">action<span class="token punctuation">(</span></span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'HomeController@index'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$response</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">action<span class="token punctuation">(</span></span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'UserController@profile'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'user'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<blockquote>
+<p><strong>注意:</strong> 当使用 <code class=" language-php">action</code> 方法的时候，你不需要指定完整的控制器命名空间。只需要指定 <code class=" language-php">App\<span class="token package">Http<span class="token punctuation">\</span>Controllers</span></code> 命名空间后面的类名称部分。</p>
+</blockquote>
+<p><code class=" language-php">getContent</code> 方法会返回求值后的字串内容响应。如果你的路由返回一个 <code class=" language-php">View</code>，你可以通过 <code class=" language-php">original</code> 属性访问它：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$view</span> <span class="token operator">=</span> <span class="token variable">$response</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">original</span><span class="token punctuation">;</span>
+
+<span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertEquals<span class="token punctuation">(</span></span><span class="token string">'John'</span><span class="token punctuation">,</span> <span class="token variable">$view</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>你可以使用 <code class=" language-php">callSecure</code> 方法去调用 HTTPS 路由：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$response</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">callSecure<span class="token punctuation">(</span></span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'foo/bar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="mocking-facades"></a></p>
+<h2><a href="testing.html#mocking-facades">模拟 Facades</a></h2>
+<p>当测试的时候，你或许常会想要模拟调用 Laravel 静态 facade。举个例子，思考下面的控制器行为：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getIndex<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token scope">Event<span class="token punctuation">::</span></span><span class="token function">fire<span class="token punctuation">(</span></span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'name'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Dayle'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token string">'All done!'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>我们可以在 facade 上使用 <code class=" language-php">shouldReceive</code> 方法，来模拟调用 <code class=" language-php">Event</code> 类，它将会返回一个 <a href="https://github.com/padraic/mockery">Mockery</a> mock 对象实例。</p>
+<h4>模拟 Facade</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testGetIndex<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token scope">Event<span class="token punctuation">::</span></span><span class="token function">shouldReceive<span class="token punctuation">(</span></span><span class="token string">'fire'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">once<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">with<span class="token punctuation">(</span></span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'name'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Dayle'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">call<span class="token punctuation">(</span></span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p><strong>注意:</strong> 你不应该模拟 <code class=" language-php">Request</code> facade。取而代之，当执行你的测试，传递想要的输入数据进去 <code class=" language-php">call</code> 方法。</p>
+</blockquote>
+<p><a name="framework-assertions"></a></p>
+<h2><a href="testing.html#framework-assertions">框架 Assertions</a></h2>
+<p>Laravel 附带几个 <code class=" language-php">assert</code> 方法，让测试更简单一点：</p>
+<h4>Assert 响应为 OK</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testMethod<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">call<span class="token punctuation">(</span></span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertResponseOk<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4>Assert 响应的状态码</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertResponseStatus<span class="token punctuation">(</span></span><span class="token number">403</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>Assert 响应为重定向</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertRedirectedTo<span class="token punctuation">(</span></span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertRedirectedToRoute<span class="token punctuation">(</span></span><span class="token string">'route.name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertRedirectedToAction<span class="token punctuation">(</span></span><span class="token string">'Controller@method'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>Assert 响应的视图包含一些数据</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testMethod<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">call<span class="token punctuation">(</span></span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertViewHas<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertViewHas<span class="token punctuation">(</span></span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4>Assert Session 包含一些数据</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testMethod<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">call<span class="token punctuation">(</span></span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertSessionHas<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertSessionHas<span class="token punctuation">(</span></span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token variable">$value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4>Assert Session 有错误信息</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testMethod<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">call<span class="token punctuation">(</span></span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertSessionHasErrors<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token comment" spellcheck="true"> // Asserting the session has errors for a given key...
+</span>    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertSessionHasErrors<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token comment" spellcheck="true"> // Asserting the session has errors for several keys...
+</span>    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertSessionHasErrors<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4>Assert 旧输入内容有一些数据</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testMethod<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">call<span class="token punctuation">(</span></span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertHasOldInput<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><a name="helper-methods"></a></p>
+<h2><a href="testing.html#helper-methods">辅助方法</a></h2>
+<p><code class=" language-php">TestCase</code> 类包含几个辅助方法让应用程序的测试更为简单。</p>
+<h4>从测试里配置和刷新 Sessions</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">session<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'foo'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'bar'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">flushSession<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>配置目前为通过身份验证的用户</h4>
+<p>你可以使用 <code class=" language-php">be</code> 方法配置目前为通过身份验证的用户：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'John'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">be<span class="token punctuation">(</span></span><span class="token variable">$user</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>你可以从测试中使用 <code class=" language-php">seed</code> 方法重新填充你的数据库：</p>
+<h4>在测试中重新填充数据库</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">seed<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">seed<span class="token punctuation">(</span></span><span class="token string">'DatabaseSeeder'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>更多建立填充数据的信息可以在文档的 <a href="migrations.html#database-seeding">迁移与数据填充</a> 部分找到。</p>
+<p><a name="refreshing-the-application"></a></p>
+<h2><a href="testing.html#refreshing-the-application">重置应用程序</a></h2>
+<p>你可能已经知道，你可以通过 <code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span></code> 在任何测试方法中访问你的(<a href="container.html">应用程序服务容器</a>)。这个服务容器会在每个测试类被重置。如果你希望在给定的方法手动强制重置应用程序，你可以从你的测试方法使用 <code class=" language-php">refreshApplication</code> 方法。这将会重置任何额外的绑定，例如那些从测试案例执行开始被放到 IoC 容器的 mocks。</p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":23,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="testing.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

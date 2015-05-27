@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>Artisan 开发 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728434303&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=24&be=171&fe=233&dc=21&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728434303,%22n%22:0,%22u%22:166,%22ue%22:166,%22dl%22:170,%22di%22:192,%22ds%22:192,%22de%22:248,%22dc%22:403,%22l%22:404,%22le%22:404,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:98,%22rpe%22:166%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="Artisan 开发,简介,自定义命令,注册命令,调用其它命令,简介,除了 Artisan 本身提供的命令之外，您也可以建立与您的应用程序相关的命令，这些自建命令将会存放在 app/commands 目录底下；然而，您可以任意选择存放位置，只要您的命令能够被 composer.json 自动载入。,自定义命令,生成类,要创建一个新的命令，您可以使用 command:make 这个 Artisan...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="commands.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			4.2
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0/commands.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="commands.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>Artisan 开发</h1>
+<ul>
+<li><a href="commands.html#introduction">简介</a></li>
+<li><a href="commands.html#building-a-command">自定义命令</a></li>
+<li><a href="commands.html#registering-commands">注册命令</a></li>
+<li><a href="commands.html#calling-other-commands">调用其它命令</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2><a href="commands.html#introduction">简介</a></h2>
+<p>除了 Artisan 本身提供的命令之外，您也可以建立与您的应用程序相关的命令，这些自建命令将会存放在 <code class=" language-php">app<span class="token operator">/</span>commands</code> 目录底下；然而，您可以任意选择存放位置，只要您的命令能够被 composer.json 自动载入。</p>
+<p><a name="building-a-command"></a></p>
+<h2><a href="commands.html#building-a-command">自定义命令</a></h2>
+<h3>生成类</h3>
+<p>要创建一个新的命令，您可以使用 command:make 这个 Artisan 命令，这将产生一个命令基本文件协助您开始编码：</p>
+<h4>生成一个新的命令类</h4>
+<pre class=" language-php"><code class=" language-php">php artisan command<span class="token punctuation">:</span>make FooCommand</code></pre>
+<p>默认情况下，生成的命令将被储存在 <code class=" language-php">app<span class="token operator">/</span>commands</code> 目录；然而，您可以指定自定义路径或命名空间：</p>
+<pre class=" language-php"><code class=" language-php">php artisan command<span class="token punctuation">:</span>make FooCommand <span class="token operator">--</span>path<span class="token operator">=</span>app<span class="token operator">/</span>classes <span class="token operator">--</span><span class="token keyword">namespace</span><span class="token operator">=</span>Classes</code></pre>
+<p>在创建命令时，加上 <code class=" language-php"><span class="token operator">--</span>command</code> 这个选项，将可以指定这个命令的名称：</p>
+<pre class=" language-php"><code class=" language-php">php artisan command<span class="token punctuation">:</span>make AssignUsers <span class="token operator">--</span>command<span class="token operator">=</span>users<span class="token punctuation">:</span>assign</code></pre>
+<h3>撰写自定义命令</h3>
+<p>当自定义命令生成后，您需再填写命令的 <code class=" language-php">名称</code> 与 <code class=" language-php">描述</code>，这部份将会显示在命令行表清单的画面上。</p>
+<p>当您的自定义命令被执行时，将会调用 <code class=" language-php">fire</code> 方法，您可以在此加入任何的逻辑判断。</p>
+<h3>参数与选项</h3>
+<p><code class=" language-php">getArguments</code> 与 <code class=" language-php">getOptions</code> 方法是用来接收要传入您的自定义命令的地方，这两个方法都会回传一组命令数组，并由数组清单所组成。</p>
+<p>当定义 <code class=" language-php">arguments</code> 时，该数组对应的值表示如下：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$mode</span><span class="token punctuation">,</span> <span class="token variable">$description</span><span class="token punctuation">,</span> <span class="token variable">$defaultValue</span><span class="token punctuation">)</span></code></pre>
+<p>参数 <code class=" language-php">mode</code> 可以是下列其中一项： <code class=" language-php"><span class="token scope">InputArgument<span class="token punctuation">::</span></span><span class="token constant">REQUIRED</span></code> 或 <code class=" language-php"><span class="token scope">InputArgument<span class="token punctuation">::</span></span><span class="token constant">OPTIONAL</span></code>.</p>
+<p>当定义 <code class=" language-php">options</code> 时，该数组对应的值表示如下：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$shortcut</span><span class="token punctuation">,</span> <span class="token variable">$mode</span><span class="token punctuation">,</span> <span class="token variable">$description</span><span class="token punctuation">,</span> <span class="token variable">$defaultValue</span><span class="token punctuation">)</span></code></pre>
+<p>对选项而言, 参数 <code class=" language-php">mode</code> 可以是下列其中一项： <code class=" language-php"><span class="token scope">InputOption<span class="token punctuation">::</span></span><span class="token constant">VALUE_REQUIRED</span></code>, <code class=" language-php"><span class="token scope">InputOption<span class="token punctuation">::</span></span><span class="token constant">VALUE_OPTIONAL</span></code>, <code class=" language-php"><span class="token scope">InputOption<span class="token punctuation">::</span></span><span class="token constant">VALUE_IS_ARRAY</span></code>, <code class=" language-php"><span class="token scope">InputOption<span class="token punctuation">::</span></span><span class="token constant">VALUE_NONE</span></code>.</p>
+<p>该 <code class=" language-php"><span class="token constant">VALUE_IS_ARRAY</span></code> 模式表示调用命令时可以传入多个值：</p>
+<pre class=" language-php"><code class=" language-php">php artisan foo <span class="token operator">--</span>option<span class="token operator">=</span>bar <span class="token operator">--</span>option<span class="token operator">=</span>baz</code></pre>
+<p>该 <code class=" language-php"><span class="token constant">VALUE_NONE</span></code> 模式表示将选项当作是"开关"</p>
+<pre class=" language-php"><code class=" language-php">php artisan foo <span class="token operator">--</span>option</code></pre>
+<h3>取得输入</h3>
+<p>当您的命令执行时，您需要让您的应用程序可以获取到这些参数和选项的值，
+要做到这一点，您可以使用 <code class=" language-php">argument</code> 和 <code class=" language-php">option</code> 方法：</p>
+<h4>取得自定义命令的输入参数</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$value</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">argument<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>取得所有自定义命令的输入参数</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$arguments</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">argument<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>取得自定义命令的输入选项</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$value</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">option<span class="token punctuation">(</span></span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>取得所有自定义命令的输入选项</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$options</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">option<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>产生输出</h3>
+<p>显示信息到终端上，您可以使用 <code class=" language-php">info</code>, <code class=" language-php">comment</code>, <code class=" language-php">question</code> 和<code class=" language-php">error</code>方法，每一种方法将会对应到一个 ANSI 颜色。</p>
+<h4>显示信息到终端</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">info<span class="token punctuation">(</span></span><span class="token string">'Display this on the screen'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>显示错误信息到终端</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">error<span class="token punctuation">(</span></span><span class="token string">'Something went wrong!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>询问式输入</h3>
+<p>您也可以使用 <code class=" language-php">ask</code> 和 <code class=" language-php">confirm</code> 方法来提示用户进行输入：</p>
+<h4>提示用户进行输入</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$name</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">ask<span class="token punctuation">(</span></span><span class="token string">'What is your name?'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>提示用户进行加密输入</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$password</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">secret<span class="token punctuation">(</span></span><span class="token string">'What is the password?'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>提示用户进行确认</h4>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">confirm<span class="token punctuation">(</span></span><span class="token string">'Do you wish to continue? [yes|no]'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<p>您也可以指定一个默认值给 <code class=" language-php">confirm</code> 方法，可以是 <code class=" language-php"><span class="token boolean">true</span></code> 或 <code class=" language-php"><span class="token boolean">false</span></code>：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">confirm<span class="token punctuation">(</span></span><span class="token variable">$question</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="registering-commands"></a></p>
+<h2><a href="commands.html#registering-commands">注册命令</a></h2>
+<h4>注册一个 Artisan 命令</h4>
+<p>当您的自定义命令完成后，您需要向 Artisan 注册才能使用，通常是在 <code class=" language-php">app<span class="token operator">/</span>start<span class="token operator">/</span>artisan<span class="token punctuation">.</span>php</code> ，在此文件内，您可以使用 <code class=" language-php"><span class="token scope">Artisan<span class="token punctuation">::</span></span>add</code> 方法注册该命令：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Artisan<span class="token punctuation">::</span></span><span class="token function">add<span class="token punctuation">(</span></span><span class="token keyword">new</span> <span class="token class-name">CustomCommand</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>在 IoC Container 内注册命令</h4>
+<p>如果您的自定义命令是在应用程序 <a href="ioc.html">IoC container</a> 内注册，您需要使用 <code class=" language-php"><span class="token scope">Artisan<span class="token punctuation">::</span></span>resolve</code> 方法让 Artisan 可以使用：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Artisan<span class="token punctuation">::</span></span><span class="token function">resolve<span class="token punctuation">(</span></span><span class="token string">'binding.name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>在 Service Provider 内注册命令</h4>
+<p>如果您需要从 service provider 注册命令，您应该在 provider 的  <code class=" language-php">boot</code> 方法内调用 <code class=" language-php">commands</code> 方法，传入 <a href="ioc.html">IoC container</a> 绑定此命令：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">commands<span class="token punctuation">(</span></span><span class="token string">'command.binding'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><a name="calling-other-commands"></a></p>
+<h2><a href="commands.html#calling-other-commands">调用其它命令</a></h2>
+<p>有时候您可能希望在您的命令内部调用其它命令，此时您可以使用 <code class=" language-php">call</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">call<span class="token punctuation">(</span></span><span class="token string">'command:name'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'argument'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token string">'--option'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'bar'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":24,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="commands.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

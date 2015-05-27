@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>更新记录 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728420818&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=32&be=136&fe=737&dc=169&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728420818,%22n%22:0,%22u%22:134,%22ue%22:134,%22dl%22:135,%22di%22:305,%22ds%22:305,%22de%22:358,%22dc%22:873,%22l%22:873,%22le%22:873,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:114,%22rpe%22:287%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="更新记录,Laravel 4.2,Laravel 4.1,Laravel 4.2,通过在4.2版本的安装目录下执行 php artisan changes 可以获取此次版本的完整更新列表，或者 查看Github 上的更新记录。此记录只含括当前版本的主要功能改进和变更。,附注: 在 4.2 发布周期内，许多小的BUG修正与功能强化被整合至各个 4.1 的子发行版本中。所以最好确认 Laravel 4...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="releases.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			4.2
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0/releases.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="releases.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>更新记录</h1>
+<ul>
+<li><a href="releases.html#laravel-4.2">Laravel 4.2</a></li>
+<li><a href="releases.html#laravel-4.1">Laravel 4.1</a></li>
+</ul>
+<p><a name="laravel-4.2"></a></p>
+<h2><a href="releases.html#laravel-4.2">Laravel 4.2</a></h2>
+<p>通过在4.2版本的安装目录下执行 <code class=" language-php">php artisan changes</code> 可以获取此次版本的完整更新列表，或者 查看<a href="https://github.com/laravel/framework/blob/4.2/src/Illuminate/Foundation/changes.json">Github 上的更新记录</a>。此记录只含括当前版本的主要功能改进和变更。</p>
+<blockquote>
+<p><strong>附注:</strong> 在 4.2 发布周期内，许多小的BUG修正与功能强化被整合至各个 4.1 的子发行版本中。所以最好确认 Laravel 4.1 版本的更新列表。 </p>
+</blockquote>
+<h3>PHP 所需最低版本为 5.4</h3>
+<p>Laravel 4.2 需要 PHP 5.4 或者更高的版本。此 PHP 的更新版本让我们可以使用 PHP 的新特性：<code class=" language-php">traits</code> 来为如<a href="billing.html">Laravel Cashier</a> 来提供更具表达力的接口。PHP 5.4 相比 PHP 5.3 ，在性能、速度、执行力效率上都有显著的提高。</p>
+<h3>Laravel Forge</h3>
+<p>Larvel Forge是一个 Web 应用程序，它提供了一个简单的接口去建立、管理您云端上的 PHP 服务器，如 Linode, DigitalOcean, Rackspace 和 Amazon EC2。支持自动化 nginx 设定、SSH 密钥管理、Cron job 自动化， 通过 NewRelic 或者 Papertrail 进行服务器监控，"Push To Deploy", Laravel queue worker 设定等等。Forge 提供最简单且更实惠的方式来部署所有您的 Laravel 应用程序。</p>
+<p>默认在 Laravel 4.2 的安装里， <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>database<span class="token punctuation">.</span>php</code> 配置文件已为 Forge 设定完成，能让新应用在平台上的更方便的部署更加方便。</p>
+<p>关于 Laravel Forge 的更多信息可以在<a href="https://forge.laravel.com">官方 Forge 网站</a>上找到。</p>
+<h3>Laravel Homestead</h3>
+<p>Laravel Homestead 是一个为开发强壮的 Laravel 和 PHP 应用程序的所提供的官方 Vagrant 环境，是一个离线的，预先打好包的<code class=" language-php">Vagrant box</code>。绝大多数的 <code class=" language-php">box</code> 依赖软件在发布前已经部署处理完成，这让<code class=" language-php">box</code>可以极快的被启用。Homestead 包含 Nginx 1.6, PHP 5.6, MySQL, Postres, Redis, Memcached, Beanstalk, Node, Gulp, Grunt 和 Bower。Homestead 包含一个简单的 <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> 配置文件，让您在单一个封装包中能管理多个 Laravel 应用程序。</p>
+<p>默认的 Laravel 4.2 安装中包含的 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>local<span class="token operator">/</span>database<span class="token punctuation">.</span>php</code> 配置文件使用 Homestead 的数据库作为默认。让 Laravel 初始化安装与设定更为方便。</p>
+<p>官方文件已经更新并包含在 <a href="homestead.html">Homestead 文件</a>中。</p>
+<h3>Laravel Cashier</h3>
+<p>Laravel Cashier是一个简单、具有表现力的资源库，用来管理 Stripe 的订阅帐务。虽然在安装中此组件是选用状态，我们仍将Cashier文件包含在主要 Laravel 文件中。此发布版本修复了多个错误、支持多货币还有支持最新的 Stripe API。</p>
+<h3>Queue Workers 常驻软件</h3>
+<p>Artisan <code class=" language-php">queue<span class="token punctuation">:</span>work</code> 命令现在支持 <code class=" language-php"><span class="token operator">--</span>daemon</code> 参数让 worker 可以以"常驻软件"启用。代表 worker 可以持续的处理队列工作不需要重启框架。这让一个复杂的应用程序部署过程中，使得 CPU 的使用有显著的降低。</p>
+<p>更多关于 Queue Workers 常驻软件信息请阅读 <a href="queues.html#daemon-queue-worker">queue 文件</a>。</p>
+<h3>Mail API Drivers</h3>
+<p>Laravel 4.2 为 <code class=" language-php">Mail</code> 函数采用了新的 Mailgun 和 Mandrill API 驱动。对许多应用程序而言，他提供了比 SMTP 更快也更可靠的方法来发送邮件。新的驱动使用了 Guzzle 4 HTTP 资源库。</p>
+<h3>软删除 Traits</h3>
+<p>对于软删除和全作用域更简洁的方案
+PHP 5.4 的 <code class=" language-php">traits</code> 提供了一个更加简洁的软删除架构和全局作用域, 这些新架构为框架提供了更有扩展性的功能, 并且让框架更加简洁.</p>
+<p>更多关于软删除的文档请见: <a href="eloquent.html#soft-deleting">Eloquent documentation</a>.</p>
+<h3>更为方便的 认证(auth) &amp; Remindable Traits</h3>
+<p>得益于 PHP 5.4 traits , 我们有了一个更简洁的 用户认证 和 密码提醒接口, 这也让 <code class=" language-php">User</code> 模型文件更加精简.</p>
+<h3>"简易分页"</h3>
+<p>一个新的 <code class=" language-php">simplePaginate</code> 方法已被加入到查询以及 Eloquent 查询器中。让您在分页视图中，使用简单的"上一页"和"下一页"链接查询更为高效。</p>
+<h3>迁移确认</h3>
+<p>在正式环境中，破坏性的迁移动作将会被再次确认。如果希望取消提示字串确认请使用 <code class=" language-php"><span class="token operator">--</span>force</code> 参数。</p>
+<p><a name="laravel-4.1"></a></p>
+<h2><a href="releases.html#laravel-4.1">Laravel 4.1</a></h2>
+<h3>完整更新列表</h3>
+<p>通过在4.1版本的安装目录下执行 <code class=" language-php">php artisan changes</code> 来获取此次版本的完整更新列表，或者 查看<a href="https://github.com/laravel/framework/blob/4.1/src/Illuminate/Foundation/changes.json">Github 上的更新纪录</a>。此纪录只含括当前版本的主要功能改进和变更。</p>
+<h3>新的 SSH 组件</h3>
+<p>一个全新的 <code class=" language-php"><span class="token constant">SSH</span></code> 组件在此发行版本中登场。此功能让您可以轻易的 SSH 至远程服务器并执行命令。更多信息，可以参阅 <a href="ssh.html">SSH 组件文件</a>。</p>
+<p>新的 <code class=" language-php">php artisan tail</code> 命令就是使用这个新的 SSH 组件。更多的信息，请参阅 <code class=" language-php">tail</code> <a href="http://laravel.com/docs/4.2/ssh#tailing-remote-logs">命令集文件</a>。</p>
+<h3>Boris In Tinker</h3>
+<p>如果您的系统支持 <a href="https://github.com/d11wtq/boris">Boris REPL</a>，<code class=" language-php">php artisan thinker</code> 命令将会使用到它。系统中也必须先行安装好 <code class=" language-php">readline</code> 和 <code class=" language-php">pcntl</code> 两个 PHP 扩展包。如果您没这些扩展包，从 4.0 之后将会使用到它。</p>
+<h3>Eloquent 强化</h3>
+<p>Eloquent 新增了新的 <code class=" language-php">hasManyThrough</code> 关系链。想要了解更多，请参见 <a href="eloquent.html#has-many-through">Eloquent 文件</a>。</p>
+<p>一个新的 <code class=" language-php">whereHas</code> 方法也同时登场，他将允许<a href="eloquent.html#querying-relations">检索基于关系模型的约束</a>。</p>
+<h3>数据库读写分离</h3>
+<p>Query Builder 和 Eloquent 目前通过数据库层，已经可以自动做到读写分离。更多的信息，请参考<a href="database.html#read-write-connections">文件</a>。</p>
+<h3>队列优先级</h3>
+<p>支持通过在 <code class=" language-php">queue<span class="token punctuation">:</span>listen</code> 后面传递一组以逗号分隔的列表来指定队列优先级。</p>
+<h3>失败队列工作处理</h3>
+<p>现在队列将会自动处理失败的工作，只要在 <code class=" language-php">queue<span class="token punctuation">:</span>listen</code> 后加上 <code class=" language-php"><span class="token operator">--</span>tries</code> 即可。更多的失败工作处理可以参见 <a href="queues.html#failed-jobs">队列文件</a>。</p>
+<h3>缓存标签</h3>
+<p>缓存“区块”已经被“标签”取代。缓存标签允许您将多个“标签”指向同一个缓存对象，而且可以清空所有被指定某个标签的所有对象。更多使用缓存标签信息请见<a href="cache.html#cache-tags">缓存文件</a>。</p>
+<h3>更具弹性的密码提醒</h3>
+<p>密码提醒引擎已经可以提供更强大的开发弹性，如：认证密码，显示状态信息等等。使用强化的密码提醒引擎，更多的信息<a href="security.html#password-reminders-and-reset">请参阅文件</a>。</p>
+<h3>强化路由引擎</h3>
+<p>Laravel 4.1 拥有一个完全重新编写的路由层。API 一样不变。然而与 4.0 相比，速度快上 100%。整个引擎大幅的简化，且对于路由表达式的编译大大减少对 Symfony Routing 的依赖。</p>
+<h3>强化 Session 引擎</h3>
+<p>此发行版本中，我们亦发布了全新的 Session 引擎。如同路由增进的部分，新的 Session 曾更加简化且更快速。我们不再使用 Symfony 的 Session 处理工具，并且使用更简单、更容易维护的自定义解法。</p>
+<h3>Doctrine DBAL</h3>
+<p>如果您有在您的迁移中使用到 <code class=" language-php">renameColumn</code>，之后您必须在 <code class=" language-php">composer<span class="token punctuation">.</span>json</code> 里加入 <code class=" language-php">doctrine<span class="token operator">/</span>dbal</code> 扩展包。此扩展包不再默认包含在 Laravel 之中。</p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":32,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="releases.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>Laravel Homestead - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728398949&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=24&be=275&fe=192&dc=61&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728398949,%22n%22:0,%22u%22:164,%22ue%22:165,%22dl%22:168,%22di%22:336,%22ds%22:336,%22de%22:416,%22dc%22:466,%22l%22:466,%22le%22:467,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:100,%22rpe%22:310%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="Laravel Homestead,介绍,内置软件,安装与配置,常见用法,连接端口,Blackfire Profiler,介绍,Laravel 致力于让 PHP 开发体验更愉快，也包含你的本地开发环境。Vagrant 提供了一个简单、优雅的方式来管理与供应虚拟机。,Laravel Homestead 是一个官方预载的 Vagrant「封装包」，提供你一个美好的开发环境，你不需要在你的本机端安装 P...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="homestead.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			5.0
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="homestead.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2/homestead.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>Laravel Homestead</h1>
+<ul>
+<li><a href="homestead.html#introduction">介绍</a></li>
+<li><a href="homestead.html#included-software">内置软件</a></li>
+<li><a href="homestead.html#installation-and-setup">安装与配置</a></li>
+<li><a href="homestead.html#daily-usage">常见用法</a></li>
+<li><a href="homestead.html#ports">连接端口</a></li>
+<li><a href="homestead.html#blackfire-profiler">Blackfire Profiler</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2><a href="homestead.html#introduction">介绍</a></h2>
+<p>Laravel 致力于让 PHP 开发体验更愉快，也包含你的本地开发环境。<a href="http://vagrantup.com">Vagrant</a> 提供了一个简单、优雅的方式来管理与供应虚拟机。</p>
+<p>Laravel Homestead 是一个官方预载的 Vagrant「封装包」，提供你一个美好的开发环境，你不需要在你的本机端安装 PHP、HHVM、网页服务器或任何服务器软件。不用担心搞乱你的系统！Vagrant 封装包可以搞定一切。如果有什么地方出现故障，你可以在几分钟内快速的销毁并重建虚拟机。</p>
+<p>Homestead 可以在任何 Windows、Mac 或 Linux 上面运行，里面包含了 Nginx 网页服务器、PHP 5.6、MySQL、Postgres、Redis、Memcached 还有所有你要开发精彩的 Laravel 应用程序所需的软件。</p>
+<blockquote>
+<p><strong>附注：</strong> 如果您是 Windows 的用户，您可能需要启用硬件虚拟化（VT-x）。通常需要通过 BIOS 来启用它。</p>
+</blockquote>
+<p>Homestead 目前是构建且测试于 Vagrant 1.7 版本。</p>
+<p><a name="included-software"></a></p>
+<h2><a href="homestead.html#included-software">内置软件</a></h2>
+<ul>
+<li>Ubuntu 14.04</li>
+<li>PHP 5.6</li>
+<li>HHVM</li>
+<li>Nginx</li>
+<li>MySQL</li>
+<li>Postgres</li>
+<li>Node (With Bower, Grunt, and Gulp)</li>
+<li>Redis</li>
+<li>Memcached</li>
+<li>Beanstalkd</li>
+<li><a href="envoy.html">Laravel Envoy</a></li>
+<li><a href="homestead.html#blackfire-profiler">Blackfire Profiler</a></li>
+</ul>
+<p><a name="installation-and-setup"></a></p>
+<h2><a href="homestead.html#installation-and-setup">安装与配置</a></h2>
+<h3>安装 VirtualBox / VMWare 与 Vagrant</h3>
+<p>在启动你的 Homestead 环境之前，你必须先安装 <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> 和 <a href="http://www.vagrantup.com/downloads.html">Vagrant</a>. 两套软件在各平台都有提供易用的可视化安装程序。</p>
+<h4>VMware</h4>
+<p>除了 VirtualBox 之外, Homestead 也支持 VMware. 如果使用 VMware 作为 provider, 你需要购买 VMware Fusion / Desktop 以及 <a href="http://www.vagrantup.com/vmware">VMware Vagrant plug-in</a>. VMware 提供了更快、性能更好的共享文件夹。</p>
+<h3>增加 Vagrant 封装包</h3>
+<p>当 VirtualBox / VMware 和 Vagrant 安装完成后，你可以在终端机以下列命令将 'laravel/homestead' 封装包安装进你的 Vagrant 安装程序中。下载封装包会花你一点时间，时间长短将依据你的网络速度决定:</p>
+<pre class=" language-php"><code class=" language-php">vagrant box add laravel<span class="token operator">/</span>homestead</code></pre>
+<p>如果这个命令失败了, 你可能安装的是一个老版本的 Vagrant 需要指定一个完整的 URL：</p>
+<pre class=" language-php"><code class=" language-php">vagrant box add laravel<span class="token operator">/</span>homestead https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>atlas<span class="token punctuation">.</span>hashicorp<span class="token punctuation">.</span>com<span class="token operator">/</span>laravel<span class="token operator">/</span>boxes<span class="token operator">/</span>homestead</code></pre>
+<h3>安装 Homestead</h3>
+<p>你可以简单地通过手动复制资源库的方式来安装 Homestead。将资源库复制至你的 "home" 目录中的 <code class=" language-php">Homestead</code> 文件夹，如此一来 Homestead 封装包将能提供主机服务给你所有的 Laravel（及 PHP）应用:</p>
+<pre class=" language-php"><code class=" language-php">git clone https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>laravel<span class="token operator">/</span>homestead<span class="token punctuation">.</span>git Homestead</code></pre>
+<p>一旦你克隆完 Homestead 仓库，从 Homestead 目录中执行 <code class=" language-php">bash init<span class="token punctuation">.</span>sh</code> 命令来创建 <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> 配置文件:</p>
+<pre class=" language-php"><code class=" language-php">bash init<span class="token punctuation">.</span>sh</code></pre>
+<p>此 <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> 文件，将会被放置在你的 <code class=" language-php"><span class="token operator">~</span><span class="token operator">/</span><span class="token punctuation">.</span>homestead</code> 目录中。</p>
+<h3>配置你的 Provider</h3>
+<p>在 <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> 文件中的 <code class=" language-php">provider</code> 键表明需要使用的 Vagrant prodiver：<code class=" language-php">virtualbox</code> 、 <code class=" language-php">vmware_fusion</code> (Mac OS X)、或者 <code class=" language-php">vmware_workstation</code> (Windows)，你可以根据自己的喜好设定 provider 。</p>
+<pre class=" language-php"><code class=" language-php">provider<span class="token punctuation">:</span> virtualbox</code></pre>
+<h3>配置你的 SSH 密钥</h3>
+<p>然后你需要编辑 <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code>。可以在文件中配置你的 SSH 公开密钥，以及主要机器与 Homestead 虚拟机之间的共享目录。</p>
+<p>如果没有 SSH 密钥的话， 在 Mac 和 Linux 下，你可以利用下面的命令来创建一个 SSH 密钥组:</p>
+<pre class=" language-php"><code class=" language-php">ssh<span class="token operator">-</span>keygen <span class="token operator">-</span>t rsa <span class="token operator">-</span>C <span class="token string">"you@homestead"</span></code></pre>
+<p>在 Windows 下，你需要安装 <a href="http://git-scm.com/">Git</a> 并且使用包含在 Git 里的 <code class=" language-php">Git Bash</code> 来执行上述的命令。另外你也可以使用 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a> 和 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTYgen</a>。</p>
+<p>一旦你创建了一个 SSH 密钥，记得在你的 <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> 文件中的 <code class=" language-php">authorize</code> 属性指明密钥路径。</p>
+<h3>配置你的共享文件夹</h3>
+<p><code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> 文件中的 <code class=" language-php">folders</code> 属性列出了所有你想在 Homestead 环境共享的文件夹列表。这些文件夹中的文件若有变动，他们将会同步在你的本机与 Homestead 环境里。你可以将你需要的共享文件夹都配置进去。</p>
+<p>如果要开启 <a href="http://docs.vagrantup.com/v2/synced-folders/nfs.html">NFS</a>，只需要在 <code class=" language-php">folders</code> 中加入一个标识：</p>
+<pre class=" language-php"><code class=" language-php">folders<span class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> <span class="token operator">~</span><span class="token operator">/</span>Code
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span class="token operator">/</span>vagrant<span class="token operator">/</span>Code
+      type<span class="token punctuation">:</span> <span class="token string">"nfs"</span></code></pre>
+<h3>配置你的 Nginx 站点</h3>
+<p>对 Nginx 不熟悉？没关系。<code class=" language-php">sites</code> 属性允许你简单的对应一个 <code class=" language-php">域名</code> 到一个 homestead 环境中的目录。一个例子的站点被配置在 <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> 文件中。同样的，你可以加任何你需要的站点到你的 Homestead 环境中。Homestead 可以为你每个进行中的 Laravel 应用提供方便的虚拟化环境。</p>
+<p>你可以通过配置 <code class=" language-php">hhvm</code> 属性为 <code class=" language-php"><span class="token boolean">true</span></code> 来让虚拟站点支持 <a href="http://hhvm.com">HHVM</a>:</p>
+<pre class=" language-php"><code class=" language-php">sites<span class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> homestead<span class="token punctuation">.</span>app
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span class="token operator">/</span>vagrant<span class="token operator">/</span>Code<span class="token operator">/</span>Laravel<span class="token operator">/</span><span class="token keyword">public</span>
+      hhvm<span class="token punctuation">:</span> <span class="token boolean">true</span></code></pre>
+<p>Each site will be accessible by HTTP via port 8000 and HTTPS via port 44300.</p>
+<h3>Bash Aliases</h3>
+<p>如果要增加 Bash aliases 到你的 Homestead 封装包中，只要将内容添加到 <code class=" language-php"><span class="token operator">~</span><span class="token operator">/</span><span class="token punctuation">.</span>homestead</code> 目录最上层的 <code class=" language-php">aliases</code> 文件中即可。</p>
+<h3>启动 Vagrant 封装包</h3>
+<p>当你根据你的喜好编辑完 <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> 后，在终端机里进入你的 Homestead 文件夹并执行 <code class=" language-php">vagrant up</code> 命令。</p>
+<p>Vagrant 会将虚拟机开机，并且自动配置你的共享目录和 Nginx 站点。如果要移除虚拟机，可以使用 <code class=" language-php">vagrant destroy <span class="token operator">--</span>force</code> 命令。</p>
+<p>为了你的 Nginx 站点，别忘记在你的机器的 <code class=" language-php">hosts</code> 文件将「域名」加进去。<code class=" language-php">hosts</code> 文件会将你的本地域名的站点请求指向你的 Homestead 环境中。在 Mac 和 Linux，该文件放在 <code class=" language-php"><span class="token operator">/</span>etc<span class="token operator">/</span>hosts</code>。在 Windows 环境中，它被放置在 <code class=" language-php">C<span class="token punctuation">:</span>\<span class="token package">Windows<span class="token punctuation">\</span>System32<span class="token punctuation">\</span>drivers<span class="token punctuation">\</span>etc<span class="token punctuation">\</span>hosts</span></code>。你要加进去的内容类似如下：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token number">192.168</span><span class="token punctuation">.</span><span class="token number">10.10</span>  homestead<span class="token punctuation">.</span>app</code></pre>
+<p>务必确认 IP 地址与你的 <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> 文件中的相同。一旦你将域名加进你的 <code class=" language-php">hosts</code> 文件中，你就可以通过网页浏览器访问到你的站点。</p>
+<pre class=" language-php"><code class=" language-php">http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>homestead<span class="token punctuation">.</span>app</code></pre>
+<p>继续读下去，你会学到如何连接到数据库！</p>
+<p><a name="daily-usage"></a></p>
+<h2><a href="homestead.html#daily-usage">常见用法</a></h2>
+<h3>通过 SSH 连接</h3>
+<p>要通过 SSH 连接上您的 Homestead 环境，在终端机里进入你的 Homestead 目录并执行  <code class=" language-php">vagrant ssh</code> 命令。</p>
+<p>因为你可能会经常需要通过 SSH 进入你的 Homestead 虚拟机，可以考虑在你的主要机器上创建一个"别名" 用来快速 SSH 进入 Homestead 虚拟机:</p>
+<pre class=" language-php"><code class=" language-php">alias vm<span class="token operator">=</span><span class="token string">"ssh vagrant@127.0.0.1 -p 2222"</span></code></pre>
+<p>一旦你创建了这个别名，无论你在主要机器的哪个目录，都可以简单地使用 "vm" 命令来通过 SSH 进入你的 Homestead 虚拟机。</p>
+<p>你也可以在 Homestead 目录使用 <code class=" language-php">vagrant ssh</code> 命令。</p>
+<h3>连接数据库</h3>
+<p>在 <code class=" language-php">Homestead</code> 封装包中，已经预了 MySQL 与 Postgres 两种数据库。为了更简便，Laravel 的 <code class=" language-php">local</code> 数据库配置已经默认将其配置完成。</p>
+<p>如果想要从本机上通过 Navicat 或者 Sequel Pro 连接 MySQL 或者 Postgres 数据库，你可以连接 <code class=" language-php"><span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span></code> 的端口 33060 (MySQL) 或 54320 (Postgres)。而帐号密码分别是 <code class=" language-php">homestead</code> / <code class=" language-php">secret</code>。</p>
+<blockquote>
+<p><strong>附注：</strong> 从本机端你应该只能使用这些非标准的连接端口来连接数据库。因为当 Laravel 运行在虚拟机时，在 Laravel 的数据库配置文件中依然是配置使用默认的 3306 及 5432 连接端口。</p>
+</blockquote>
+<h3>增加更多的站点</h3>
+<p>在 Homestead 环境上架且运行后，你可能会需要为 Laravel 应用程序增加更多的 Nginx 站点。你可以在单一个 Homestead 环境中运行非常多 Laravel 安装程序。有两种方式可以达成：第一种，在 <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> 文件中增加站点然后在 Homestead 目录中执行 <code class=" language-php">vagrant provision</code>。</p>
+<blockquote>
+<p><strong>Note:</strong> 这个操作是具有破坏性的，当执行 <code class=" language-php">provision</code> 命令，你现有的数据库会被摧毁并重新创建。</p>
+</blockquote>
+<p>另外，也可以使用存放在 Homestead 环境中的 <code class=" language-php">serve</code> 命令文件。要使用 <code class=" language-php">serve</code> 命令文件，请先 SSH 进入 Homestead 环境中，并执行下列命令：</p>
+<pre class=" language-php"><code class=" language-php">serve domain<span class="token punctuation">.</span>app <span class="token operator">/</span>home<span class="token operator">/</span>vagrant<span class="token operator">/</span>Code<span class="token operator">/</span>path<span class="token operator">/</span>to<span class="token operator">/</span><span class="token keyword">public</span><span class="token operator">/</span>directory <span class="token number">80</span></code></pre>
+<blockquote>
+<p><strong>附注：</strong> 在执行 <code class=" language-php">serve</code> 命令过后，别忘记将新的站点加进本机的 <code class=" language-php">hosts</code> 文件中。</p>
+</blockquote>
+<p><a name="ports"></a></p>
+<h2><a href="homestead.html#ports">连接端口</a></h2>
+<p>以下的端口将会被转发至 Homestead 环境：</p>
+<ul>
+<li><strong>SSH:</strong> 2222 → Forwards To 22</li>
+<li><strong>HTTP:</strong> 8000 → Forwards To 80</li>
+<li><strong>HTTPS:</strong> 44300 → Forwards To 443</li>
+<li><strong>MySQL:</strong> 33060 → Forwards To 3306</li>
+<li><strong>Postgres:</strong> 54320 → Forwards To 5432</li>
+</ul>
+<h3>增加额外端口</h3>
+<p>你也可以自定义转发额外的端口至 Vagrant box，只需要指定协议：</p>
+<pre class=" language-php"><code class=" language-php">ports<span class="token punctuation">:</span>
+    <span class="token operator">-</span> send<span class="token punctuation">:</span> <span class="token number">93000</span>
+      to<span class="token punctuation">:</span> <span class="token number">9300</span>
+    <span class="token operator">-</span> send<span class="token punctuation">:</span> <span class="token number">7777</span>
+      to<span class="token punctuation">:</span> <span class="token number">777</span>
+      protocol<span class="token punctuation">:</span> udp</code></pre>
+<p><a name="blackfire-profiler"></a></p>
+<h2><a href="homestead.html#blackfire-profiler">Blackfire Profiler</a></h2>
+<p><a href="https://blackfire.io">Blackfire Profiler</a> 是由 SensioLabs 创建的一个分析工具，它会自动的收集代码执行期间的相关数据，比如 RAM, CPU time, 和 disk I/O. 如果你使用 Homestead ，那么使用这个分析工具会变得非常简单。</p>
+<p>blackfire 所需的包已经安装在 Homestead box 中，你只需要在 <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> 文件中设置 <strong>Server</strong> ID 和 token ：</p>
+<pre class=" language-php"><code class=" language-php">blackfire<span class="token punctuation">:</span>
+    <span class="token operator">-</span> id<span class="token punctuation">:</span> your<span class="token operator">-</span>server<span class="token operator">-</span>id
+      token<span class="token punctuation">:</span> your<span class="token operator">-</span>server<span class="token operator">-</span>token
+      client<span class="token operator">-</span>id<span class="token punctuation">:</span> your<span class="token operator">-</span>client<span class="token operator">-</span>id
+      client<span class="token operator">-</span>token<span class="token punctuation">:</span> your<span class="token operator">-</span>client<span class="token operator">-</span>token</code></pre>
+<p>当你设定完 Blackfire 的凭证信息，使用 <code class=" language-php">vagrant provision</code> 令配置生效。当然，你也需要通过阅读<a href="https://blackfire.io/getting-started">Blackfire 文档</a> 来学习如何在你的浏览器中安装 Blackfire 扩展。</p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":24,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="homestead.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

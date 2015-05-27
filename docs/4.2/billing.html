@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>Laravel Cashier - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728424765&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=31&be=168&fe=183&dc=21&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728424765,%22n%22:0,%22u%22:165,%22ue%22:165,%22dl%22:168,%22di%22:189,%22ds%22:189,%22de%22:262,%22dc%22:350,%22l%22:350,%22le%22:351,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:106,%22rpe%22:165%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="Laravel Cashier,介绍,配置文件,订购方案,免信用卡试用,订购转换,订购数量,取消订购,恢复订购,确认订购状态,处理交易失败,处理其它 Stripe Webhooks,收据,介绍,Laravel Cashier 提供语义化，流畅的接口和 Stripe 的订购管理服务连接。它几乎处理了所有复杂的订购管理相关逻辑。除了基本的订购管理外， Cashier 还可以处理折扣券，订购转换，管理订...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="billing.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			4.2
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0/billing.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="billing.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>Laravel Cashier</h1>
+<ul>
+<li><a href="billing.html#introduction">介绍</a></li>
+<li><a href="billing.html#configuration">配置文件</a></li>
+<li><a href="billing.html#subscribing-to-a-plan">订购方案</a></li>
+<li><a href="billing.html#no-card-up-front">免信用卡试用</a></li>
+<li><a href="billing.html#swapping-subscriptions">订购转换</a></li>
+<li><a href="billing.html#subscription-quantity">订购数量</a></li>
+<li><a href="billing.html#cancelling-a-subscription">取消订购</a></li>
+<li><a href="billing.html#resuming-a-subscription">恢复订购</a></li>
+<li><a href="billing.html#checking-subscription-status">确认订购状态</a></li>
+<li><a href="billing.html#handling-failed-payments">处理交易失败</a></li>
+<li><a href="billing.html#handling-other-stripe-webhooks">处理其它 Stripe Webhooks</a></li>
+<li><a href="billing.html#invoices">收据</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2><a href="billing.html#introduction">介绍</a></h2>
+<p>Laravel Cashier 提供语义化，流畅的接口和 <a href="https://stripe.com">Stripe</a> 的订购管理服务连接。它几乎处理了所有复杂的订购管理相关逻辑。除了基本的订购管理外， Cashier 还可以处理折扣券，订购转换，管理订购「数量」、服务有效期限，甚至产生收据的 PDF 。</p>
+<p><a name="configuration"></a></p>
+<h2><a href="billing.html#configuration">配置文件</a></h2>
+<h4>Composer</h4>
+<p>首先，把 Cashier 扩展包加到 <code class=" language-php">composer<span class="token punctuation">.</span>json</code>：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token string">"laravel/cashier"</span><span class="token punctuation">:</span> <span class="token string">"~2.0"</span></code></pre>
+<h4>服务提供者</h4>
+<p>接下来，在 <code class=" language-php">app</code> 配置文件注册 <code class=" language-php">Laravel\<span class="token package">Cashier<span class="token punctuation">\</span>CashierServiceProvider</span></code>。</p>
+<h4>迁移</h4>
+<p>使用 Cashier 前，我们需要增加几个字段到数据库。别担心，您可以使用 <code class=" language-php">cashier<span class="token punctuation">:</span>table</code> Artisan 命令，建立迁移文件来新增必要字段。例如，要增加字段到 users 数据库表，使用 <code class=" language-php">php artisan cashier<span class="token punctuation">:</span>table users</code> 。建立完迁移文件后，只要执行 <code class=" language-php">migrate</code> 命令即可。</p>
+<h4>设定模型</h4>
+<p>接下来，把 BillableTrait 和日期字段参数加到模型 (model) 里：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">use</span> <span class="token package">Laravel<span class="token punctuation">\</span>Cashier<span class="token punctuation">\</span>BillableTrait</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Laravel<span class="token punctuation">\</span>Cashier<span class="token punctuation">\</span>BillableInterface</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Eloquent</span> <span class="token keyword">implements</span> <span class="token class-name">BillableInterface</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">use</span> <span class="token package">BillableTrait</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">protected</span> <span class="token variable">$dates</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trial_ends_at'</span><span class="token punctuation">,</span> <span class="token string">'subscription_ends_at'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h4>Stripe Key</h4>
+<p>最后，在起始文件里加入 Stripe key：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">User<span class="token punctuation">::</span></span><span class="token function">setStripeKey<span class="token punctuation">(</span></span><span class="token string">'stripe-key'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="subscribing-to-a-plan"></a></p>
+<h2><a href="billing.html#subscribing-to-a-plan">订购方案</a></h2>
+<p>当有了模型实例，您可以很简单的处理客户订购的 Stripe 里的方案：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span class="token operator">=</span> <span class="token scope">User<span class="token punctuation">::</span></span><span class="token function">find<span class="token punctuation">(</span></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscription<span class="token punctuation">(</span></span><span class="token string">'monthly'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">create<span class="token punctuation">(</span></span><span class="token variable">$creditCardToken</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>如果您想在处理订购的时候使用折扣券，可以使用 <code class=" language-php">withCoupon</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscription<span class="token punctuation">(</span></span><span class="token string">'monthly'</span><span class="token punctuation">)</span>
+     <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">withCoupon<span class="token punctuation">(</span></span><span class="token string">'code'</span><span class="token punctuation">)</span>
+     <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">create<span class="token punctuation">(</span></span><span class="token variable">$creditCardToken</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code class=" language-php">subscription</code> 方法会自动建立与 Stripe 的交易，以及将 Stripe customer ID 和其他相关帐款信息更新到数据库。如果您的方案有在 Stripe 设定试用期，试用到期时间也会自动记录起来。</p>
+<p>如果您的方案有试用期间，但是<strong>没有</strong>在 Stripe 里设定，您必须在订购后手动储存试用到期时间。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">trial_ends_at</span> <span class="token operator">=</span> <span class="token scope">Carbon<span class="token punctuation">::</span></span><span class="token function">now<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">addDays<span class="token punctuation">(</span></span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">save<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>自定义额外用户详细数据</h3>
+<p>如果您想自定义额外的顾客详细数据，您可以将数组作为 <code class=" language-php">create</code> 方法的第二个参数传入：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscription<span class="token punctuation">(</span></span><span class="token string">'monthly'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">create<span class="token punctuation">(</span></span><span class="token variable">$creditCardToken</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token string">'email'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$email</span><span class="token punctuation">,</span> <span class="token string">'description'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Our First Customer'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>想知道更多 Stripe 支持的额外字段，请阅读 Stripe 的线上文件 <a href="https://stripe.com/docs/api#create_customer">建立客户</a>.</p>
+<p><a name="no-card-up-front"></a></p>
+<h2><a href="billing.html#no-card-up-front">免信用卡试用</a></h2>
+<p>如果您提供免信用卡试用服务，把 <code class=" language-php">cardUpFront</code> 属性设为 <code class=" language-php"><span class="token boolean">false</span></code>：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">protected</span> <span class="token variable">$cardUpFront</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span></code></pre>
+<p>建立帐号时，记得把试用到期时间记录起来：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">trial_ends_at</span> <span class="token operator">=</span> <span class="token scope">Carbon<span class="token punctuation">::</span></span><span class="token function">now<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">addDays<span class="token punctuation">(</span></span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">save<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="swapping-subscriptions"></a></p>
+<h2><a href="billing.html#swapping-subscriptions">订购转换</a></h2>
+<p>使用 <code class=" language-php">swap</code> 方法可以把用户转换到新的订购方案：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscription<span class="token punctuation">(</span></span><span class="token string">'premium'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">swap<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>如果用户还在试用期间，试用服务会跟之前一样可用。如果订单有「数量限制」，也会和之前一样。</p>
+<p><a name="subscription-quantity"></a></p>
+<h2><a href="billing.html#subscription-quantity">订购数量</a></h2>
+<p>有时候订购行为会跟「数量限制」有关。例如，您的应用程序可能会跟用户每个月收取 $10 元。您可以使用 <code class=" language-php">increment</code> 和 <code class=" language-php">decrement</code> 方法简单的调整订购数量：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span class="token operator">=</span> <span class="token scope">User<span class="token punctuation">::</span></span><span class="token function">find<span class="token punctuation">(</span></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscription<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">increment<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// Add five to the subscription's current quantity...
+</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscription<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">increment<span class="token punctuation">(</span></span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscription<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">decrement<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// Subtract five to the subscription's current quantity...
+</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscription<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">decrement<span class="token punctuation">(</span></span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="cancelling-a-subscription"></a></p>
+<h2><a href="billing.html#cancelling-a-subscription">取消订购</a></h2>
+<p>取消订购相当简单：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscription<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">cancel<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>当客户取消订购时， Cashier 会自动更新数据库的 <code class=" language-php">subscription_ends_at</code> 字段。这个字段会被用来判断 <code class=" language-php">subscribed</code> 方法是否该回传 <code class=" language-php"><span class="token boolean">false</span></code> 。例如，如果顾客在三月一号取消订购，但是服务可以使用到三月五号为止，那么 <code class=" language-php">subscribed</code> 方法在三月五号前都会传回 <code class=" language-php"><span class="token boolean">true</span></code> 。</p>
+<p><a name="resuming-a-subscription"></a></p>
+<h2><a href="billing.html#resuming-a-subscription">恢复订购</a></h2>
+<p>如果您想要恢复客户之前取消的订购，使用 <code class=" language-php">resume</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscription<span class="token punctuation">(</span></span><span class="token string">'monthly'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">resume<span class="token punctuation">(</span></span><span class="token variable">$creditCardToken</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>如果客户取消订购后，在服务过期前恢复，他们不用在当下付款。他们的订购服务会重新激活，而付款时间还是依据之前的付款周期。</p>
+<p><a name="checking-subscription-status"></a></p>
+<h2><a href="billing.html#checking-subscription-status">确认订购状态</a></h2>
+<p>要确认用户是否订购了服务，使用 <code class=" language-php">subscribed</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscribed<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<p><code class=" language-php">subscribed</code> 方法很适合用在路由过滤：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">filter<span class="token punctuation">(</span></span><span class="token string">'subscribed'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">user<span class="token punctuation">(</span></span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span> <span class="token scope">Auth<span class="token punctuation">::</span></span><span class="token function">user<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscribed<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token scope">Redirect<span class="token punctuation">::</span></span><span class="token function">to<span class="token punctuation">(</span></span><span class="token string">'billing'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>您可以使用 <code class=" language-php">onTrial</code> 方法，确认用户是否还在试用期间：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">onTrial<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<p>要确认用户是否曾经订购但是已经取消了服务，可已使用 <code class=" language-php">cancelled</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">cancelled<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<p>您可能想确认用户是否已经取消订单，但是服务还没有到期。例如，如果用户在三月五号取消了订购，但是服务会到三月十号才过期。那么用户到三月十号前都是有效期间。注意， <code class=" language-php">subscribed</code> 方法在过期前都会回传 <code class=" language-php"><span class="token boolean">true</span></code> 。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">onGracePeriod<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<p><code class=" language-php">everSubscribed</code> 方法可以用来确认用户是否订购过您的方案：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">everSubscribed<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<p><code class=" language-php">onPlan</code> 方法可以用方案 ID 来确认用户是否订购某方案：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">onPlan<span class="token punctuation">(</span></span><span class="token string">'monthly'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span></code></pre>
+<p><a name="handling-failed-payments"></a></p>
+<h2><a href="billing.html#handling-failed-payments">处理交易失败</a></h2>
+<p>如果顾客的信用卡过期了呢？无需担心，Cashier 包含了 Webhook 控制器，可以帮您简单的取消顾客的订单。只要把路由注册到控制器：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">Route<span class="token punctuation">::</span></span><span class="token function">post<span class="token punctuation">(</span></span><span class="token string">'stripe/webhook'</span><span class="token punctuation">,</span> <span class="token string">'Laravel\Cashier\WebhookController@handleWebhook'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>失败的交易会经由控制器捕捉并进行处理。控制器会进行至多三次再交易尝试，都失败后才会取消顾客的订单。上面的 <code class=" language-php">stripe<span class="token operator">/</span>webhook</code> URI 只是一个例子，您必须使用设定在 Stripe 里的 URI 才行。</p>
+<p><a name="handling-other-stripe-webhooks"></a></p>
+<h2><a href="billing.html#handling-other-stripe-webhooks">处理其它 Stripe Webhooks</a></h2>
+<p>如果您想要处理额外的 Stripe webhook 事件，可以继承 Webhook 控制器。您的方法名称要对应到 Cashier 预期的名称，尤其是方法名称应该使用 <code class=" language-php">handle</code> 前缀，后面接着您想要处理的 Stripe webhook 。例如，如果您想要处理 <code class=" language-php">invoice<span class="token punctuation">.</span>payment_succeeded</code> webhook ，您应该增加一个 <code class=" language-php">handleInvoicePaymentSucceeded</code> 方法到控制器。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">class</span> <span class="token class-name">WebhookController</span> <span class="token keyword">extends</span> <span class="token class-name">Laravel<span class="token punctuation">\</span>Cashier<span class="token punctuation">\</span>WebhookController</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handleInvoicePaymentSucceeded<span class="token punctuation">(</span></span><span class="token variable">$payload</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> // Handle The Event
+</span>    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p><strong>注意</strong> 除了更新您数据库里的订购信息以外， Webhook 控制器也可能会经由 Stripe API 取消您的订购。</p>
+</blockquote>
+<p><a name="invoices"></a></p>
+<h2><a href="billing.html#invoices">收据</a></h2>
+<p>您可以很简单的经由 <code class=" language-php">invoices</code> 方法拿到客户的收据数组：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$invoices</span> <span class="token operator">=</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">invoices<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>您可以使用这些辅助方法，列出收据的相关信息给客户看：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$invoice</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">id</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$invoice</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dateString<span class="token punctuation">(</span></span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$invoice</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dollars<span class="token punctuation">(</span></span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
+<p>使用 <code class=" language-php">downloadInvoice</code> 方法产生收据的 PDF 下载。看吧，它的调用是多么的简单：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">downloadInvoice<span class="token punctuation">(</span></span><span class="token variable">$invoice</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">id</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token string">'vendor'</span>  <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Your Company'</span><span class="token punctuation">,</span>
+    <span class="token string">'product'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'Your Product'</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":31,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="billing.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

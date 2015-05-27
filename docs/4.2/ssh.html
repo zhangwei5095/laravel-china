@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>远程连接 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="http://bam.nr-data.net/1/229d5871c8?a=12032708&pl=1432728430059&v=632.2b17625&to=ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==&ap=26&be=111&fe=401&dc=109&f=%5B%5D&perf=%7B%22timing%22:%7B%22of%22:1432728430059,%22n%22:0,%22u%22:107,%22ue%22:107,%22dl%22:110,%22di%22:220,%22ds%22:220,%22de%22:285,%22dc%22:511,%22l%22:511,%22le%22:512,%22f%22:0,%22dn%22:0,%22dne%22:0,%22c%22:0,%22ce%22:0,%22rq%22:0,%22rp%22:105,%22rpe%22:203%7D,%22navigation%22:%7B%7D%7D&at=SBBXEwsYREs=&jsonp=NREUM.setToken"></script><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="远程连接,配置文件,基本用法,任务,SFTP 下载,SFTP 上传,编辑远程日志,Envoy 任务执行,配置文件,Laravel 可以简单的通过 SSH 方式登录到远程服务器并执行相关操作命令，让您可以简单在远程执行的建立 Artisan 任务。SSH facade 提供了此类行为的入口。,相关的配置文件存在 app/config/remote.php 中，此文件包含所有您需要设定的远程连接配置，...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="ssh.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			4.2
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="ssh.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-04-11</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="introduction.html">Laravel 介绍</a></li>
+<li><a href="quick.html">快速入门</a></li>
+<li><a href="releases.html">框架更新记录</a></li>
+<li><a href="upgrade.html">升级指南</a></li>
+</ul></li>
+<li>快速上手
+<ul>
+<li><a href="installation.html">安装文档</a></li>
+<li><a href="configuration.html">配置信息</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="lifecycle.html">程序的生命周期</a></li>
+<li><a href="routing.html">路由 Routing</a></li>
+<li><a href="requests.html">处理用户请求和输入</a></li>
+<li><a href="responses.html">视图和响应</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="errors.html">错误和日志</a></li>
+</ul></li>
+<li>更多 Laravel 知识
+<ul>
+<li><a href="security.html">身份认证功能</a></li>
+<li><a href="billing.html">收费系统</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="extending.html">扩展框架</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="html.html">表单和HTML</a></li>
+<li><a href="helpers.html">帮助函数</a></li>
+<li><a href="ioc.html">IoC Container</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件发送 Mail</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页功能</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="security.html">安全</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="ssh.html">远程连接模块 SSH</a></li>
+<li><a href="templates.html">模版引擎</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库 Database
+<ul>
+<li><a href="database.html">数据库简单使用</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">表结构构造器</a></li>
+<li><a href="migrations.html">Migrations &amp; Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>命令行 Artisan CLI
+<ul>
+<li><a href="artisan.html">命令行 Artisan 介绍</a></li>
+<li><a href="commands.html">开发 Artisan 命令</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>远程连接</h1>
+<ul>
+<li><a href="ssh.html#configuration">配置文件</a></li>
+<li><a href="ssh.html#basic-usage">基本用法</a></li>
+<li><a href="ssh.html#tasks">任务</a></li>
+<li><a href="ssh.html#sftp-downloads">SFTP 下载</a></li>
+<li><a href="ssh.html#sftp-uploads">SFTP 上传</a></li>
+<li><a href="ssh.html#tailing-remote-logs">编辑远程日志</a></li>
+<li><a href="ssh.html#envoy-task-runner">Envoy 任务执行</a></li>
+</ul>
+<p><a name="configuration"></a></p>
+<h2><a href="ssh.html#configuration">配置文件</a></h2>
+<p>Laravel 可以简单的通过 SSH 方式登录到远程服务器并执行相关操作命令，让您可以简单在远程执行的建立 Artisan 任务。<code class=" language-php"><span class="token constant">SSH</span></code> facade 提供了此类行为的入口。</p>
+<p>相关的配置文件存在 <code class=" language-php">app<span class="token operator">/</span>config<span class="token operator">/</span>remote<span class="token punctuation">.</span>php</code> 中，此文件包含所有您需要设定的远程连接配置， <code class=" language-php">connections</code> 数组里有以远程服务器名称作为键值的列表。只要在 <code class=" language-php">connections</code> 数组设定好认证，您就准备好可以执行远程任务了。记得 <code class=" language-php"><span class="token constant">SSH</span></code> 可以使用密码或 SSH key 进行身份认证。</p>
+<blockquote>
+<p><strong>提示:</strong> 需要在远程服务器执行很多任务吗？请阅读 <a href="ssh.html#envoy-task-runner">Envoy 任务执行</a>!</p>
+</blockquote>
+<p><a name="basic-usage"></a></p>
+<h2><a href="ssh.html#basic-usage">基本用法</a></h2>
+<h4>在在默认服务器执行命令</h4>
+<p>使用 <code class=" language-php"><span class="token scope">SSH<span class="token punctuation">::</span></span>run</code> 方法，在默认的远程服务器执行命令：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">SSH<span class="token punctuation">::</span></span><span class="token function">run<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token string">'cd /var/www'</span><span class="token punctuation">,</span>
+    <span class="token string">'git pull origin master'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>在特定服务器执行命令</h4>
+<p>您也可以使用 <code class=" language-php">into</code> 方法在特定的服务器上执行命令：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">SSH<span class="token punctuation">::</span></span><span class="token function">into<span class="token punctuation">(</span></span><span class="token string">'staging'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">run<span class="token punctuation">(</span></span><span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token string">'cd /var/www'</span><span class="token punctuation">,</span>
+    <span class="token string">'git pull origin master'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>捕捉命令的输出</h4>
+<p>您可以经由传入闭合函数到 <code class=" language-php">run</code> 方法，捕捉远程命令的即时输出：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">SSH<span class="token punctuation">::</span></span><span class="token function">run<span class="token punctuation">(</span></span><span class="token variable">$commands</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$line</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$line</span><span class="token punctuation">.</span><span class="token constant">PHP_EOL</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2>任务</h2>
+<p><a name="tasks"></a></p>
+<p>如果您需要定义一组一起执行的命令，您可以用 <code class=" language-php">define</code> 方法定义一个「任务」：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">SSH<span class="token punctuation">::</span></span><span class="token function">into<span class="token punctuation">(</span></span><span class="token string">'staging'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">define<span class="token punctuation">(</span></span><span class="token string">'deploy'</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token string">'cd /var/www'</span><span class="token punctuation">,</span>
+    <span class="token string">'git pull origin master'</span><span class="token punctuation">,</span>
+    <span class="token string">'php artisan migrate'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>您可以用 <code class=" language-php">task</code> 方法执行定义过的任务：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">SSH<span class="token punctuation">::</span></span><span class="token function">into<span class="token punctuation">(</span></span><span class="token string">'staging'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">task<span class="token punctuation">(</span></span><span class="token string">'deploy'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$line</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$line</span><span class="token punctuation">.</span><span class="token constant">PHP_EOL</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="sftp-downloads"></a></p>
+<h2><a href="ssh.html#sftp-downloads">SFTP 下载</a></h2>
+<p><code class=" language-php"><span class="token constant">SSH</span></code> 类里有简单的方式可以下载文件，使用 <code class=" language-php">get</code> 和 <code class=" language-php">getString</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">SSH<span class="token punctuation">::</span></span><span class="token function">into<span class="token punctuation">(</span></span><span class="token string">'staging'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">get<span class="token punctuation">(</span></span><span class="token variable">$remotePath</span><span class="token punctuation">,</span> <span class="token variable">$localPath</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$contents</span> <span class="token operator">=</span> <span class="token scope">SSH<span class="token punctuation">::</span></span><span class="token function">into<span class="token punctuation">(</span></span><span class="token string">'staging'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getString<span class="token punctuation">(</span></span><span class="token variable">$remotePath</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="sftp-uploads"></a></p>
+<h2><a href="ssh.html#sftp-uploads">SFTP 上传</a></h2>
+<p><code class=" language-php"><span class="token constant">SSH</span></code> 类里也有简单的方式可以上传文件或甚至是字串到远程服务器，使用 <code class=" language-php">put</code> 和 <code class=" language-php">putString</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token scope">SSH<span class="token punctuation">::</span></span><span class="token function">into<span class="token punctuation">(</span></span><span class="token string">'staging'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">put<span class="token punctuation">(</span></span><span class="token variable">$localFile</span><span class="token punctuation">,</span> <span class="token variable">$remotePath</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token scope">SSH<span class="token punctuation">::</span></span><span class="token function">into<span class="token punctuation">(</span></span><span class="token string">'staging'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">putString<span class="token punctuation">(</span></span><span class="token variable">$remotePath</span><span class="token punctuation">,</span> <span class="token string">'Foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="tailing-remote-logs"></a></p>
+<h2><a href="ssh.html#tailing-remote-logs">编辑远程日志</a></h2>
+<p>Laravel 有一个有用的命令可以让您在任何远程服务器的 <code class=" language-php">laravel<span class="token punctuation">.</span>log</code> 尾端附加日志内容。使用 Artisan 的 <code class=" language-php">tail</code> 命令以及指定远程连线的服务器名称：</p>
+<pre class=" language-php"><code class=" language-php">php artisan tail staging
+
+php artisan tail staging <span class="token operator">--</span>path<span class="token operator">=</span><span class="token operator">/</span>path<span class="token operator">/</span>to<span class="token operator">/</span>log<span class="token punctuation">.</span>file</code></pre>
+<p><a name="envoy-task-runner"></a></p>
+<h2><a href="ssh.html#envoy-task-runner">Envoy 任务执行</a></h2>
+<ul>
+<li><a href="ssh.html#envoy-installation">安装</a></li>
+<li><a href="ssh.html#envoy-running-tasks">执行任务</a></li>
+<li><a href="ssh.html#envoy-multiple-servers">多服务器</a></li>
+<li><a href="ssh.html#envoy-parallel-execution">平行执行</a></li>
+<li><a href="ssh.html#envoy-task-macros">任务宏</a></li>
+<li><a href="ssh.html#envoy-notifications">提醒通知</a></li>
+<li><a href="ssh.html#envoy-updating-envoy">更新 Envoy</a></li>
+</ul>
+<p>Laravel Envoy 提供了简洁，轻量的语法能让您对远程服务器执行任务操作。使用 <a href="../5.0/templates.html#blade-templating">Blade</a> 风格的语法，您可以简单的设置部署任务，执行 Artisan 命令。</p>
+<blockquote>
+<p><strong>提醒:</strong> Envoy 需要 PHP 5.4 或更高的版本，并且只能在 Mac / Linux 发行版本下执行。</p>
+</blockquote>
+<p><a name="envoy-installation"></a></p>
+<h3>安装</h3>
+<p>首先，使用 Composer <code class=" language-php"><span class="token keyword">global</span></code> 命令安装 Envoy ：</p>
+<pre class=" language-php"><code class=" language-php">composer <span class="token keyword">global</span> <span class="token keyword">require</span> <span class="token string">"laravel/envoy=~1.0"</span></code></pre>
+<p>记得将 <code class=" language-php"><span class="token operator">~</span><span class="token operator">/</span><span class="token punctuation">.</span>composer<span class="token operator">/</span>vendor<span class="token operator">/</span>bin</code> 路径加入 PATH，如此在终端机执行 <code class=" language-php">envoy</code> 命令时才找得到。</p>
+<p>再来，在项目根目录建立 <code class=" language-php">Envoy<span class="token punctuation">.</span>blade<span class="token punctuation">.</span>php</code> 文件。这里有个例子可以让您作为示例：</p>
+<pre class=" language-php"><code class=" language-php">@<span class="token function">servers<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'web'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'192.168.1.1'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+@<span class="token function">task<span class="token punctuation">(</span></span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'on'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'web'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    ls <span class="token operator">-</span>la
+@endtask</code></pre>
+<p>如您所见，<code class=" language-php">@servers</code> 数组建立在文件的开头。您可以在定义任务时，在 <code class=" language-php">on</code> 选项里参照这些服务器。在您的 <code class=" language-php">@task</code> 定义里，写入想要在远程服务器执行的 Bash code。</p>
+<p><code class=" language-php">init</code> 命令可以简单的建立一个基本的 Envoy 文件：</p>
+<pre class=" language-php"><code class=" language-php">envoy init user@<span class="token number">192.168</span><span class="token punctuation">.</span><span class="token number">1.1</span></code></pre>
+<p><a name="envoy-running-tasks"></a></p>
+<h3>执行任务</h3>
+<p>以 envoy 的 <code class=" language-php">run</code> 命令去执行您设定的任务：</p>
+<pre class=" language-php"><code class=" language-php">envoy run foo</code></pre>
+<p>如有需要，您可以传递命令行参数到 Envoy 文件：</p>
+<pre class=" language-php"><code class=" language-php">envoy run deploy <span class="token operator">--</span>branch<span class="token operator">=</span>master</code></pre>
+<p>您也可以经由您所熟悉的 Blade 语法使用这些参数：</p>
+<pre class=" language-php"><code class=" language-php">@<span class="token function">servers<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'web'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'192.168.1.1'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+@<span class="token function">task<span class="token punctuation">(</span></span><span class="token string">'deploy'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'on'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'web'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    cd site
+    git pull origin <span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$branch</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    php artisan migrate
+@endtask</code></pre>
+<h4>Bootstrapping</h4>
+<p>您可以在 Envoy 文件里使用 <code class=" language-php">@setup</code> 语法定义 PHP 变量和执行一般的 PHP 代码：</p>
+<pre class=" language-php"><code class=" language-php">@setup
+    <span class="token variable">$now</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$environment</span> <span class="token operator">=</span> <span class="token function">isset<span class="token punctuation">(</span></span><span class="token variable">$env</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$env</span> <span class="token punctuation">:</span> <span class="token string">"testing"</span><span class="token punctuation">;</span>
+@endsetup</code></pre>
+<p>您也可以使用 <code class=" language-php">@<span class="token keyword">include</span></code> 引入 PHP 文件：</p>
+<pre class=" language-php"><code class=" language-php">@<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token string">'vendor/autoload.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="envoy-multiple-servers"></a></p>
+<h3>多服务器</h3>
+<p>您可以简单的在多个服务器执行任务。只要在任务定义里列出服务器名称：</p>
+<pre class=" language-php"><code class=" language-php">@<span class="token function">servers<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'web-1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'192.168.1.1'</span><span class="token punctuation">,</span> <span class="token string">'web-2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'192.168.1.2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+@<span class="token function">task<span class="token punctuation">(</span></span><span class="token string">'deploy'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'on'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token string">'web-1'</span><span class="token punctuation">,</span> <span class="token string">'web-2'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    cd site
+    git pull origin <span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$branch</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    php artisan migrate
+@endtask</code></pre>
+<p>默认任务会循序的在每个服务器上执行。意味着任务会在第一个服务器执行完后才会换到下一个。</p>
+<p><a name="envoy-parallel-execution"></a></p>
+<h3>平行执行</h3>
+<p>如果您想在多个服务器上同时执行任务，只要简单的在任务定义里加上 <code class=" language-php">parallel</code> 选项：</p>
+<pre class=" language-php"><code class=" language-php">@<span class="token function">servers<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'web-1'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'192.168.1.1'</span><span class="token punctuation">,</span> <span class="token string">'web-2'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'192.168.1.2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+@<span class="token function">task<span class="token punctuation">(</span></span><span class="token string">'deploy'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'on'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token string">'web-1'</span><span class="token punctuation">,</span> <span class="token string">'web-2'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'parallel'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token boolean">true</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    cd site
+    git pull origin <span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$branch</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    php artisan migrate
+@endtask</code></pre>
+<p><a name="envoy-task-macros"></a></p>
+<h3>任务宏</h3>
+<p>宏让您可以使用一个命令就循序执行一组任务。例如：</p>
+<pre class=" language-php"><code class=" language-php">@<span class="token function">servers<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'web'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'192.168.1.1'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+@<span class="token function">macro<span class="token punctuation">(</span></span><span class="token string">'deploy'</span><span class="token punctuation">)</span>
+    foo
+    bar
+@endmacro
+
+@<span class="token function">task<span class="token punctuation">(</span></span><span class="token string">'foo'</span><span class="token punctuation">)</span>
+    <span class="token keyword">echo</span> <span class="token string">"HELLO"</span>
+@endtask
+
+@<span class="token function">task<span class="token punctuation">(</span></span><span class="token string">'bar'</span><span class="token punctuation">)</span>
+    <span class="token keyword">echo</span> <span class="token string">"WORLD"</span>
+@endtask</code></pre>
+<p>现在 <code class=" language-php">deploy</code> 宏可以经由一个简单的命令执行：</p>
+<pre class=" language-php"><code class=" language-php">envoy run deploy</code></pre>
+<p><a name="envoy-notifications"></a>
+<a name="envoy-hipchat-notifications"></a></p>
+<h3>提醒通知</h3>
+<h4>HipChat</h4>
+<p>您可能想要在执行完任务后，发送通知到团队的 HipChat 聊天室，使用简单的 <code class=" language-php">@hipchat</code> 定义：</p>
+<pre class=" language-php"><code class=" language-php">@<span class="token function">servers<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'web'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'192.168.1.1'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+@<span class="token function">task<span class="token punctuation">(</span></span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'on'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'web'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    ls <span class="token operator">-</span>la
+@endtask
+
+@after
+    @<span class="token function">hipchat<span class="token punctuation">(</span></span><span class="token string">'token'</span><span class="token punctuation">,</span> <span class="token string">'room'</span><span class="token punctuation">,</span> <span class="token string">'Envoy'</span><span class="token punctuation">)</span>
+@endafter</code></pre>
+<p>您也可以自定义发送到 hipchat 聊天室的信息，任何在 <code class=" language-php">@setup</code> 里定义，或是经由 <code class=" language-php">@<span class="token keyword">include</span></code> 引入的变量都可以使用在信息里：</p>
+<pre class=" language-php"><code class=" language-php">@after
+    @<span class="token function">hipchat<span class="token punctuation">(</span></span><span class="token string">'token'</span><span class="token punctuation">,</span> <span class="token string">'room'</span><span class="token punctuation">,</span> <span class="token string">'Envoy'</span><span class="token punctuation">,</span> <span class="token string">"$task ran on [$environment]"</span><span class="token punctuation">)</span>
+@endafter</code></pre>
+<p>这是一个令人惊艳的简单方式，让您的团队保持通知在服务器执行的任务。</p>
+<h4>Slack</h4>
+<p>下面的语法可以发送通知到 <a href="https://slack.com">Slack</a>：</p>
+<pre class=" language-php"><code class=" language-php">@after
+    @<span class="token function">slack<span class="token punctuation">(</span></span><span class="token string">'team'</span><span class="token punctuation">,</span> <span class="token string">'token'</span><span class="token punctuation">,</span> <span class="token string">'channel'</span><span class="token punctuation">)</span>
+@endafter</code></pre>
+<p><a name="envoy-updating-envoy"></a></p>
+<h3>更新 Envoy</h3>
+<p>简单的执行 <code class=" language-php">self<span class="token operator">-</span>update</code> 命令即可更新 Envoy：</p>
+<pre class=" language-php"><code class=" language-php">envoy self<span class="token operator">-</span>update</code></pre>
+<p>如果您的 Envoy 安装在 <code class=" language-php"><span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>bin</code>，您可能需要加上 <code class=" language-php">sudo</code>：</p>
+<pre class=" language-php"><code class=" language-php">composer <span class="token keyword">global</span> update</code></pre>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":26,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="ssh.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>

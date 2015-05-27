@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<title>服务容器 - Laravel 中文文档
+</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script src="http://js-agent.newrelic.com/nr-632.min.js"></script><script src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+	<meta name="author" content="Laravel 中国">
+	<meta name="description" content="服务容器,介绍,基本用法,绑定实例的接口,上下文绑定,标签,实际应用,容器事件,介绍,Laravel 服务容器是管理类依赖的强力工具。依赖注入是比较专业的说法，真正意思是将类依赖透过构造器或 「setter」 方法注入。,让我们来看一个简单的例子：,&lt;?php namespace App\Handlers\Commands;,use App\User;,use App\Commands\Pu...
+">
+	<meta name="keywords" content="laravel,laravel中国,laravel中文,laravel框架中文,laravel文档,laravel框架中国,laravel中文文档">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if lte IE 9]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../assets/css/laravel.css">
+</head>
+<body class="docs language-php scotchified" style=""><div class="scotch-panel-wrapper" style="position: relative; overflow: hidden; width: 100%;"><div class="scotch-panel-canvas" style="position: relative; height: 100%; width: 100%; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-transition: all 300ms ease; transition: all 300ms ease;">
+
+	<span class="overlay"></span>
+
+	<nav class="main">
+		<div class="container">
+			<a href="../../index.html" class="brand">
+				<img src="../../assets/img/laravel-logo.png" height="30">
+				Laravel
+			</a>
+
+			<div class="responsive-sidebar-nav">
+				<a href="container.html#" class="toggle-slide menu-link btn">☰</a>
+			</div>
+
+							<div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			<!--<span class="faint">v</span> -->
+			5.0
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="container.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+			
+			<ul class="main-nav">
+				<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+			</ul>
+		</div>
+	</nav>
+
+	<nav id="slide-menu" class="slide-menu scotch-panel-left" role="navigation" style="top: 0px; left: -70%; width: 70%; height: 100%; position: absolute; z-index: 888888; overflow: hidden; -webkit-backface-visibility: hidden;">
+
+	<div class="brand">
+		<a href="../../index.html">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="../../index.html">Home</a></li>
+		<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>文档</h2>
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<span>文档更新于: 2015-05-19</span>
+		<ul>
+<li>前言
+<ul>
+<li><a href="releases.html">发行说明</a></li>
+<li><a href="upgrade.html">升级向导</a></li>
+<li><a href="contributions.html">贡献向导</a></li>
+</ul></li>
+<li>环境配置
+<ul>
+<li><a href="installation.html">安装</a></li>
+<li><a href="configuration.html">配置</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+</ul></li>
+<li>基本功能
+<ul>
+<li><a href="routing.html">路由</a></li>
+<li><a href="middleware.html">中间件</a></li>
+<li><a href="controllers.html">控制器</a></li>
+<li><a href="requests.html">请求</a></li>
+<li><a href="responses.html">响应</a></li>
+<li><a href="views.html">视图</a></li>
+</ul></li>
+<li>系统架构
+<ul>
+<li><a href="providers.html">服务提供者</a></li>
+<li><a href="container.html">服务容器</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="lifecycle.html">请求的生命周期</a></li>
+<li><a href="structure.html">应用程序结构</a></li>
+</ul></li>
+<li>系统服务
+<ul>
+<li><a href="authentication.html">认证</a></li>
+<li><a href="billing.html">交易</a></li>
+<li><a href="cache.html">缓存</a></li>
+<li><a href="collections.html">集合</a></li>
+<li><a href="bus.html">Command Bus</a></li>
+<li><a href="extending.html">核心扩展</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="encryption.html">加密</a></li>
+<li><a href="envoy.html">Envoy 任务执行器</a></li>
+<li><a href="errors.html">错误与日志</a></li>
+<li><a href="events.html">事件</a></li>
+<li><a href="filesystem.html">文件系统与云存储</a></li>
+<li><a href="hashing.html">哈希</a></li>
+<li><a href="helpers.html">辅助方法</a></li>
+<li><a href="localization.html">本地化</a></li>
+<li><a href="mail.html">邮件</a></li>
+<li><a href="packages.html">扩展包开发</a></li>
+<li><a href="pagination.html">分页</a></li>
+<li><a href="queues.html">队列</a></li>
+<li><a href="session.html">会话</a></li>
+<li><a href="templates.html">模板</a></li>
+<li><a href="testing.html">单元测试</a></li>
+<li><a href="validation.html">表单验证</a></li>
+</ul></li>
+<li>数据库
+<ul>
+<li><a href="database.html">基本用法</a></li>
+<li><a href="queries.html">查询构造器</a></li>
+<li><a href="eloquent.html">Eloquent ORM</a></li>
+<li><a href="schema.html">结构生成器</a></li>
+<li><a href="migrations.html">迁移与数据填充</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul></li>
+<li>Artisan 命令行工具
+<ul>
+<li><a href="artisan.html">概览</a></li>
+<li><a href="commands.html">开发</a></li>
+</ul></li>
+</ul>
+	</section>
+
+	<article>
+		<h1>服务容器</h1>
+<ul>
+<li><a href="container.html#introduction">介绍</a></li>
+<li><a href="container.html#basic-usage">基本用法</a></li>
+<li><a href="container.html#binding-interfaces-to-implementations">绑定实例的接口</a></li>
+<li><a href="container.html#contextual-binding">上下文绑定</a></li>
+<li><a href="container.html#tagging">标签</a></li>
+<li><a href="container.html#practical-applications">实际应用</a></li>
+<li><a href="container.html#container-events">容器事件</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2><a href="container.html#introduction">介绍</a></h2>
+<p>Laravel 服务容器是管理类依赖的强力工具。依赖注入是比较专业的说法，真正意思是将类依赖透过构造器或 「setter」 方法注入。</p>
+<p>让我们来看一个简单的例子：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Handlers<span class="token punctuation">\</span>Commands</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>User</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Commands<span class="token punctuation">\</span>PurchasePodcastCommand</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Mail<span class="token punctuation">\</span>Mailer</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PurchasePodcastHandler</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 一个发信功能的实现
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$mailer</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 创建一个新的实例
+     *
+     * @param  Mailer  $mailer
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct<span class="token punctuation">(</span></span>Mailer <span class="token variable">$mailer</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">mailer</span> <span class="token operator">=</span> <span class="token variable">$mailer</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 购买一个播客节目
+     *
+     * @param  PurchasePodcastCommand  $command
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle<span class="token punctuation">(</span></span>PurchasePodcastCommand <span class="token variable">$command</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> //
+</span>    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>在这个例子中，当播客被购买时， <code class=" language-php">PurchasePodcast</code> 命令处理器需要发送一封电子邮件。所以，我们将<strong>注入</strong>一个服务来提供这个能力。当这个服务被注入以后，我们就可以轻易地切换到不同的实现。当测试我们的应用程序时，我们同样也可以轻易地「模拟」，或者创建一个虚拟的发信服务实现，来帮助我们进行测试。</p>
+<p>如果要创建一个强大并且大型的应用，或者对 Laravel 的内核做贡献，首先必须对 Laravel 的服务容器进行深入了解。 </p>
+<p><a name="basic-usage"></a></p>
+<h2><a href="container.html#basic-usage">基本用法</a></h2>
+<h3>绑定</h3>
+<p>几乎你所有服务容器将与已注册的<a href="providers.html">服务提供者</a>绑定，这些例子都在情境(context)使用容器做说明，如果应用程序其它地方需要容器实例，如工厂(factory)，能以类型提示 <code class=" language-php">Illuminate\<span class="token package">Contracts<span class="token punctuation">\</span>Container<span class="token punctuation">\</span>Container</span></code> 注入一个容器实例。另外，你可以使用 <code class=" language-php">App</code> facade 访问容器。</p>
+<h4>注册基本解析器</h4>
+<p>在一个服务提供者内部，你总是可以通过 <code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span></code> 实例变量来访问到容器。</p>
+<p>在服务提供者里，总是通过 <code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span></code> 实例变量使用容器。</p>
+<p>服务容器注册依赖有几种方式，包括闭包回调和绑定实例的接口。首先，我们来探讨闭包回调的方式。被注册至容器的闭包解析器包含一个 key (通常用类名称) 和一个有返回值的闭包:</p>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bind<span class="token punctuation">(</span></span><span class="token string">'FooBar'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">FooBar</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">[</span><span class="token string">'SomethingElse'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>注册一个单例</h4>
+<p>有时候，你可能希望绑定到容器的对象只会被解析一次，之后的调用都返回相同的实例：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">singleton<span class="token punctuation">(</span></span><span class="token string">'FooBar'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">FooBar</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">[</span><span class="token string">'SomethingElse'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4>绑定一个已经存在的实例</h4>
+<p>你也可以使用 <code class=" language-php">instance</code> 方法，绑定一个已经存在的实例到容器，接下来将总是返回该实例：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$fooBar</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FooBar</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">SomethingElse</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">instance<span class="token punctuation">(</span></span><span class="token string">'FooBar'</span><span class="token punctuation">,</span> <span class="token variable">$fooBar</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3>解析</h3>
+<p>从容器解析出实例有几种方式。<br>
+一、可以使用 <code class=" language-php">make</code> 方法：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$fooBar</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make<span class="token punctuation">(</span></span><span class="token string">'FooBar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>二、你可以像「访问数组」一样对容器进行访问，因为它实现了PHP的 <code class=" language-php">ArrayAccess</code> 接口：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token variable">$fooBar</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token punctuation">[</span><span class="token string">'FooBar'</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+<p>最后，也是最重要的一点，你可以在构造函数中简单地「类型指定（type-hint）」你所需要的依赖，包括在控制器、事件监听器、队列任务，过滤器等等之中。容器将自动注入你所需的所有依赖：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>Repository</span> <span class="token keyword">as</span> UserRepository<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * The user repository instance.
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$users</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Create a new controller instance.
+     *
+     * @param  UserRepository  $users
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct<span class="token punctuation">(</span></span>UserRepository <span class="token variable">$users</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">users</span> <span class="token operator">=</span> <span class="token variable">$users</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Show the user with the given ID.
+     *
+     * @param  int  $id
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">show<span class="token punctuation">(</span></span><span class="token variable">$id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> //
+</span>    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p><a name="binding-interfaces-to-implementations"></a></p>
+<h2><a href="container.html#binding-interfaces-to-implementations">将接口绑定到实现</a></h2>
+<h3>注入具体依赖</h3>
+<p>服务容器有个非常强大特色，能够绑定特定实例的接口。举例，假设我们应用程序要集成 <a href="https://pusher.com">Pusher</a> 服务去收发即时事件，如果使用 Pusher 的 PHP SDK，可以在类注入一个 Pusher 客户端实例：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Handlers<span class="token punctuation">\</span>Commands</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Commands<span class="token punctuation">\</span>CreateOrder</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Pusher<span class="token punctuation">\</span>Client</span> <span class="token keyword">as</span> PusherClient<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CreateOrderHandler</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Pusher SDK 客户端实例
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$pusher</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 创建一个实例
+     *
+     * @param  PusherClient  $pusher
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct<span class="token punctuation">(</span></span>PusherClient <span class="token variable">$pusher</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">pusher</span> <span class="token operator">=</span> <span class="token variable">$pusher</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 执行命令
+     *
+     * @param  CreateOrder  $command
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">execute<span class="token punctuation">(</span></span>CreateOrder <span class="token variable">$command</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> //
+</span>    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>在上面这个例子中，注入类的依赖到类中已经能够满足需求；但同时，我们也紧密耦合于 Pusher 的 SDK 。如果 Pusher 的 SDK 方法发生改变，或者我们要切换到别的事件服务，那我们也需要同时修改 <code class=" language-php">CreateOrderHandler</code> 的代码。</p>
+<h3>为接口编程</h3>
+<p>为了将 <code class=" language-php">CreateOrderHandler</code> 和事件推送的修改「隔离」，我们可以定义一个 <code class=" language-php">EventPusher</code> 接口和一个 <code class=" language-php">PusherEventPusher</code> 实现：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Contracts</span><span class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">EventPusher</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Push a new event to all clients.
+     *
+     * @param  string  $event
+     * @param  array  $data
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">push<span class="token punctuation">(</span></span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token keyword">array</span> <span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>一旦 <code class=" language-php">PusherEventPusher</code> 实现这接口，就可以在服务容器像这样注册它：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bind<span class="token punctuation">(</span></span><span class="token string">'App\Contracts\EventPusher'</span><span class="token punctuation">,</span> <span class="token string">'App\Services\PusherEventPusher'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>当有类需要 <code class=" language-php">EventPusher</code> 接口时，会告诉容器应该注入 <code class=" language-php">PusherEventPusher</code>，现在就可以在构造器中「类型指定」一个 <code class=" language-php">EventPusher</code> 接口：</p>
+<pre class=" language-php"><code class=" language-php">    <span class="token comment" spellcheck="true">/**
+     * Create a new order handler instance.
+     *
+     * @param  EventPusher  $pusher
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct<span class="token punctuation">(</span></span>EventPusher <span class="token variable">$pusher</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">pusher</span> <span class="token operator">=</span> <span class="token variable">$pusher</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<p><a name="contextual-binding"></a></p>
+<h2><a href="container.html#contextual-binding">上下文绑定</a></h2>
+<p>有时候，你可能会有两个类需要用到同一个接口，但是你希望为每个类注入不同的接口实现。例如当我们的系统收到一个新的订单时，我们需要使用 <a href="http://www.pubnub.com/">PubNub</a> 来代替 Pusher 发送消息。Laravel 提供了一个简单便利的接口来定义以上的行为：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">when<span class="token punctuation">(</span></span><span class="token string">'App\Handlers\Commands\CreateOrderHandler'</span><span class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">needs<span class="token punctuation">(</span></span><span class="token string">'App\Contracts\EventPusher'</span><span class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">give<span class="token punctuation">(</span></span><span class="token string">'App\Services\PubNubEventPusher'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="tagging"></a></p>
+<h2><a href="container.html#tagging">标签</a></h2>
+<p>偶尔你可能需要解析绑定中的某个「类」。例如你正在建设一个汇总报表，它需要接收实现了 <code class=" language-php">Report</code> 接口的不同实现的数组。在注册了 <code class=" language-php">Report</code> 的这些实现之后，你可以用 <code class=" language-php">tag</code> 方法来给他们赋予一个标签：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bind<span class="token punctuation">(</span></span><span class="token string">'SpeedReport'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bind<span class="token punctuation">(</span></span><span class="token string">'MemoryReport'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> //
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">tag<span class="token punctuation">(</span></span><span class="token punctuation">[</span><span class="token string">'SpeedReport'</span><span class="token punctuation">,</span> <span class="token string">'MemoryReport'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'reports'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>一旦服务打上标签，可以通过 <code class=" language-php">tagged</code> 方法轻易地解析它们：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bind<span class="token punctuation">(</span></span><span class="token string">'ReportAggregator'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ReportAggregator</span><span class="token punctuation">(</span><span class="token variable">$app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">tagged<span class="token punctuation">(</span></span><span class="token string">'reports'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><a name="practical-applications"></a></p>
+<h2><a href="container.html#practical-applications">实际应用</a></h2>
+<p>Laravel 提供了几个机会来使用服务容器以提高应用程序的灵活性和可测试性。解析控制器是一个最主要的案例。所有的控制器都通过服务容器来进行解析，意味着你可以在控制器的构造函数中「类型指定」所需依赖，而且它们将被自动注入。</p>
+<pre class=" language-php"><code class=" language-php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Repositories<span class="token punctuation">\</span>OrderRepository</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OrdersController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * The order repository instance.
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$orders</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Create a controller instance.
+     *
+     * @param  OrderRepository  $orders
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct<span class="token punctuation">(</span></span>OrderRepository <span class="token variable">$orders</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">orders</span> <span class="token operator">=</span> <span class="token variable">$orders</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Show all of the orders.
+     *
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">index<span class="token punctuation">(</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$orders</span> <span class="token operator">=</span> <span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">orders</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">all<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token function">view<span class="token punctuation">(</span></span><span class="token string">'orders'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'orders'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$orders</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>在这个例子中，<code class=" language-php">OrderRepository</code> 类将被自动注入到控制器中。这意味着在进行 <a href="testing.html">单元测试</a> 时，我们可以绑定一个假的 <code class=" language-php">OrderRepository</code> 到容器中来代替我们对数据库的真实操作，避免对真实数据库的影响。</p>
+<h4>使用容器的其他几个例子</h4>
+<p>当然，在上面提到过的，控制器并不是 Laravel 通过服务容器进行解析的唯一类。你也可以在路由的闭包中、过滤器中、队列任务中、事件监听器中来「类型指定」你所需要的依赖。对于在这些情境中如何使用服务容器，请参考相关文档。</p>
+<p><a name="container-events"></a></p>
+<h2><a href="container.html#container-events">容器事件</a></h2>
+<h4>注册一个解析事件监听器</h4>
+<p>容器在解析每一个对象时就会触发一个事件。你可以用 <code class=" language-php">resolving</code> 方法来监听此事件：</p>
+<pre class=" language-php"><code class=" language-php"><span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">resolving<span class="token punctuation">(</span></span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$object</span><span class="token punctuation">,</span> <span class="token variable">$app</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // 当容器解析任意类型的依赖时被调用
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token this">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">resolving<span class="token punctuation">(</span></span><span class="token keyword">function</span><span class="token punctuation">(</span>FooBar <span class="token variable">$fooBar</span><span class="token punctuation">,</span> <span class="token variable">$app</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // 当容器解析 `FooBar` 类型的依赖时被调用
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>被解析的对象将被传入到闭包方法中。</p>
+	</article>
+</div>
+
+	<footer class="main">
+		<ul>
+			<li class="nav-docs"><a href="../5.0.html">文档</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com" target="_blank">Laracasts</a></li>
+<li class="nav-docs"><a href="http://lumen.laravel-china.org">Lumen</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com" target="_blank">Forge</a></li>
+<li class="nav-api" style="display:none"><a href="http://laravel-china.org/api/5.0" target="_blank">API</a></li>
+<li class="dropdown">
+	<a href="https://phphub.org/" target="_blank">中文开发者社区</a>
+</li>
+<li class="dropdown">
+	<a href="https://phphub.org/topics/453" target="_blank">Slack 聊天室</a>
+</li>
+<a href="https://github.com/laravel-china/docs" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+		</ul>
+		<p>Laravel is a trademark of Taylor Otwell. Copyright © Taylor Otwell.</p>
+		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
+	</footer>
+	<script src="../../assets/js/laravel.js"></script>
+	<script src="../../assets/js/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-53903425-2'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"229d5871c8","applicationID":"12032708","transactionName":"ZFdUZUMCV0UHUURdWl0dY0NYTFBYAldIGkVbQg==","queueTime":0,"applicationTime":30,"ttGuid":"","agentToken":"","atts":"SBBXEwsYREs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script><p style="margin: 0px;"></p>
+
+</div></div><a id="scrollUp" href="container.html#top" style="display: none; position: fixed; z-index: 2147483647;">返回顶部</a></body></html>
